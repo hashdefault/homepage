@@ -26,4 +26,9 @@ export default {
   height: 280px;
   width: 280px;
 }
+@media (max-width: 768px) {
+  .foto {
+    width: 100%;
+  }
+}
 </style>

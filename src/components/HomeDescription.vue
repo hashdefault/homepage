@@ -70,7 +70,7 @@ export default {
 <style scoped>
 .description {
   width: 55%;
-  padding-right: 30px;
+  padding: 20px;
 }
 .description ul {
   border: 1px solid grey;
@@ -120,5 +120,10 @@ export default {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.8s ease, height 0.8s ease;
+}
+@media (max-width: 768px) {
+  .description {
+    width: 100%;
+  }
 }
 </style>

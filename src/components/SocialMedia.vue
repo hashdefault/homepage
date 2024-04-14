@@ -31,8 +31,17 @@ export default {
   padding-top: 20px;
 }
 .link {
-  color: white;
+  color: #15f5ba;
   text-decoration: none;
   cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.link:hover {
+  background-color: rgba(21, 245, 186, 0.2);
+}
+i {
+  padding-right: 5px;
 }
 </style>

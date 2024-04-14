@@ -1,6 +1,7 @@
 <template>
   <header class="header">
     <HeaderDescription />
+    <NavBarHome />
   </header>
 
   <div class="container">
@@ -21,6 +22,7 @@ import HomeDescription from "./components/HomeDescription.vue";
 import HeaderDescription from "./components/HeaderDescription.vue";
 import FooterDescription from "./components/FooterDescription.vue";
 import SocialMedia from "./components/SocialMedia.vue";
+import NavBarHome from "./components/NavBarHome.vue";
 
 export default {
   name: "App",
@@ -30,6 +32,7 @@ export default {
     HeaderDescription,
     FooterDescription,
     SocialMedia,
+    NavBarHome,
   },
 };
 </script>
@@ -37,9 +40,9 @@ export default {
 <style>
 .header {
   width: 100%;
-  flex-direction: column;
-  align-items: center;
   display: flex;
+  align-items: center;
+  align-items: flex-start;
 }
 #app {
   background-color: rgb(30, 30, 30);
@@ -82,5 +85,11 @@ body {
   display: flex;
   align-self: center;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 }
 </style>

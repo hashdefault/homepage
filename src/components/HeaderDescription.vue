@@ -14,12 +14,21 @@ export default {
 <style scoped>
 .header-description {
   background-color: rgb(30, 30, 30);
-  width: 100%;
   color: white;
   text-align: center;
   padding-top: 20px;
+  flex-grow: 1;
 }
 h2 {
   font-size: 36px;
+}
+
+@media (max-width: 768px) {
+  .header-description {
+    flex-direction: column;
+    flex-grow: 0;
+    align-items: center;
+    width: 100%;
+  }
 }
 </style>
