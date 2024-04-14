@@ -1,20 +1,23 @@
 <template>
   <div class="description">
     <ul>
-      <a
-        ref="link-p-code"
-        @click="showText('link-p-code')"
-        class="btn btn-link p-code"
-        ><i class="fa fa-circle lightsUp"></i>
+      <a ref="link-p-code" @click="toggleClasses()" class="btn btn-link p-code"
+        ><i
+          class="fa fa-circle"
+          :class="{ lightsUp: !isLightsUp, lightsDown: isLightsUp }"
+        ></i>
       </a>
       <a
         ref="link-p-heart"
-        @click="showText('link-p-heart')"
+        @click="toggleClasses()"
         class="btn btn-link p-heart"
-        ><i class="fa fa-circle lightsDown"></i
+        ><i
+          class="fa fa-circle"
+          :class="{ lightsUp: isLightsUp, lightsDown: !isLightsUp }"
+        ></i
       ></a>
       <li>
-        <p id="p-code" class="show">
+        <p id="p-code" :class="{ show: !isShow, hide: isShow }">
           <i class="fa fa-code"></i>
           Minha jornada no mundo da programação começou na universidade,
           enquanto eu estava até os joelhos nas aulas de Física. Foi como
@@ -27,7 +30,7 @@
         </p>
       </li>
       <li>
-        <p id="p-heart" class="hide">
+        <p id="p-heart" :class="{ show: isShow, hide: !isShow }">
           <i class="fa fa-heart"></i>
           Sou apaixonado por músicas como folk, clássica, rock e soul. As
           músicas instrumentais me ajudam a relaxar, enquanto as composições
@@ -44,46 +47,20 @@
 <script>
 export default {
   name: "HomeDescription",
+  mounted() {
+    setInterval(this.toggleClasses(), 1000);
+  },
+  data() {
+    return {
+      isLightsUp: true,
+      isShow: true,
+    };
+  },
+
   methods: {
-    showText(btn_id) {
-      const btn_element = this.$refs[btn_id];
-      document
-        .querySelectorAll("a.p-heart")[0]
-        .childNodes[0].classList.remove("lightsUp");
-      document
-        .querySelectorAll("a.p-code")[0]
-        .childNodes[0].classList.remove("lightsUp");
-      document
-        .querySelectorAll("a.p-code")[0]
-        .childNodes[0].classList.remove("lightsDown");
-      document
-        .querySelectorAll("a.p-heart")[0]
-        .childNodes[0].classList.remove("lightsDown");
-
-      const parags = document.querySelectorAll("p");
-      parags.forEach(function (parag) {
-        parag.classList.remove("show");
-        parag.classList.remove("hide");
-      });
-
-      if (btn_element.classList.contains("p-code")) {
-        document
-          .querySelectorAll("a.p-heart")[0]
-          .childNodes[0].classList.add("lightsDown");
-
-        document.querySelectorAll("p#p-code")[0].classList.add("show");
-        document.querySelectorAll("p#p-heart")[0].classList.add("hide");
-      } else if (btn_element.classList.contains("p-heart")) {
-        document
-          .querySelectorAll("a.p-code")[0]
-          .childNodes[0].classList.add("lightsDown");
-
-        document.querySelectorAll("p#p-code")[0].classList.add("hide");
-        document.querySelectorAll("p#p-heart")[0].classList.add("show");
-      }
-
-      btn_element.childNodes[0].classList.add("lightsUp");
-      return;
+    toggleClasses() {
+      this.isLightsUp = !this.isLightsUp;
+      this.isShow = !this.isShow;
     },
   },
 };
@@ -131,13 +108,17 @@ export default {
   background-color: #646464;
   transition: 0.5s;
 }
-.description p.hide {
-  display: none;
-  transition: 1s;
+.hide {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease, height 0.8s ease;
 }
 
-.description p.show {
-  display: block;
-  transition: 1s;
+.show {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.8s ease, height 0.8s ease;
 }
 </style>
