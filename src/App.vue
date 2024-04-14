@@ -7,6 +7,9 @@
     <HomeFoto />
     <HomeDescription />
   </div>
+  <div class="medias">
+    <SocialMedia />
+  </div>
   <footer class="footer">
     <FooterDescription />
   </footer>
@@ -17,6 +20,7 @@ import HomeFoto from "./components/HomeFoto.vue";
 import HomeDescription from "./components/HomeDescription.vue";
 import HeaderDescription from "./components/HeaderDescription.vue";
 import FooterDescription from "./components/FooterDescription.vue";
+import SocialMedia from "./components/SocialMedia.vue";
 
 export default {
   name: "App",
@@ -25,6 +29,7 @@ export default {
     HomeDescription,
     HeaderDescription,
     FooterDescription,
+    SocialMedia,
   },
 };
 </script>
@@ -32,10 +37,9 @@ export default {
 <style>
 .header {
   width: 100%;
-  background-color: rgb(30, 30, 30);
-  display: flex;
   flex-direction: column;
   align-items: center;
+  display: flex;
 }
 #app {
   background-color: rgb(30, 30, 30);
@@ -45,35 +49,38 @@ export default {
   margin: 0;
   padding: 0;
   width: 100%;
+  flex-direction: column;
+  display: flex;
   min-height: 100vh;
 }
 .container {
   padding-top: 50px;
   width: 100%;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
   align-self: center;
-  display: flex;
 }
 .footer {
   width: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: flex-end;
   align-self: flex-end;
-}
-hr {
-  width: 80%;
-  text-align: center;
-  display: flex;
-  height: 1px;
-  background-color: white;
-  border: none;
+  justify-content: space-between;
+  align-content: flex-end;
+  height: 100%;
 }
 body {
   margin: 0;
-  height: 100%;
   width: 100%;
+}
+.medias {
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+  align-self: center;
+  align-items: center;
 }
 </style>
