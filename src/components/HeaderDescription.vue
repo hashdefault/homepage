@@ -18,6 +18,7 @@ export default {
   text-align: center;
   padding-top: 20px;
   flex-grow: 1;
+  width: 100%;
 }
 h2 {
   font-size: 36px;
@@ -28,7 +29,6 @@ h2 {
     flex-direction: column;
     flex-grow: 0;
     align-items: center;
-    width: 100%;
   }
 }
 </style>

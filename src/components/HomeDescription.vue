@@ -3,7 +3,7 @@
     <ul>
       <a ref="link-p-code" @click="toggleClasses()" class="btn btn-link p-code"
         ><i
-          class="fa fa-circle"
+          class="fa fa-circle menu-icon"
           :class="{ lightsUp: !isLightsUp, lightsDown: isLightsUp }"
         ></i>
       </a>
@@ -12,7 +12,7 @@
         @click="toggleClasses()"
         class="btn btn-link p-heart"
         ><i
-          class="fa fa-circle"
+          class="fa fa-circle menu-icon"
           :class="{ lightsUp: isLightsUp, lightsDown: !isLightsUp }"
         ></i
       ></a>
@@ -122,8 +122,9 @@ export default {
   transition: opacity 0.8s ease, height 0.8s ease;
 }
 @media (max-width: 768px) {
-  .description {
+  .descrition {
     width: 100%;
+    padding: 0;
   }
 }
 </style>

@@ -29,6 +29,7 @@ export default {
   color: white;
   text-align: center;
   padding-top: 20px;
+  margin-top: 100px;
 }
 .link {
   color: #15f5ba;

@@ -1,20 +1,22 @@
 <template>
-  <nav class="navbar">
-    <a class="bars-menu btn btn-link" id="bars-menu" @click="openMenu()"
-      ><i class="fa fa-bars"></i
-    ></a>
-    <ul class="menu" :class="{ show: isOpen }">
-      <li>
-        <a class="btn btn-link" href="#"
-          ><i class="fa fa-gear"></i> Portfólio</a
-        >
-      </li>
-      <li>
-        <a class="btn btn-link" href="#"
-          ><i class="fa fa-book"></i> Referências</a
-        >
-      </li>
-    </ul>
+  <nav class="navbar" :class="{ filled: isFilled }">
+    <div class="menu-list" :class="{ filled: isFilled }">
+      <a class="bars-menu btn btn-link" id="bars-menu" @click="openMenu()"
+        ><i class="fa fa-bars"></i
+      ></a>
+      <ul class="menu" :class="{ show: isOpen }">
+        <li>
+          <a class="btn btn-link" href="#"
+            ><i class="fa fa-gear menu-icon"></i> Portfólio</a
+          >
+        </li>
+        <li>
+          <a class="btn btn-link" href="#"
+            ><i class="fa fa-book menu-icon"></i> Referências</a
+          >
+        </li>
+      </ul>
+    </div>
   </nav>
 </template>
 <script>
@@ -24,11 +26,13 @@ export default {
     return {
       isOpen: false,
       isMenu: true,
+      isFilled: false,
     };
   },
   methods: {
     openMenu() {
       this.isOpen = !this.isOpen;
+      this.isFilled = !this.isFilled;
     },
   },
 };
@@ -38,9 +42,16 @@ export default {
 <style scoped>
 nav {
   color: white;
-  justify-content: flex-end;
-  align-items: flex-end;
   padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0;
+  width: 100%;
+}
+.menu-list {
+  background-color: rgba(200, 200, 200, 0.1);
 }
 .navbar ul li {
   color: white;
@@ -63,7 +74,6 @@ a.btn-link {
   border-radius: 8px;
 }
 a.btn-link:hover {
-  background-color: rgba(200, 200, 200, 0.1);
   text-decoration: underline;
 }
 .bars-menu {
@@ -72,19 +82,17 @@ a.btn-link:hover {
 }
 @media (max-width: 768px) {
   nav {
-    padding: 0px;
-    background-color: rgba(200, 200, 200, 0.1);
+    padding: 0;
+    margin: 0;
     border-radius: 10px;
-    justify-content: flex-start;
   }
   .menu {
     flex-direction: column;
     border-radius: 4px;
     display: none; /* Hide the menu items by default on smaller screens */
-    justify-content: flex-start;
   }
   .menu li {
-    text-align: left;
+    text-align: center;
     padding: 2px;
   }
   .menu a {
@@ -94,17 +102,28 @@ a.btn-link:hover {
   .menu a:hover {
     text-decoration: underline;
   }
+  .menu-icon {
+    display: none;
+  }
   .show {
     height: auto;
-    display: block;
+    display: flex;
     visibility: visible;
     transition: height 0.5s ease;
   }
+  .filled {
+    width: 100%;
+    background-color: rgba(200, 200, 200, 0.1);
+  }
   .bars-menu {
-    display: block;
+    display: flex;
     padding: 5px;
     background-color: rgba(200, 200, 200, 0.1);
     border-radius: 5px;
+    text-decoration: none;
+  }
+  .bars-menu:hover {
+    text-decoration: none;
   }
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <header class="header">
+    <div class="nav">
+      <NavBarHome />
+    </div>
     <HeaderDescription />
-    <NavBarHome />
   </header>
 
   <div class="container">
@@ -38,11 +40,19 @@ export default {
 </script>
 
 <style>
+.nav {
+  align-items: flex-end;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .header {
   width: 100%;
   display: flex;
+  align-self: center;
+  flex-direction: column;
   align-items: center;
-  align-items: flex-start;
 }
 #app {
   background-color: rgb(30, 30, 30);
