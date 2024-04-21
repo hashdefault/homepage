@@ -28,6 +28,9 @@ import NavBarHome from "./components/NavBarHome.vue";
 
 export default {
   name: "App",
+  created() {
+    document.title = "dev. lucas";
+  },
   components: {
     HomeFoto,
     HomeDescription,

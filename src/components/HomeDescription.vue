@@ -25,7 +25,7 @@
         <p id="p-code" :class="{ show: !isShow, hide: isShow }">
           <i class="fa fa-code"></i>
           Minha jornada no mundo da programação começou na universidade,
-          enquanto eu estava até os joelhos nas aulas de Física. Foi como
+          enquanto eu estava até o pescoço nas aulas de Física. Foi como
           tropeçar em um universo totalmente novo. Avançando para 2020, me vi
           mergulhando de cabeça no cenário tecnológico, trabalhando como
           desenvolvedor full-stack em uma empresa privada. Ser um desenvolvedor

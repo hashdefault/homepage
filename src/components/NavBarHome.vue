@@ -1,5 +1,8 @@
 <template>
   <nav class="navbar">
+    <div class="logo">
+      <img :src="logo" class="logo" width="120" height="40" />
+    </div>
     <ul class="menu" :class="{ filled: isFilled }">
       <a class="bars-menu btn" id="bars-menu" @click="openMenu()"
         ><i class="fa" :class="{ 'fa-bars': isBar, 'fa-times': !isTimes }"></i
@@ -25,10 +28,12 @@
   </nav>
 </template>
 <script>
+import logo from "./../assets/images/logo.png";
 export default {
   name: "NavBarHome",
   data() {
     return {
+      logo: logo,
       isOpen: true,
       isMenu: true,
       isBar: true,
@@ -49,13 +54,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.logo {
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  padding: 5px;
+}
 nav.navbar {
   font-weight: 600;
   color: white;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   margin: 0;
   width: 100%;
 }
@@ -95,6 +106,9 @@ nav.navbar ul.menu a.btn-link:hover {
   display: none;
 }
 @media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
   .navbar ul.menu li.home {
     display: flex;
   }
