@@ -30,5 +30,10 @@ export default {
   .foto {
     width: 100%;
   }
+  .myfoto {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+  }
 }
 </style>

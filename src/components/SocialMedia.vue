@@ -40,7 +40,8 @@ export default {
   font-weight: bold;
 }
 .link:hover {
-  background-color: rgba(21, 245, 186, 0.2);
+  background-color: rgba(21, 245, 186, 0.1);
+  transition: all 0.6s;
 }
 i {
   padding-right: 5px;

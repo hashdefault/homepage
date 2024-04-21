@@ -44,7 +44,7 @@ export default {
   align-items: flex-end;
   align-self: flex-end;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
 }
 .header {

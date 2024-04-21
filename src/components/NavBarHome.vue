@@ -1,22 +1,27 @@
 <template>
-  <nav class="navbar" :class="{ filled: isFilled }">
-    <div class="menu-list" :class="{ filled: isFilled }">
-      <a class="bars-menu btn btn-link" id="bars-menu" @click="openMenu()"
-        ><i class="fa fa-bars"></i
+  <nav class="navbar">
+    <ul class="menu" :class="{ filled: isFilled }">
+      <a class="bars-menu btn" id="bars-menu" @click="openMenu()"
+        ><i class="fa" :class="{ 'fa-bars': isBar, 'fa-times': !isTimes }"></i
       ></a>
-      <ul class="menu" :class="{ show: isOpen }">
-        <li>
+      <div class="menu-list" :class="{ show: !isOpen }">
+        <li class="home">
+          <a class="btn btn-link" href="#"
+            ><i class="fa fa-home menu-icon"></i> Início</a
+          >
+        </li>
+        <li class="links">
           <a class="btn btn-link" href="#"
             ><i class="fa fa-gear menu-icon"></i> Portfólio</a
           >
         </li>
-        <li>
+        <li class="links">
           <a class="btn btn-link" href="#"
             ><i class="fa fa-book menu-icon"></i> Referências</a
           >
         </li>
-      </ul>
-    </div>
+      </div>
+    </ul>
   </nav>
 </template>
 <script>
@@ -24,8 +29,10 @@ export default {
   name: "NavBarHome",
   data() {
     return {
-      isOpen: false,
+      isOpen: true,
       isMenu: true,
+      isBar: true,
+      isTimes: true,
       isFilled: false,
     };
   },
@@ -33,6 +40,8 @@ export default {
     openMenu() {
       this.isOpen = !this.isOpen;
       this.isFilled = !this.isFilled;
+      this.isBar = !this.isBar;
+      this.isTimes = !this.isTimes;
     },
   },
 };
@@ -40,9 +49,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-nav {
+nav.navbar {
+  font-weight: 600;
   color: white;
-  padding: 5px;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -51,79 +60,95 @@ nav {
   width: 100%;
 }
 .menu-list {
-  background-color: rgba(200, 200, 200, 0.1);
+  display: flex;
+  flex-direction: row;
 }
-.navbar ul li {
+nav.navbar ul.menu li {
   color: white;
-  list-style-type: none;
-  display: inline-block;
-  margin-left: 25px;
-  padding: 5px;
+  padding: 2px 0px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 40px;
+  justify-content: space-between;
 }
 i {
   padding-right: 3px;
 }
-.navbar ul li a {
+nav.navbar ul.menu li a {
   cursor: pointer;
   color: white;
   text-decoration: none;
-  border-radius: 4px;
 }
-a.btn-link {
+nav.navbar ul.menu a.btn-link {
   padding: 8px;
   border-radius: 8px;
+  transition: all 500ms;
 }
-a.btn-link:hover {
-  text-decoration: underline;
+nav.navbar ul.menu a.btn-link:hover {
+  background-color: rgba(140, 140, 140, 0.2);
 }
-.bars-menu {
+#bars-menu {
   display: none;
-  position: sticky;
+  padding: 6px 7px;
+}
+.navbar ul.menu li.home {
+  display: none;
 }
 @media (max-width: 768px) {
-  nav {
-    padding: 0;
-    margin: 0;
-    border-radius: 10px;
-  }
-  .menu {
-    flex-direction: column;
-    border-radius: 4px;
-    display: none; /* Hide the menu items by default on smaller screens */
-  }
-  .menu li {
-    text-align: center;
-    padding: 2px;
-  }
-  .menu a {
-    padding: 4px;
-    margin-top: 2px;
-  }
-  .menu a:hover {
-    text-decoration: underline;
-  }
-  .menu-icon {
-    display: none;
-  }
-  .show {
-    height: auto;
+  .navbar ul.menu li.home {
     display: flex;
-    visibility: visible;
-    transition: height 0.5s ease;
   }
   .filled {
-    width: 100%;
-    background-color: rgba(200, 200, 200, 0.1);
+    width: 80%;
   }
-  .bars-menu {
+  nav.navbar {
+    padding: 2px;
+    border-radius: 10px;
     display: flex;
-    padding: 5px;
-    background-color: rgba(200, 200, 200, 0.1);
-    border-radius: 5px;
-    text-decoration: none;
   }
-  .bars-menu:hover {
-    text-decoration: none;
+  #bars-menu {
+    display: block;
+    border-radius: 6px;
+  }
+  .menu-list {
+    display: none;
+    padding: 3px 3px;
+    margin: 0;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    font-size: 15px;
+  }
+  .show {
+    display: flex;
+  }
+  ul.menu {
+    margin: 0;
+    padding: 2px 2px;
+    border-radius: 10px;
+    background-color: rgba(140, 140, 140, 0.2);
+    border-left: 1px solid grey;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+  }
+  ul.menu .menu-list li.links,
+  ul.menu .menu-list li.home {
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+  }
+
+  a.btn-link,
+  a.btn-link {
+    width: 100%;
+    padding: 5px 5px;
+    margin: 0;
   }
 }
 </style>

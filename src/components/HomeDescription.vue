@@ -1,22 +1,27 @@
 <template>
   <div class="description">
     <ul>
-      <a ref="link-p-code" @click="toggleClasses()" class="btn btn-link p-code"
-        ><i
-          class="fa fa-circle menu-icon"
-          :class="{ lightsUp: !isLightsUp, lightsDown: isLightsUp }"
-        ></i>
-      </a>
-      <a
-        ref="link-p-heart"
-        @click="toggleClasses()"
-        class="btn btn-link p-heart"
-        ><i
-          class="fa fa-circle menu-icon"
-          :class="{ lightsUp: isLightsUp, lightsDown: !isLightsUp }"
-        ></i
-      ></a>
-      <li>
+      <div class="btns-links lights">
+        <a
+          ref="link-p-code"
+          @click="toggleClasses()"
+          class="btn btn-link p-code"
+          ><i
+            class="fa fa-circle menu-icon"
+            :class="{ lightsUp: !isLightsUp, lightsDown: isLightsUp }"
+          ></i>
+        </a>
+        <a
+          ref="link-p-heart"
+          @click="toggleClasses()"
+          class="btn btn-link p-heart"
+          ><i
+            class="fa fa-circle menu-icon"
+            :class="{ lightsUp: isLightsUp, lightsDown: !isLightsUp }"
+          ></i
+        ></a>
+      </div>
+      <li :class="{ show: !isShow, hide: isShow }">
         <p id="p-code" :class="{ show: !isShow, hide: isShow }">
           <i class="fa fa-code"></i>
           Minha jornada no mundo da programação começou na universidade,
@@ -29,7 +34,7 @@
           código de cada vez! 🚀
         </p>
       </li>
-      <li>
+      <li :class="{ show: isShow, hide: !isShow }">
         <p id="p-heart" :class="{ show: isShow, hide: !isShow }">
           <i class="fa fa-heart"></i>
           Sou apaixonado por músicas como folk, clássica, rock e soul. As
@@ -87,6 +92,10 @@ export default {
   font-family: Nunito;
   color: white;
 }
+.btn-links .lights {
+  display: flex;
+  flex-direction: row;
+}
 .description a.btn {
   margin-left: 25px;
   cursor: pointer;
@@ -122,8 +131,8 @@ export default {
   transition: opacity 0.8s ease, height 0.8s ease;
 }
 @media (max-width: 768px) {
-  .descrition {
-    width: 100%;
+  .description {
+    width: 90%;
     padding: 0;
   }
 }
