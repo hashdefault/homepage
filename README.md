@@ -5,6 +5,12 @@
 
 Este é o repositório onde compartilho algumas informações sobre mim e projetos que estou trabalhando. Sinta-se à vontade para explorar!
 
+Visite a página:
+
+<a href='https://lugabrielbueno.github.io/homepage/' target='_blank'>
+<img src="logo.png" alt="Logo" width="100" height="40">
+</a>c
+
 ## Como usar ?
 
 ```bash
