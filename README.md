@@ -1,8 +1,7 @@
 # Bem-vindo a minha página pessoal! 👋
 
-![Vue.js](https://img.shields.io/badge/-Vue.js-4FC08D?logo=vue.js&logoColor=white)
+[![Vue.js](https://img.shields.io/badge/-Vue.js-4FC08D?logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Lucas G. Bueno-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/lucas-g-bueno/)
 
 Este é o repositório onde compartilho algumas informações sobre mim e projetos que estou trabalhando. Sinta-se à vontade para explorar!
 
