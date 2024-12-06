@@ -2,7 +2,7 @@
   <div class="social-media">
     <p>
       <a class="link" target="_blank" href="https://github.com/lugabrielbueno"
-        ><i class="fa fa-github"></i> GitHub</a
+        ><i class="fa-brands fa-github"></i> GitHub</a
       >
     </p>
     <p>
@@ -10,7 +10,7 @@
         class="link"
         target="_blank"
         href="https://www.linkedin.com/in/lucas-g-bueno/"
-        ><i class="fa fa-linkedin"></i> LinkedIn</a
+        ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
       >
     </p>
   </div>
