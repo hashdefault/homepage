@@ -9,6 +9,7 @@
   <div class="container">
     <HomeFoto />
     <HomeDescription />
+    <TechStackDescription />
   </div>
   <div class="medias">
     <SocialMedia />
@@ -25,6 +26,7 @@ import HeaderDescription from "./components/HeaderDescription.vue";
 import FooterDescription from "./components/FooterDescription.vue";
 import SocialMedia from "./components/SocialMedia.vue";
 import NavBarHome from "./components/NavBarHome.vue";
+import TechStackDescription from "./components/TechStackDescription.vue";
 
 export default {
   name: "App",
@@ -38,6 +40,7 @@ export default {
     FooterDescription,
     SocialMedia,
     NavBarHome,
+    TechStackDescription,
   },
 };
 </script>
@@ -58,7 +61,7 @@ export default {
   align-items: center;
 }
 #app {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(40, 40, 40);
   font-family: Nunito, Rubik, Mulish, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -75,7 +78,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   align-self: center;
 }
 .footer {

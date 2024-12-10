@@ -13,7 +13,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header-description {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(40, 40, 40);
   color: white;
   text-align: center;
   padding-top: 20px;
