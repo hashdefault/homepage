@@ -194,6 +194,11 @@ export default {
 .table_container td {
   padding: 10px;
 }
+img {
+  background-color: rgb(240,240,240);
+  border-radius: 20px;
+  padding: 5px;
+}
 
 @media (max-width: 768px) {
   .description {
