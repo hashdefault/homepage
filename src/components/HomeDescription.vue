@@ -24,26 +24,13 @@
       <li :class="{ show: !isShow, hide: isShow }">
         <p id="p-code" :class="{ show: !isShow, hide: isShow }">
           <i class="fa fa-code"></i>
-          Minha jornada no mundo da programação começou na universidade,
-          enquanto eu estava até o pescoço nas aulas de Física. Foi como
-          tropeçar em um universo totalmente novo. Avançando para 2020, me vi
-          mergulhando de cabeça no cenário tecnológico, trabalhando como
-          desenvolvedor full-stack em uma empresa privada. Ser um desenvolvedor
-          full-stack significa ter muitas funções, mas neste universo as vezes
-          precisamos abraçar o caos e perseguir esses sonhos, uma linha de
-          código de cada vez! 🚀
+          {{ displayedTextFirst }}
         </p>
       </li>
       <li :class="{ show: isShow, hide: !isShow }">
         <p id="p-heart" :class="{ show: isShow, hide: !isShow }">
           <i class="fa fa-heart"></i>
-          Sou apaixonado por músicas como folk, clássica, rock e soul. As
-          músicas instrumentais me ajudam a relaxar, enquanto as composições
-          clássicas me oferecem uma elegância atemporal. A energia visceral do
-          rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me
-          sinto enriquecido por cada um desses gêneros. Livros, cinema e arte
-          são parte de interesses dos quais eu vejo sendo fundamentais a
-          experiência humana.
+          {{ displayedTextSecond }}
         </p>
       </li>
     </ul>
@@ -53,10 +40,18 @@
 export default {
   name: "HomeDescription",
   mounted() {
+    this.startTypingFirst();
     setInterval(this.toggleClasses(), 1000);
   },
   data() {
     return {
+      fullTextFirst:
+        "Minha jornada no mundo da programação começou na universidade, enquanto eu estava até o pescoço nas aulas de Física. Foi como tropeçar em um universo totalmente novo. Avançando para 2020, me vi mergulhando de cabeça no cenário tecnológico, trabalhando como desenvolvedor full-stack em uma empresa privada. Ser um desenvolvedor full-stack significa ter muitas funções, mas neste universo as vezes precisamos abraçar o caos e perseguir esses sonhos, uma linha de código de cada vez! 🚀 ",
+      fullTextSecond:
+        "Sou apaixonado por músicas como folk, clássica, rock e soul. As músicas instrumentais me ajudam a relaxar, enquanto as composições clássicas me oferecem uma elegância atemporal. A energia visceral do rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me sinto enriquecido por cada um desses gêneros. Livros, cinema e arte são parte de interesses dos quais eu vejo sendo fundamentais a experiência humana.",
+      displayedTextFirst: "",
+      displayedTextSecond: "",
+      typingSpeed: 100,
       isLightsUp: true,
       isShow: true,
     };
@@ -67,12 +62,36 @@ export default {
       this.isLightsUp = !this.isLightsUp;
       this.isShow = !this.isShow;
     },
+    startTypingFirst() {
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index < this.fullTextFirst.length) {
+          this.displayedTextFirst += this.fullTextFirst[index];
+          index++;
+        } else {
+          clearInterval(interval); // Stop typing when the full text is displayed
+        }
+      }, this.typingSpeed);
+    },
+    startTypingSecond() {
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index < this.fullTextSecond.length) {
+          this.displayedTextSecond += this.fullTextSecond[index];
+          index++;
+        } else {
+          clearInterval(interval); // Stop typing when the full text is displayed
+        }
+      }, this.typingSpeed);
+    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
+
 .description {
   width: 55%;
   padding: 20px;
@@ -89,8 +108,10 @@ export default {
   text-align: left;
 }
 .description p {
-  font-family: Nunito;
+  font-family: Courier Prime, monospace;
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .btn-links .lights {
   display: flex;

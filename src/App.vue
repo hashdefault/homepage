@@ -9,6 +9,7 @@
   <div class="container">
     <HomeFoto />
     <HomeDescription />
+    <HoverButtons />
     <TechStackDescription />
   </div>
   <div class="medias">
@@ -27,6 +28,7 @@ import FooterDescription from "./components/FooterDescription.vue";
 import SocialMedia from "./components/SocialMedia.vue";
 import NavBarHome from "./components/NavBarHome.vue";
 import TechStackDescription from "./components/TechStackDescription.vue";
+import HoverButtons from "./components/HoverButtons.vue";
 
 export default {
   name: "App",
@@ -41,6 +43,7 @@ export default {
     SocialMedia,
     NavBarHome,
     TechStackDescription,
+    HoverButtons
   },
 };
 </script>
