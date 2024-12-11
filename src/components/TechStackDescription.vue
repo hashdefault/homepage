@@ -10,10 +10,21 @@
               width="50"
               :src="getImage('Vue.js.png')"
               alt="Vue.js"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
           <td>
-            <img height="50" width="50" :src="getImage('NPM.png')" alt="NPM" />
+            <img
+              height="50"
+              width="50"
+              :src="getImage('NPM.png')"
+              alt="NPM"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
+            />
+            <span class="tooltip">{{ altText }}</span>
           </td>
           <td>
             <img
@@ -21,7 +32,10 @@
               width="50"
               :src="getImage('JavaScript.png')"
               alt="JavaScript"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
           <td>
             <img
@@ -29,25 +43,47 @@
               width="50"
               :src="getImage('jQuery.png')"
               alt="jQuery"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
         </tr>
         <tr>
           <td class="desc_td">Backend</td>
           <td>
-            <img height="50" width="50" :src="getImage('Lua.png')" alt="PHP" />
+            <img
+              height="50"
+              width="50"
+              :src="getImage('Lua.png')"
+              alt="Lua"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
+            />
+            <span class="tooltip">{{ altText }}</span>
           </td>
 
           <td>
-            <img height="50" width="50" :src="getImage('PHP.png')" alt="PHP" />
+            <img
+              height="50"
+              width="50"
+              :src="getImage('PHP.png')"
+              alt="PHP"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
+            />
+            <span class="tooltip">{{ altText }}</span>
           </td>
           <td>
             <img
               height="50"
               width="50"
               :src="getImage('Laravel.png')"
-              alt="PHP"
+              alt="Laravel"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
           <td>
             <img
@@ -55,7 +91,10 @@
               width="50"
               :src="getImage('Composer.png')"
               alt="Composer"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
 
           <td>
@@ -63,16 +102,22 @@
               height="50"
               width="50"
               :src="getImage('Python.png')"
-              alt="PHP"
+              alt="Python"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
           <td>
             <img
               height="50"
               width="50"
               :src="getImage('Django.png')"
-              alt="PHP"
+              alt="Django"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
         </tr>
 
@@ -84,14 +129,25 @@
               width="50"
               :src="getImage('Docker.png')"
               alt="Docker"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
         </tr>
 
         <tr>
           <td class="desc_td">Controle de versão</td>
           <td>
-            <img height="50" width="50" :src="getImage('Git.png')" alt="Git" />
+            <img
+              height="50"
+              width="50"
+              :src="getImage('Git.png')"
+              alt="Git"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
+            />
+            <span class="tooltip">{{ altText }}</span>
           </td>
         </tr>
         <tr>
@@ -102,13 +158,24 @@
               width="50"
               :src="getImage('Vim.png')"
               alt="Neovim"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
         </tr>
         <tr>
           <td class="desc_td">Nuvem</td>
           <td>
-            <img height="50" width="50" :src="getImage('AWS.png')" alt="AWS" />
+            <img
+              height="50"
+              width="50"
+              :src="getImage('AWS.png')"
+              alt="AWS"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
+            />
+            <span class="tooltip">{{ altText }}</span>
           </td>
         </tr>
 
@@ -120,15 +187,21 @@
               width="50"
               :src="getImage('ArchLinux.png')"
               alt="Arch Linux"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
           <td>
             <img
               height="50"
               width="50"
               :src="getImage('Ubuntu.png')"
-              alt="Image Name"
+              alt="Ubuntu"
+              @mouseover="showTooltip($event)"
+              @mouseout="hideTooltip($event)"
             />
+            <span class="tooltip">{{ altText }}</span>
           </td>
         </tr>
       </tbody>
@@ -142,6 +215,7 @@ export default {
 
   data() {
     return {
+      altText: "hey",
       images: {}, // To store imported images
     };
   },
@@ -163,6 +237,15 @@ export default {
     },
     getImage(imageName) {
       return this.images[imageName] || ""; // Return image URL or an empty string if not found
+    },
+    showTooltip(event) {
+      const spanAlt = event.target.nextSibling;
+      spanAlt.textContent = event.target.alt;
+      spanAlt.style.opacity = 1;
+    },
+    hideTooltip(event) {
+      const spanAlt = event.target.nextSibling;
+      spanAlt.style.opacity = 0;
     },
   },
 };
@@ -192,12 +275,26 @@ export default {
   align-items: center;
 }
 .table_container td {
-  padding: 10px;
+  padding: 12px;
 }
 img {
-  background-color: rgb(240,240,240);
+  background-color: rgb(240, 240, 240);
   border-radius: 20px;
   padding: 5px;
+}
+.tooltip {
+  color: black;
+  position: absolute;
+  transition: opacity 0.3s;
+  font-size: 10px;
+  border-radius: 3px;
+  padding: 2px;
+  opacity: 0;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 242, 0.75);
+}
+.tooltipOn {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
