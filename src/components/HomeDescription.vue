@@ -51,7 +51,7 @@ export default {
         "Sou apaixonado por músicas como folk, clássica, rock e soul. As músicas instrumentais me ajudam a relaxar, enquanto as composições clássicas me oferecem uma elegância atemporal. A energia visceral do rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me sinto enriquecido por cada um desses gêneros. Livros, cinema e arte são parte de interesses dos quais eu vejo sendo fundamentais a experiência humana.",
       displayedTextFirst: "",
       displayedTextSecond: "",
-      typingSpeed: 100,
+      typingSpeed: 50,
       isLightsUp: true,
       isShow: true,
     };
@@ -61,10 +61,18 @@ export default {
     toggleClasses() {
       this.isLightsUp = !this.isLightsUp;
       this.isShow = !this.isShow;
+      if (this.isShow) {
+        this.displayedTextSecond = "";
+        this.startTypingFirst();
+      } else {
+        this.displayedTextFirst = "";
+        this.startTypingSecond();
+      }
     },
     startTypingFirst() {
+      this.displayedTextFirst = "";
       let index = 0;
-      const interval = setInterval(() => {
+       const interval = setInterval(() => {
         if (index < this.fullTextFirst.length) {
           this.displayedTextFirst += this.fullTextFirst[index];
           index++;
@@ -74,8 +82,9 @@ export default {
       }, this.typingSpeed);
     },
     startTypingSecond() {
+      this.displayedTextSecond = "";
       let index = 0;
-      const interval = setInterval(() => {
+       const interval = setInterval(() => {
         if (index < this.fullTextSecond.length) {
           this.displayedTextSecond += this.fullTextSecond[index];
           index++;
@@ -110,7 +119,6 @@ export default {
 .description p {
   font-family: Courier Prime, monospace;
   color: white;
-  white-space: nowrap;
   overflow: hidden;
 }
 .btn-links .lights {
@@ -150,6 +158,23 @@ export default {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.8s ease, height 0.8s ease;
+}
+p::after {
+  content: "|";
+  font-weight: bold;
+  display: inline-block;
+  animation: blink 0.6s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.1%,
+  100% {
+    opacity: 0;
+  }
 }
 @media (max-width: 768px) {
   .description {
