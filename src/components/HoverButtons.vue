@@ -50,7 +50,7 @@ export default {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: white;
+  background-color: rgb(0,255,255);
   transition: width 0.3s ease-in-out;
 }
 .hovers:hover::after {

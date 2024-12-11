@@ -1,39 +1,21 @@
 <template>
   <div class="description">
-    <ul>
-      <div class="btns-links lights">
-        <a
-          ref="link-p-code"
-          @click="toggleClasses()"
-          class="btn btn-link p-code"
-          ><i
-            class="fa fa-circle menu-icon"
-            :class="{ lightsUp: !isLightsUp, lightsDown: isLightsUp }"
-          ></i>
-        </a>
-        <a
-          ref="link-p-heart"
-          @click="toggleClasses()"
-          class="btn btn-link p-heart"
-          ><i
-            class="fa fa-circle menu-icon"
-            :class="{ lightsUp: isLightsUp, lightsDown: !isLightsUp }"
-          ></i
-        ></a>
-      </div>
-      <li :class="{ show: !isShow, hide: isShow }">
-        <p id="p-code" :class="{ show: !isShow, hide: isShow }">
-          <i class="fa fa-code"></i>
-          {{ displayedTextFirst }}
-        </p>
-      </li>
-      <li :class="{ show: isShow, hide: !isShow }">
-        <p id="p-heart" :class="{ show: isShow, hide: !isShow }">
-          <i class="fa fa-heart"></i>
-          {{ displayedTextSecond }}
-        </p>
-      </li>
-    </ul>
+    <div class="btns-links lights">
+      <a ref="link-p-code" class="btn btn-link p-code"> </a>
+      <a ref="link-p-heart" class="btn btn-link p-heart"></a>
+    </div>
+    <h3 class="subtitle">Intro</h3>
+    <p id="p-code">
+      <i class="fa fa-code"></i>
+      {{ displayedTextFirst }}
+    </p>
+    <h3 class="subtitle">Refs</h3>
+    <p id="p-heart">
+      <i class="fa fa-heart"></i> Linux universe
+      <br>
+      <i class="fa fa-book"></i> Mítico Homem-Mês,  Frederick P. Brooks Jr. <br />
+      <i class="fa fa-book"></i> Os Inovadores, Walter Isaacson<br />
+    </p>
   </div>
 </template>
 <script>
@@ -41,16 +23,19 @@ export default {
   name: "HomeDescription",
   mounted() {
     this.startTypingFirst();
-    setInterval(this.toggleClasses(), 1000);
   },
   data() {
     return {
       fullTextFirst:
-        "Minha jornada no mundo da programação começou na universidade, enquanto eu estava até o pescoço nas aulas de Física. Foi como tropeçar em um universo totalmente novo. Avançando para 2020, me vi mergulhando de cabeça no cenário tecnológico, trabalhando como desenvolvedor full-stack em uma empresa privada. Ser um desenvolvedor full-stack significa ter muitas funções, mas neste universo as vezes precisamos abraçar o caos e perseguir esses sonhos, uma linha de código de cada vez! 🚀 ",
-      fullTextSecond:
-        "Sou apaixonado por músicas como folk, clássica, rock e soul. As músicas instrumentais me ajudam a relaxar, enquanto as composições clássicas me oferecem uma elegância atemporal. A energia visceral do rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me sinto enriquecido por cada um desses gêneros. Livros, cinema e arte são parte de interesses dos quais eu vejo sendo fundamentais a experiência humana.",
+        //"Minha jornada no mundo da programação começou na universidade, enquanto eu estava até o pescoço nas aulas de Física. Foi como tropeçar em um universo totalmente novo. Avançando para 2020, me vi mergulhando de cabeça no cenário tecnológico, trabalhando como desenvolvedor full-stack em uma empresa privada. Ser um desenvolvedor full-stack significa ter muitas funções, mas neste universo as vezes precisamos abraçar o caos e perseguir esses sonhos, uma linha de código de cada vez! 🚀 ",
+        `Lucas é um desenvolvedor web que atualmente reside na cidade de Maringá, no estado do Paraná. 
+        Sua trajetória na tecnologia começou em 2019, enquanto cursava Física, quando decidiu estudar Python para análises de dados, unindo seu interesse em resolver problemas práticos à aplicação de ferramentas computacionais.
+No ano seguinte, em 2020, ampliou seus horizontes ao iniciar estudos em desenvolvimento web,
+explorando tecnologias e linguagens como PHP.
+      Esse novo foco o levou a ingressar em uma empresa, onde desde então atua na manutenção e desenvolvimento de websites e sistemas. Contribuindo para projetos que impactam positivamente clientes e usuários finais. Sua experiência e paixão pela programação são uma peça fundamental na carreira.`,
+      fullTextSecond: "",
+      //"Sou apaixonado por músicas como folk, clássica, rock e soul. As músicas instrumentais me ajudam a relaxar, enquanto as composições clássicas me oferecem uma elegância atemporal. A energia visceral do rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me sinto enriquecido por cada um desses gêneros. Livros, cinema e arte são parte de interesses dos quais eu vejo sendo fundamentais a experiência humana.",
       displayedTextFirst: "",
-      displayedTextSecond: "",
       typingSpeed: 50,
       isLightsUp: true,
       isShow: true,
@@ -58,35 +43,12 @@ export default {
   },
 
   methods: {
-    toggleClasses() {
-      this.isLightsUp = !this.isLightsUp;
-      this.isShow = !this.isShow;
-      if (this.isShow) {
-        this.displayedTextSecond = "";
-        this.startTypingFirst();
-      } else {
-        this.displayedTextFirst = "";
-        this.startTypingSecond();
-      }
-    },
     startTypingFirst() {
       this.displayedTextFirst = "";
       let index = 0;
-       const interval = setInterval(() => {
+      const interval = setInterval(() => {
         if (index < this.fullTextFirst.length) {
           this.displayedTextFirst += this.fullTextFirst[index];
-          index++;
-        } else {
-          clearInterval(interval); // Stop typing when the full text is displayed
-        }
-      }, this.typingSpeed);
-    },
-    startTypingSecond() {
-      this.displayedTextSecond = "";
-      let index = 0;
-       const interval = setInterval(() => {
-        if (index < this.fullTextSecond.length) {
-          this.displayedTextSecond += this.fullTextSecond[index];
           index++;
         } else {
           clearInterval(interval); // Stop typing when the full text is displayed
@@ -102,7 +64,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 .description {
-  width: 55%;
+  width: 50%;
   padding: 20px;
 }
 .description ul {
@@ -121,10 +83,6 @@ export default {
   color: white;
   overflow: hidden;
 }
-.btn-links .lights {
-  display: flex;
-  flex-direction: row;
-}
 .description a.btn {
   margin-left: 25px;
   cursor: pointer;
@@ -135,30 +93,14 @@ export default {
   border-radius: 50%;
   border: none;
 }
-.lightsUp {
-  box-shadow: 2px 0px 6px 1px white;
-  color: white;
-  background-color: white;
-  transition: 0.5s;
-}
-.lightsDown {
-  color: #646464;
-  background-color: #646464;
-  transition: 0.5s;
-}
-.hide {
-  height: 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.8s ease, height 0.8s ease;
+.subtitle {
+  color: rgb(240, 240, 240);
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: rgb(0, 255, 255);
+  width: 100px;
 }
 
-.show {
-  height: auto;
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.8s ease, height 0.8s ease;
-}
 p::after {
   content: "|";
   font-weight: bold;

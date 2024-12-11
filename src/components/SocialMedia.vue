@@ -32,7 +32,7 @@ export default {
   margin-top: 100px;
 }
 .link {
-  color: #15f5ba;
+  color: rgb(0,255,255);
   text-decoration: none;
   cursor: pointer;
   padding: 4px;
@@ -40,7 +40,7 @@ export default {
   font-weight: bold;
 }
 .link:hover {
-  background-color: rgba(21, 245, 186, 0.1);
+  background-color: rgba(0,255,255, 0.1);
   transition: all 0.6s;
 }
 i {
