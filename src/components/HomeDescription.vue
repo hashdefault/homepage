@@ -9,11 +9,10 @@
       <i class="fa fa-code"></i>
       {{ displayedTextFirst }}
     </p>
-    <h3 class="subtitle">Refs</h3>
+    <h3 class="subtitle">Conteúdo & Refs</h3>
     <p id="p-heart">
-      <i class="fa fa-heart"></i> Linux universe
-      <br>
-      <i class="fa fa-book"></i> Mítico Homem-Mês,  Frederick P. Brooks Jr. <br />
+      <i class="fa fa-heart"></i> Linux universe<br />
+      <i class="fa fa-book"></i> O Mítico Homem-Mês, Frederick P. Brooks Jr.<br />
       <i class="fa fa-book"></i> Os Inovadores, Walter Isaacson<br />
     </p>
   </div>
@@ -37,8 +36,6 @@ explorando tecnologias e linguagens como PHP.
       //"Sou apaixonado por músicas como folk, clássica, rock e soul. As músicas instrumentais me ajudam a relaxar, enquanto as composições clássicas me oferecem uma elegância atemporal. A energia visceral do rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me sinto enriquecido por cada um desses gêneros. Livros, cinema e arte são parte de interesses dos quais eu vejo sendo fundamentais a experiência humana.",
       displayedTextFirst: "",
       typingSpeed: 50,
-      isLightsUp: true,
-      isShow: true,
     };
   },
 
@@ -98,7 +95,7 @@ explorando tecnologias e linguagens como PHP.
   text-decoration-line: underline;
   text-decoration-thickness: 3px;
   text-decoration-color: rgb(0, 255, 255);
-  width: 100px;
+  width: 200px;
 }
 
 p::after {

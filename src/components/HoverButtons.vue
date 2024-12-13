@@ -1,20 +1,23 @@
 <template>
   <div class="description">
-    <a href="#" class="btn hovers">Tech Stack</a>
-    <a href="#" class="btn hovers">Contato</a>
-    <a href="#" class="btn hovers">Videos</a>
+    <a class="btn hovers" @click="activateDiv">Tech Stack</a>
+    <a  class="btn hovers">Contato</a>
+    <a class="btn hovers">Videos</a>
   </div>
 </template>
 <script>
 export default {
   name: "HoverButtons",
   mounted() {},
-
   data() {
     return {};
   },
+  methods: {
+    activateDiv() {
+      this.$emit("activate");
+    },
+  },
   created() {},
-  methods: {},
 };
 </script>
 
@@ -50,7 +53,7 @@ export default {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: rgb(0,255,255);
+  background-color: rgb(0, 255, 255);
   transition: width 0.3s ease-in-out;
 }
 .hovers:hover::after {

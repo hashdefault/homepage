@@ -9,8 +9,8 @@
   <div class="container">
     <HomeFoto />
     <HomeDescription />
-    <HoverButtons />
-    <TechStackDescription />
+    <HoverButtons @activate="handleActivate" />
+    <TechStackDescription :isActive="isTechStackActive" />
   </div>
   <div class="medias">
     <SocialMedia />
@@ -43,7 +43,17 @@ export default {
     SocialMedia,
     NavBarHome,
     TechStackDescription,
-    HoverButtons
+    HoverButtons,
+  },
+  data() {
+    return {
+      isTechStackActive: false,
+    };
+  },
+  methods: {
+    handleActivate() {
+      this.isTechStackActive = true;
+    },
   },
 };
 </script>
@@ -92,7 +102,6 @@ export default {
   align-self: flex-end;
   justify-content: space-between;
   align-content: flex-end;
-  height: 100%;
 }
 body {
   margin: 0;

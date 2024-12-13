@@ -1,6 +1,6 @@
 <template>
   <div class="description">
-    <table class="table_container">
+    <table class="table_container" :class="{ visible: isActive }">
       <tbody>
         <tr>
           <td class="desc_td">Frontend</td>
@@ -215,12 +215,18 @@ export default {
 
   data() {
     return {
-      altText: "hey",
+      altText: "",
       images: {}, // To store imported images
     };
   },
   created() {
     this.importImages();
+  },
+  props: {
+    isActive: {
+      type: Boolean,
+      required: true,
+    },
   },
   methods: {
     importImages() {
@@ -256,9 +262,12 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 .description {
-  width: 100%;
+  display: flex;
   padding: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
 }
+
 .desc_td {
   font-size: 20px;
   font-family: "Courier Prime", monospace;
@@ -273,6 +282,16 @@ export default {
   align-self: center;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+
+  overflow: hidden;
+  transition: opacity 2s, max-height 2s;
+  max-height: 0;
+}
+
+.table_container.visible {
+  max-height: 700px;
+  opacity: 1;
 }
 .table_container td {
   padding: 12px;
