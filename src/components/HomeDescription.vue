@@ -14,6 +14,14 @@
       <i class="fa fa-heart"></i> Linux universe<br />
       <i class="fa fa-book"></i> O Mítico Homem-Mês, Frederick P. Brooks Jr.<br />
       <i class="fa fa-book"></i> Os Inovadores, Walter Isaacson<br />
+      <i class="fa-brands fa-github"></i>
+      <a
+        class="ref_link"
+        href="https://github.com/kamranahmedse/developer-roadmap"
+        target="_blank"
+      >
+        Developer Roadmap
+      </a>
     </p>
   </div>
 </template>
@@ -104,6 +112,14 @@ p::after {
   display: inline-block;
   animation: blink 0.6s steps(2, start) infinite;
 }
+.ref_link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+  .ref_link:hover {
+    text-decoration: underline;
+  }
 
 @keyframes blink {
   0%,
