@@ -1,8 +1,8 @@
 <template>
   <div class="description">
-    <a class="btn hovers" @click="activateDiv">Tech Stack</a>
-    <a  class="btn hovers">Contato</a>
-    <a class="btn hovers">Videos</a>
+    <a class="btn hovers" @click="activateDivTech">Tech Stack</a>
+    <a  class="btn hovers" @click="activateDivPosts">Posts</a>
+    <a class="btn hovers" @click="activateDivVideos">Videos</a>
   </div>
 </template>
 <script>
@@ -13,8 +13,14 @@ export default {
     return {};
   },
   methods: {
-    activateDiv() {
-      this.$emit("activate");
+    activateDivTech() {
+      this.$emit("activateTech");
+    },
+    activateDivPosts() {
+      this.$emit("activatePosts");
+    },
+    activateDivVideos() {
+      this.$emit("activateVideos");
     },
   },
   created() {},

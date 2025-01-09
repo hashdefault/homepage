@@ -9,8 +9,9 @@
   <div class="container">
     <HomeFoto />
     <HomeDescription />
-    <HoverButtons @activate="handleActivate" />
-    <TechStackDescription :isActive="isTechStackActive" />
+    <HoverButtons @activateTech="handleActivateTech" @activatePosts='handleActivatePosts' />
+    <TechStackDescription :isTechStackActive="isTechStackActive" />
+    <WritingPosts :isPostsActive="isWritingPostsActive" />
   </div>
   <div class="medias">
     <SocialMedia />
@@ -28,6 +29,7 @@ import FooterDescription from "./components/FooterDescription.vue";
 import SocialMedia from "./components/SocialMedia.vue";
 import NavBarHome from "./components/NavBarHome.vue";
 import TechStackDescription from "./components/TechStackDescription.vue";
+import WritingPosts from "./components/WritingPosts.vue";
 import HoverButtons from "./components/HoverButtons.vue";
 
 export default {
@@ -44,15 +46,20 @@ export default {
     NavBarHome,
     TechStackDescription,
     HoverButtons,
+    WritingPosts,
   },
   data() {
     return {
       isTechStackActive: false,
+      isWritingPostsActive: false,
     };
   },
   methods: {
-    handleActivate() {
+    handleActivateTech() {
       this.isTechStackActive = true;
+    },
+    handleActivatePosts() {
+      this.isWritingPostsActive = true;
     },
   },
 };

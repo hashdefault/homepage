@@ -1,6 +1,6 @@
 <template>
   <div class="description">
-    <table class="table_container" :class="{ visible: isActive }">
+    <table class="table_container" :class="{ visible: isTechStackActive }">
       <tbody>
         <tr>
           <td class="desc_td">Frontend</td>
@@ -223,7 +223,7 @@ export default {
     this.importImages();
   },
   props: {
-    isActive: {
+    isTechStackActive: {
       type: Boolean,
       required: true,
     },
