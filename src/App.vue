@@ -4,10 +4,9 @@
       <div class="nav">
         <NavBarHome />
       </div>
-      <HeaderDescription />
     </header>
     <div class="container">
-      <HomeFoto />
+      <HeaderDescription />
       <router-view />
       <HoverButtons @activateTech="handleActivateTech" />
       <TechStackDescription :isTechStackActive="isTechStackActive" />
@@ -26,7 +25,7 @@
 </template>
 
 <script>
-import HomeFoto from "./components/HomeFoto.vue";
+//import HomeFoto from "./components/HomeFoto.vue";
 import HeaderDescription from "./components/HeaderDescription.vue";
 import FooterDescription from "./components/FooterDescription.vue";
 import SocialMedia from "./components/SocialMedia.vue";
@@ -40,7 +39,7 @@ export default {
     document.title = "dev. lucas";
   },
   components: {
-    HomeFoto,
+    //HomeFoto,
     HeaderDescription,
     FooterDescription,
     SocialMedia,

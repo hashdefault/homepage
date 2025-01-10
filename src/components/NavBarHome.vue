@@ -64,15 +64,13 @@ export default {
   flex-direction: row;
   border-radius: 8px;
   padding: 5px;
+  float: right;
 }
 nav.navbar {
   font-weight: 600;
   color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-self: center;
-  justify-content: space-between;
+  display: block;
+  text-align: right;
   width: 100%;
   background-color: rgb(80, 80, 80);
 }
