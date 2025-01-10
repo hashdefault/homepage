@@ -269,9 +269,12 @@ export default {
 
 .description {
   display: flex;
-  padding: 15px;
+  padding: 25px;
+  width: 65%;
   flex-direction: column;
   justify-content: flex-start;
+  background-color: rgb(80,80,80);
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
 i {
   color: rgb(0, 255, 255);

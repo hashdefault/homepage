@@ -71,9 +71,10 @@ nav.navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
+  align-self: center;
   justify-content: space-between;
-  margin: 0;
   width: 100%;
+  background-color: rgb(80, 80, 80);
 }
 .menu-list {
   display: flex;

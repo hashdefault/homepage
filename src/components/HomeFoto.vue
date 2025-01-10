@@ -21,8 +21,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .foto {
-  width: 45%;
+  width: 65%;
+  padding: 25px;
   text-align: center;
+  background-color: rgb(80, 80, 80);
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
 .myfoto {
   border-radius: 50%;

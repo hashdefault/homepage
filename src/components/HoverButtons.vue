@@ -32,8 +32,12 @@ export default {
 .description {
   display: flex;
   flex-direction: row;
+  padding: 25px;
   align-self: center;
   align-items: center;
+  background-color: rgb(80, 80, 80);
+  width: 65%;
+  border-left: 2px solid rgba(0, 255, 255,0.7);
 }
 .hovers {
   position: relative;
@@ -74,12 +78,10 @@ export default {
     margin: 15px;
   }
 }
-@media (max-width: 500px){
-
+@media (max-width: 500px) {
   .hovers {
     padding: 20px 15px;
-    font-size:12px;
-
+    font-size: 12px;
   }
 }
 </style>

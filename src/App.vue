@@ -12,13 +12,17 @@
       <HoverButtons @activateTech="handleActivateTech" />
       <TechStackDescription :isTechStackActive="isTechStackActive" />
     </div>
+    <div class="illustration">
+      <img src="./assets/gifs/morecoffee.gif">
+      <img src="./assets/gifs/catscafe-penguin.gif" width='250'>
+    </div>
     <div class="medias">
       <SocialMedia />
     </div>
+    <footer class="footer">
+      <FooterDescription />
+    </footer>
   </section>
-  <footer class="footer">
-    <FooterDescription />
-  </footer>
 </template>
 
 <script>
@@ -47,7 +51,15 @@ export default {
   data() {
     return {
       isTechStackActive: false,
+      gif: require("@/assets/gifs/monkeypc.webp"),
     };
+  },
+  computed: {
+    backgroundStyle() {
+      return {
+        backgroundImage: this.gif,
+      };
+    },
   },
   methods: {
     handleActivateTech() {
@@ -63,13 +75,9 @@ export default {
 
 <style>
 .colorLight {
-  background: linear-gradient(
-    to left,
-    rgb(40, 40, 40) 15%,
-    rgb(60, 60, 60) 15%,
-    rgb(60, 60, 60) 85%,
-    rgb(40, 40, 40) 85%
-  );
+  /*background-image: url("./assets/gifs/trex-pc.gif");
+  background-size: 150px; */
+  background-color: rgb(40,40,40);
   width: 100%;
   display: flex;
   align-items: center;
@@ -77,11 +85,14 @@ export default {
   flex-direction: column;
 }
 .nav {
-  align-items: flex-end;
-  align-self: flex-end;
+  align-items: center;
+  align-self: center;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 65%;
+  padding: 25px;
+  background-color: rgb(80, 80, 80);
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
 .header {
   width: 100%;
@@ -90,8 +101,17 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+.illustration {
+  padding: 0px 25px;
+  background-color: rgb(80,80,80);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 65%;
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
+}
 #app {
-  background-color: rgb(40, 40, 40);
   font-family: Nunito, Rubik, Mulish, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -103,7 +123,6 @@ export default {
   min-height: 100vh;
 }
 .container {
-  padding-top: 50px;
   width: 100%;
   background-clip: padding-box, border-box;
   box-sizing: border-box;
@@ -132,6 +151,10 @@ body {
   display: flex;
   align-self: center;
   align-items: center;
+  width: 65%;
+  padding: 25px;
+  background-color: rgb(80, 80, 80);
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
 
 @media (max-width: 1024px) {

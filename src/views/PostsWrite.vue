@@ -33,16 +33,17 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 .description {
-  padding: 20px;
+  padding: 25px;
   justify-content: flex-start;
   color: white;
   font-family: "Courier Prime";
-  width: 60%;
+  width: 65%;
   display: flex;
   align-self: center;
   flex-direction: column;
   align-items: center;
   flex: 1;
+  background-color: rgb(80,80,80);
 }
 .art {
   color: white;

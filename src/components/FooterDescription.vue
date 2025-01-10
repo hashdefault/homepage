@@ -13,21 +13,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .footer-description {
-  width: 100%;
+  width: 65%;
+  padding:25px;
   color: white;
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-self: flex-end;
-  background: linear-gradient(
-    to left,
-    rgb(40, 40, 40) 15%,
-    rgb(60, 60, 60) 15%,
-    rgb(60, 60, 60) 85%,
-    rgb(40, 40, 40) 85%
-  );
-  border-left: 3px solid blue;
+  align-self: center;
+  background-color: rgb(80,80,80);
   z-index: 1;
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
+
 }
 hr {
   width: 90%;
@@ -42,10 +38,10 @@ hr {
   .footer-description {
     background: linear-gradient(
       to left,
-      rgb(40, 40, 40) 12%,
-      rgb(60, 60, 60) 12%,
-      rgb(60, 60, 60) 88%,
-      rgb(40, 40, 40) 88%
+      rgb(0, 0, 0) 12%,
+      rgb(80, 80, 80) 12%,
+      rgb(80, 80, 80) 88%,
+      rgb(0, 0, 0) 88%
     );
   }
 }
