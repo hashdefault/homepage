@@ -3,7 +3,7 @@
     <table class="table_container" :class="{ visible: isTechStackActive }">
       <tbody>
         <tr>
-          <td class="desc_td">Frontend</td>
+          <td class="desc_td"><i class="fa fa-arrow-right"></i> Frontend</td>
           <td>
             <img
               height="50"
@@ -50,7 +50,7 @@
           </td>
         </tr>
         <tr>
-          <td class="desc_td">Backend</td>
+          <td class="desc_td"><i class="fa fa-arrow-right"></i> Backend</td>
           <td>
             <img
               height="50"
@@ -122,7 +122,7 @@
         </tr>
 
         <tr>
-          <td class="desc_td">Container</td>
+          <td class="desc_td"><i class="fa fa-arrow-right"></i> Container</td>
           <td>
             <img
               height="50"
@@ -137,7 +137,9 @@
         </tr>
 
         <tr>
-          <td class="desc_td">Controle de versão</td>
+          <td class="desc_td">
+            <i class="fa fa-arrow-right"></i> Controle de versão
+          </td>
           <td>
             <img
               height="50"
@@ -151,7 +153,9 @@
           </td>
         </tr>
         <tr>
-          <td class="desc_td">Editor de texto</td>
+          <td class="desc_td">
+            <i class="fa fa-arrow-right"></i> Editor de texto
+          </td>
           <td>
             <img
               height="50"
@@ -165,7 +169,7 @@
           </td>
         </tr>
         <tr>
-          <td class="desc_td">Nuvem</td>
+          <td class="desc_td"><i class="fa fa-arrow-right"></i> Nuvem</td>
           <td>
             <img
               height="50"
@@ -180,7 +184,9 @@
         </tr>
 
         <tr>
-          <td class="desc_td">Sistema Operacional</td>
+          <td class="desc_td">
+            <i class="fa fa-arrow-right"></i> Sistema Operacional
+          </td>
           <td>
             <img
               height="50"
@@ -263,9 +269,12 @@ export default {
 
 .description {
   display: flex;
-  padding: 20px;
+  padding: 15px;
   flex-direction: column;
   justify-content: flex-start;
+}
+i {
+  color: rgb(0, 255, 255);
 }
 
 .desc_td {
@@ -282,16 +291,15 @@ export default {
   align-self: center;
   flex-direction: column;
   align-items: center;
-  flex: 1;
-
   overflow: hidden;
   transition: opacity 2s, max-height 2s;
+  opacity: 0;
   max-height: 0;
 }
 
 .table_container.visible {
-  max-height: 700px;
   opacity: 1;
+  max-height: 700px;
 }
 .table_container td {
   padding: 12px;
@@ -316,10 +324,45 @@ img {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 768px) {
   .description {
     width: 90%;
+  }
+  .table_container {
+    width: 80%;
+  }
+  img {
+    padding: 2px;
+    height: 20px;
+    width: 20px;
+  }
+  .desc_td {
+    font-size: 13px;
+    margin: 0;
     padding: 0;
+  }
+  .table_container td {
+    padding: 2px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .description {
+    width: 90%;
+  }
+  .table_container {
+    width: 90%;
+  }
+  img {
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+  }
+  .desc_td {
+    font-size: 19px;
+  }
+  .table_container td {
+    padding: 4px;
   }
 }
 </style>

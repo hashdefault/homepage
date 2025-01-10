@@ -1,5 +1,5 @@
 <template>
-  <div class="description" :class="{ visible: isPostsActive }">
+  <div class="description">
     <article class="art">
       <h3>ano 2024, 09 de janeiro</h3>
       <p>
@@ -22,14 +22,7 @@ export default {
   mounted() {},
 
   data() {
-    return {
-    };
-  },
-  props: {
-    isPostsActive: {
-      type: Boolean,
-      required: true,
-    },
+    return {};
   },
   methods: {},
 };
@@ -44,15 +37,12 @@ export default {
   justify-content: flex-start;
   color: white;
   font-family: "Courier Prime";
-  width: 100%;
+  width: 60%;
   display: flex;
   align-self: center;
   flex-direction: column;
   align-items: center;
   flex: 1;
-  overflow: hidden;
-  transition: opacity 2s, max-height 2s;
-  max-height: 0;
 }
 .art {
   color: white;
@@ -60,9 +50,7 @@ export default {
   width: 100%;
   margin: 0 10%;
 }
-.art p {
 
-}
 .description.visible {
   max-height: 700px;
   opacity: 1;
@@ -70,7 +58,7 @@ export default {
 
 @media (max-width: 768px) {
   .description {
-    width: 90%;
+    width: 60%;
     padding: 0;
   }
 }

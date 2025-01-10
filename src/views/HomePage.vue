@@ -133,7 +133,7 @@ p::after {
 }
 @media (max-width: 768px) {
   .description {
-    width: 90%;
+    width: 65%;
     padding: 0;
   }
 }

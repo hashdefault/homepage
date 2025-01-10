@@ -1,10 +1,14 @@
 <template>
   <div class="description">
     <a class="btn hovers" @click="activateDivTech">Tech Stack</a>
-    <a  class="btn hovers" @click="activateDivPosts">Posts</a>
-    <a class="btn hovers" @click="activateDivVideos">Videos</a>
+    <RouterLink to="/posts" class="btn hovers">Posts </RouterLink>
+    <RouterLink to="/videos" class="btn hovers">Videos </RouterLink>
   </div>
 </template>
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
+
 <script>
 export default {
   name: "HoverButtons",
@@ -15,12 +19,6 @@ export default {
   methods: {
     activateDivTech() {
       this.$emit("activateTech");
-    },
-    activateDivPosts() {
-      this.$emit("activatePosts");
-    },
-    activateDivVideos() {
-      this.$emit("activateVideos");
     },
   },
   created() {},
@@ -66,10 +64,22 @@ export default {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .description {
-    width: 90%;
-    padding: 0;
+    width: 70%;
+  }
+  .hovers {
+    width: 80%;
+    padding: 20px 15px;
+    margin: 15px;
+  }
+}
+@media (max-width: 500px){
+
+  .hovers {
+    padding: 20px 15px;
+    font-size:12px;
+
   }
 }
 </style>

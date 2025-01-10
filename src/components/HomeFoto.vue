@@ -1,8 +1,11 @@
 <template>
   <div class="foto">
-    <img class="myfoto" :src="myfoto" />
+    <RouterLink to="/"><img class="myfoto" :src="myfoto" /></RouterLink>
   </div>
 </template>
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <script>
 import myfoto from "./../assets/images/me.png";
 export default {

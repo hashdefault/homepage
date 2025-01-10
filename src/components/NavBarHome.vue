@@ -1,9 +1,11 @@
 <template>
   <nav class="navbar">
     <div class="logo">
-      <img :src="logo" class="logo" width="120" height="40" />
+      <RouterLink to="/"
+        ><img :src="logo" class="logo" width="120" height="40"
+      /></RouterLink>
     </div>
-    <ul class="menu" :class="{ filled: isFilled }">
+    <!--<ul class="menu" :class="{ filled: isFilled }">
       <a class="bars-menu btn" id="bars-menu" @click="openMenu()"
         ><i class="fa" :class="{ 'fa-bars': isBar, 'fa-times': !isTimes }"></i
       ></a>
@@ -24,9 +26,12 @@
           >
         </li>
       </div>
-    </ul>
+    </ul> -->
   </nav>
 </template>
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <script>
 import logo from "./../assets/images/logo.png";
 export default {
