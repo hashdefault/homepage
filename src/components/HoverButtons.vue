@@ -37,7 +37,7 @@ export default {
   align-items: center;
   background-color: rgb(80, 80, 80);
   width: 65%;
-  border-left: 2px solid rgba(0, 255, 255,0.7);
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
 .hovers {
   position: relative;
@@ -69,16 +69,13 @@ export default {
 }
 
 @media (max-width: 1024px) {
-  .hovers {
-    width: 80%;
-    padding: 20px 15px;
-    margin: 15px;
+  .description {
+    justify-content: space-between;
   }
-}
-@media (max-width: 500px) {
   .hovers {
-    padding: 20px 15px;
-    font-size: 12px;
+    font-size: 16px;
+    padding: 2px 5px;
+    margin: 0px 1px;
   }
 }
 </style>

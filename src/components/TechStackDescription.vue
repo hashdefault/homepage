@@ -329,12 +329,6 @@ img {
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
-  .description {
-    width: 65%;
-  }
-  .table_container {
-    width: 80%;
-  }
   img {
     padding: 2px;
     height: 20px;
@@ -346,7 +340,7 @@ img {
     padding: 0;
   }
   .table_container td {
-    padding: 2px;
+    padding: 1px;
   }
 }
 

@@ -46,7 +46,6 @@ p {
 
 @media (max-width: 768px) {
   .description {
-    width: 60%;
     padding: 0;
   }
 }
