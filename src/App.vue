@@ -154,6 +154,7 @@ body {
   padding: 25px;
   background-color: rgb(80, 80, 80);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
+  margin:-1px;
 }
 
 @media (max-width: 1024px) {

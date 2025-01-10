@@ -44,9 +44,4 @@ p {
   font-family: "Courier Prime";
 }
 
-@media (max-width: 768px) {
-  .description {
-    padding: 0;
-  }
-}
 </style>

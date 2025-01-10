@@ -32,7 +32,6 @@ export default {
   text-align: center;
   padding-top: 20px;
   margin-top: 100px;
-  margin:-1px;
 }
 .link {
   color: rgb(0,255,255);
