@@ -69,9 +69,6 @@ export default {
 }
 
 @media (max-width: 1024px) {
-  .description {
-    width: 70%;
-  }
   .hovers {
     width: 80%;
     padding: 20px 15px;

@@ -33,9 +33,6 @@ export default {
   width: 280px;
 }
 @media (max-width: 768px) {
-  .foto {
-    width: 100%;
-  }
   .myfoto {
     border-radius: 50%;
     height: 200px;

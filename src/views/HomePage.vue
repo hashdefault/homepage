@@ -71,16 +71,10 @@ explorando tecnologias e linguagens como PHP.
 .description {
   width: 65%;
   padding: 25px;
-  background-color: rgb(80,80,80);
+  background-color: rgb(80, 80, 80);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
-.description ul {
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-  background-color: rgb(45, 45, 45);
-}
+
 .description ul li {
   list-style-type: none;
   text-align: left;
@@ -119,9 +113,9 @@ p::after {
   cursor: pointer;
   text-decoration: none;
 }
-  .ref_link:hover {
-    text-decoration: underline;
-  }
+.ref_link:hover {
+  text-decoration: underline;
+}
 
 @keyframes blink {
   0%,
@@ -131,12 +125,6 @@ p::after {
   50.1%,
   100% {
     opacity: 0;
-  }
-}
-@media (max-width: 768px) {
-  .description {
-    width: 65%;
-    padding: 0;
   }
 }
 </style>

@@ -350,12 +350,6 @@ img {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .description {
-    width: 90%;
-  }
-  .table_container {
-    width: 90%;
-  }
   img {
     padding: 5px;
     height: 40px;

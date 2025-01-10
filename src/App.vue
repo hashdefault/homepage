@@ -13,8 +13,8 @@
       <TechStackDescription :isTechStackActive="isTechStackActive" />
     </div>
     <div class="illustration">
-      <img src="./assets/gifs/morecoffee.gif">
-      <img src="./assets/gifs/catscafe-penguin.gif" width='250'>
+      <img src="./assets/gifs/morecoffee.gif" />
+      <img src="./assets/gifs/catscafe-penguin.gif" width="250" />
     </div>
     <div class="medias">
       <SocialMedia />
@@ -77,7 +77,7 @@ export default {
 .colorLight {
   /*background-image: url("./assets/gifs/trex-pc.gif");
   background-size: 150px; */
-  background-color: rgb(40,40,40);
+  background-color: rgb(40, 40, 40);
   width: 100%;
   display: flex;
   align-items: center;
@@ -103,8 +103,8 @@ export default {
 }
 .illustration {
   padding: 0px 25px;
-  background-color: rgb(80,80,80);
-  display:flex;
+  background-color: rgb(80, 80, 80);
+  display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
@@ -156,23 +156,7 @@ body {
   background-color: rgb(80, 80, 80);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
-
 @media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    width: 95%;
-  }
-  body {
-    width: 100%;
-  }
-  .colorLight {
-    background: linear-gradient(
-      to left,
-      rgb(40, 40, 40) 12%,
-      rgb(60, 60, 60) 12%,
-      rgb(60, 60, 60) 88%,
-      rgb(40, 40, 40) 88%
-    );
-  }
+  max-width: 80%;
 }
 </style>
