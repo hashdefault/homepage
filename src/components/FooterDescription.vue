@@ -34,15 +34,4 @@ hr {
   border: none;
 }
 
-@media (max-width: 1024px) {
-  .footer-description {
-    background: linear-gradient(
-      to left,
-      rgb(0, 0, 0) 12%,
-      rgb(80, 80, 80) 12%,
-      rgb(80, 80, 80) 88%,
-      rgb(0, 0, 0) 88%
-    );
-  }
-}
 </style>

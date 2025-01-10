@@ -20,6 +20,7 @@ export default {
   width: 65%;
   padding:25px;
   border-left: 2px solid rgba(0, 255, 255, 0.7);
+  margin:-1px;
 }
 h2 {
   font-size: 36px;

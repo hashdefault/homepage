@@ -12,9 +12,9 @@
       <HoverButtons @activateTech="handleActivateTech" />
       <TechStackDescription :isTechStackActive="isTechStackActive" />
     </div>
-    <div class="illustration">
-      <img src="./assets/gifs/morecoffee.gif" />
-      <img src="./assets/gifs/catscafe-penguin.gif" width="250" />
+    <div class="illustration"  >
+      <img class='gifs_illustration' src="./assets/gifs/morecoffee.gif" />
+      <img class='gifs_illustration' src="./assets/gifs/catscafe-penguin.gif" width="250" />
     </div>
     <div class="medias">
       <SocialMedia />
@@ -156,7 +156,16 @@ body {
   background-color: rgb(80, 80, 80);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
+
 @media (max-width: 1024px) {
-  max-width: 80%;
+  .cointainer {
+    max-width: 80%;
+  }
+  .illustration {
+    max-width: 80%;
+  }
+  .gifs_illustration {
+    width: 70%;
+  }
 }
 </style>

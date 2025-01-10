@@ -275,6 +275,7 @@ export default {
   justify-content: flex-start;
   background-color: rgb(80,80,80);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
+  margin:-1px;
 }
 i {
   color: rgb(0, 255, 255);
@@ -329,7 +330,7 @@ img {
 
 @media (min-width: 0px) and (max-width: 768px) {
   .description {
-    width: 90%;
+    width: 65%;
   }
   .table_container {
     width: 80%;

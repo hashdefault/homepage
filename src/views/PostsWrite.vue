@@ -43,7 +43,9 @@ export default {
   flex-direction: column;
   align-items: center;
   flex: 1;
-  background-color: rgb(80,80,80);
+  background-color: rgb(80, 80, 80);
+  border-left: 2px solid rgba(0, 255, 255,0.8);
+  margin:-1px;
 }
 .art {
   color: white;
@@ -59,8 +61,7 @@ export default {
 
 @media (max-width: 768px) {
   .description {
-    width: 60%;
-    padding: 0;
+    width: 65%;
   }
 }
 </style>
