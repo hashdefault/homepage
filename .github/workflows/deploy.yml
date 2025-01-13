@@ -17,7 +17,7 @@ jobs:
           npm build
 
       - name: S3 Sync
-        uses: jakejarvis/s3-sinc-action@v0.5.1
+        uses: jakejarvis/s3-sync-action@v0.5.1
         with:
           args: --ac1 public-read --delete
         env:
