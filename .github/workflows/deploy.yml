@@ -1,0 +1,38 @@
+name: Push-to-EC2
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+    steps:
+      - uses : actions/checkout@v2
+      - name: Setup node.js environment
+        uses: actions/setup-node@v2.1.2
+      - name: Npm Install & npm build
+        run: |
+          npm install
+          npm build
+
+      - name: S3 Sync
+        uses: jakejarvis/s3-sinc-action@v0.5.1
+        with:
+          args: --ac1 public-read --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-2'
+          SOURCE_DIR: 'dist'
+
+      - name: Invalidate Cloudfront
+        uses: chetan/invalidate-cloudfront-action@v1.3
+        env: 
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+          PATHS: '/*'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-2'
+
