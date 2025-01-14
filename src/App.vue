@@ -4,16 +4,17 @@
       <div class="nav">
         <NavBarHome />
       </div>
+      <div class="illustration">
+        <img class="gifs_illustration" src="./assets/gifs/morecoffee.gif" />
+        <br />
+        <img class="moving_image" src="./assets/gifs/zombie.gif" />
+      </div>
     </header>
     <div class="container">
       <HeaderDescription />
       <router-view />
       <HoverButtons @activateTech="handleActivateTech" />
       <TechStackDescription :isTechStackActive="isTechStackActive" />
-    </div>
-    <div class="illustration"  >
-      <img class='gifs_illustration' src="./assets/gifs/morecoffee.gif" />
-      <img class='gifs_illustration' src="./assets/gifs/catscafe-penguin.gif" width="250" />
     </div>
     <div class="medias">
       <SocialMedia />
@@ -38,6 +39,7 @@ export default {
   created() {
     document.title = "dev. lucas";
   },
+
   components: {
     //HomeFoto,
     HeaderDescription,
@@ -53,6 +55,11 @@ export default {
       gif: require("@/assets/gifs/monkeypc.webp"),
     };
   },
+
+  mounted() {
+    this.movingImages();
+  },
+
   computed: {
     backgroundStyle() {
       return {
@@ -61,6 +68,16 @@ export default {
     },
   },
   methods: {
+    movingImages() {
+      const movs = document.getElementsByClassName("moving_image");
+      let i = 0;
+      for (const mov of movs) {
+        mov.style.top = `${i}px`;
+        i += 270;
+        console.log(mov.style.top);
+      }
+    },
+
     handleActivateTech() {
       if (this.isTechStackActive) {
         this.isTechStackActive = false;
@@ -92,6 +109,24 @@ export default {
   padding: 25px;
   background-color: rgb(80, 80, 80);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
+  z-index: 2;
+}
+.moving_image {
+  position: relative;
+  width: 60px; /* Adjust size as needed */
+  height: auto;
+  animation: moveImage 20s linear infinite;
+  z-index: 1;
+  overflow: hidden;
+}
+
+@keyframes moveImage {
+  from {
+    left: -200px;
+  }
+  to {
+    left: 200px; /* Adjust for desired endpoint */
+  }
 }
 .header {
   width: 100%;
@@ -99,6 +134,7 @@ export default {
   align-self: center;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 }
 .illustration {
   padding: 0px 25px;
@@ -109,6 +145,7 @@ export default {
   align-self: center;
   width: 65%;
   border-left: 2px solid rgba(0, 255, 255, 0.7);
+  z-index: 2;
 }
 #app {
   font-family: Nunito, Rubik, Mulish, sans-serif;
@@ -130,6 +167,7 @@ export default {
   align-items: center;
   flex-direction: column;
   align-self: center;
+  z-index: 2;
 }
 .footer {
   width: 100%;
@@ -139,6 +177,7 @@ export default {
   align-self: flex-end;
   justify-content: space-between;
   align-content: flex-end;
+  z-index: 2;
 }
 body {
   margin: 0;
@@ -154,7 +193,11 @@ body {
   padding: 25px;
   background-color: rgb(80, 80, 80);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
-  margin:-1px;
+  margin: -1px;
+  z-index: 2;
+}
+.gifs_illustration {
+  width: 250px;
 }
 
 @media (max-width: 1024px) {
@@ -162,10 +205,10 @@ body {
     max-width: 80%;
   }
   .illustration {
-    max-width: 80%;
+    max-width: 70%;
   }
   .gifs_illustration {
-    width: 70%;
+    width: 50%;
   }
 }
 </style>

@@ -57,13 +57,12 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .logo {
   display: flex;
   flex-direction: row;
   border-radius: 8px;
-  padding: 5px;
+  padding: 1px;
   float: right;
 }
 nav.navbar {
