@@ -59,10 +59,6 @@ export default {
     };
   },
 
-  mounted() {
-    this.movingImages();
-  },
-
   computed: {
     backgroundStyle() {
       return {
@@ -71,15 +67,6 @@ export default {
     },
   },
   methods: {
-    movingImages() {
-      const movs = document.getElementsByClassName("moving_image");
-      let i = 0;
-      for (const mov of movs) {
-        mov.style.top = `${i}px`;
-        i += 270;
-        console.log(mov.style.top);
-      }
-    },
 
     handleActivateTech() {
       if (this.isTechStackActive) {
@@ -256,5 +243,14 @@ body {
     padding: 0 25px;
     margin-bottom: -1px;
   }
+
+@keyframes moveImage {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 150px; /* Adjust for desired endpoint */
+  }
+}
 }
 </style>
