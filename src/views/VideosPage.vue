@@ -36,12 +36,16 @@ export default {
   flex-direction: column;
   align-items: center;
   flex: 1;
-  background-color: rgb(20,20,20);
-  border-left: 2px solid rgba(0,255,255,0.8);
+  background-color: rgb(20, 20, 20);
+  border-left: 2px solid rgba(0, 255, 255, 0.8);
 }
 p {
   color: white;
   font-family: "Courier Prime";
 }
-
+@media (max-width: 1024px) {
+  .description {
+    width: 80%;
+  }
+}
 </style>

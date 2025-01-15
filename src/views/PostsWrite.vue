@@ -1,12 +1,11 @@
 <template>
-  <div class="description">
+  <div class="description" id='ref_id'>
     <article class="art">
       <h3>ano 2024, 09 de janeiro</h3>
       <p>
         Para este ano planejei e tracei algumas metas e objetivos mais
         ambiciosos do que os últimos que estive buscando na minha carreira,
-        pretendo trabalhar e conhecer mais pessoas e ferramentas de tecnologia
-        esse ano, será muito lento e árduo, mas é como deve ser. Entre as
+        pretendo trabalhar e conhecer mais pessoas e ferramentas de tecnologia esse ano, será muito lento e árduo, mas é como deve ser. Entre as
         principais ferramentas que quero me interar sobre I.A. está no topo da
         lista, com o mercado cada vez mais tendendo para este nicho, sendo um
         profissional de técnologia não se deve deixar de lado um assunto tão
@@ -43,7 +42,7 @@ export default {
   flex-direction: column;
   align-items: center;
   flex: 1;
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(20, 20, 20);
   border-left: 2px solid rgba(0, 255, 255,0.8);
   margin:-1px;
 }
@@ -61,7 +60,7 @@ export default {
 
 @media (max-width: 768px) {
   .description {
-    width: 55%;
+    width: 80%;
   }
 }
 </style>
