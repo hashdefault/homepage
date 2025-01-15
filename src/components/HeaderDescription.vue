@@ -3,7 +3,7 @@
     <RouterLink to="/"><img class="myfoto" :src="myfoto" /></RouterLink>
     <h2>
       Lucas G. Bueno<br />
-      Desenvolvedor Fullstack
+      <p class="desc_name">Desenvolvedor Full Stack</p>
     </h2>
   </div>
 </template>
@@ -26,24 +26,33 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header-description {
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(20, 20, 20);
   color: white;
   display: flex;
   flex-direction: row;
-  width: 65%;
+  width: 55%;
   padding: 25px;
   border-left: 2px solid rgba(0, 255, 255, 0.7);
   justify-content: flex-start;
   margin: -1px;
 }
 h2 {
-  font-size: 36px;
+  font-size: 56px;
+  width: 100%;
+  margin-left: 90px;
+  margin-top: 20px;
+}
+.desc_name {
+  font-size: 22px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  margin-top: -5px;
 }
 
 .foto {
   width: 100%;
   text-align: left;
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(20, 20, 20);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
   display: flex;
   justify-content: space-between;
@@ -52,34 +61,31 @@ h2 {
 }
 .myfoto {
   border-radius: 50%;
-  height: 220px;
-  width: 220px;
+  height: 180px;
+  width: 180px;
   margin-left: 50px;
-}
-h2 {
-  margin-left: 90px;
-  margin-top: 50px;
 }
 @media (max-width: 1024px) {
   h2 {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    align-self: center;
+    font-size: 40px;
     margin: 10px 0px;
-    text-align: center;;
+    text-align: center;
     padding: 0;
+  }
+  .desc_name {
+    font-size: 18px;
   }
   .header-description {
     flex-direction: column;
     align-items: center;
     align-self: center;
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(20, 20, 20);
+    width:80%;
   }
   .myfoto {
     border-radius: 50%;
-    height: 140px;
-    width: 140px;
+    height: 110px;
+    width: 110px;
     margin: 0px;
     padding: 0;
   }

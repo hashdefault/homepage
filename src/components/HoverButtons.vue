@@ -35,23 +35,23 @@ export default {
   padding: 25px;
   align-self: center;
   align-items: center;
-  background-color: rgb(80, 80, 80);
-  width: 65%;
+  justify-content:center;
+  background-color: rgb(20, 20, 20);
+  width: 55%;
   border-left: 2px solid rgba(0, 255, 255, 0.7);
   margin:-1px;
 }
 .hovers {
   position: relative;
-  padding: 5px 40px;
-  margin: 10px 100px;
-  background: none;
+  padding:2px 20px;
+  margin:0 60px;
   color: white;
   text-decoration: none;
   font-size: 20px;
   cursor: pointer;
   border: none;
-  font-family: Consolas, monospace;
-  font-weight: 700;
+  font-family: Nunito, monospace;
+  font-weight: 600;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -72,6 +72,7 @@ export default {
 @media (max-width: 1024px) {
   .description {
     justify-content: space-between;
+    width:80%;
   }
   .hovers {
     font-size: 16px;

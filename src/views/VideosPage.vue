@@ -30,13 +30,13 @@ export default {
   justify-content: flex-start;
   color: white;
   font-family: "Courier Prime";
-  width: 65%;
+  width: 55%;
   display: flex;
   align-self: center;
   flex-direction: column;
   align-items: center;
   flex: 1;
-  background-color: rgb(80,80,80);
+  background-color: rgb(20,20,20);
   border-left: 2px solid rgba(0,255,255,0.8);
 }
 p {

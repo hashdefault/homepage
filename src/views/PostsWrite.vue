@@ -37,7 +37,7 @@ export default {
   justify-content: flex-start;
   color: white;
   font-family: "Courier Prime";
-  width: 65%;
+  width: 55%;
   display: flex;
   align-self: center;
   flex-direction: column;
@@ -61,7 +61,7 @@ export default {
 
 @media (max-width: 768px) {
   .description {
-    width: 65%;
+    width: 55%;
   }
 }
 </style>

@@ -270,12 +270,12 @@ export default {
 .description {
   display: flex;
   padding: 25px;
-  width: 65%;
+  width: 55%;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgb(80,80,80);
+  background-color: rgb(20, 20, 20);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
-  margin:-1px;
+  margin: -1px;
 }
 i {
   color: rgb(0, 255, 255);
@@ -329,6 +329,9 @@ img {
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
+  .description {
+    width: 80%;
+  }
   img {
     padding: 2px;
     height: 20px;
@@ -345,6 +348,9 @@ img {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  .description {
+    width: 80%;
+  }
   img {
     padding: 5px;
     height: 40px;

@@ -71,101 +71,20 @@ nav.navbar {
   display: block;
   text-align: right;
   width: 100%;
-  background-color: rgb(80, 80, 80);
-}
-.menu-list {
-  display: flex;
-  flex-direction: row;
-}
-nav.navbar ul.menu li {
-  color: white;
-  padding: 2px 0px;
-  display: flex;
-  flex-direction: row;
-  margin-left: 40px;
-  justify-content: space-between;
+  background-color: rgb(20, 20, 20);
 }
 i {
   padding-right: 3px;
-}
-nav.navbar ul.menu li a {
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-}
-nav.navbar ul.menu a.btn-link {
-  padding: 8px;
-  border-radius: 8px;
-  transition: all 500ms;
-}
-nav.navbar ul.menu a.btn-link:hover {
-  background-color: rgba(140, 140, 140, 0.2);
-}
-#bars-menu {
-  display: none;
-  padding: 6px 7px;
-}
-.navbar ul.menu li.home {
-  display: none;
 }
 @media (max-width: 768px) {
   .logo {
     display: none;
   }
-  .navbar ul.menu li.home {
-    display: flex;
-  }
-  .filled {
-    width: 80%;
-  }
   nav.navbar {
     padding: 2px;
     border-radius: 10px;
     display: flex;
-  }
-  #bars-menu {
-    display: block;
-    border-radius: 6px;
-  }
-  .menu-list {
-    display: none;
-    padding: 3px 3px;
-    margin: 0;
-    flex-direction: column;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    font-size: 15px;
-  }
-  .show {
-    display: flex;
-  }
-  ul.menu {
-    margin: 0;
-    padding: 2px 2px;
-    border-radius: 10px;
-    background-color: rgba(140, 140, 140, 0.2);
-    border-left: 1px solid grey;
-    border-bottom: 1px solid grey;
-    display: flex;
-    flex-direction: column;
-  }
-  ul.menu .menu-list li.links,
-  ul.menu .menu-list li.home {
-    padding: 0;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    width: 100%;
-  }
-
-  a.btn-link,
-  a.btn-link {
-    width: 100%;
-    padding: 5px 5px;
-    margin: 0;
+    width:80%;
   }
 }
 </style>

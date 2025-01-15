@@ -11,8 +11,11 @@
       </div>
     </header>
     <div class="container">
+      <div class="banner_desc">
+        <p>i use arch, btw</p>
+      </div>
       <HeaderDescription />
-      <router-view />
+      <router-view :class="smooth - view" />
       <HoverButtons @activateTech="handleActivateTech" />
       <TechStackDescription :isTechStackActive="isTechStackActive" />
     </div>
@@ -90,10 +93,39 @@ export default {
 </script>
 
 <style>
+.smooth-view {
+  opacity: 1;
+}
+
+.banner_desc {
+  text-align: center;
+  backdrop-filter: blur(8px);
+  padding: 0px 25px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 55%;
+  background-color: rgb(20, 20, 20);
+  border-left: 2px solid rgba(0, 255, 255, 0.7);
+  z-index: 2;
+}
+.banner_desc p {
+  text-align: center;
+  padding: 10px 20px;
+  width: 40%;
+  background-color: rgba(50, 50, 50, 0.6);
+  border-radius: 15px;
+  border: 1px solid rgba(50, 50, 50, 0.6);
+  color: rgb(240, 240, 240);
+  font-size: 18px;
+  font-family: Nunito, monospace;
+}
+
 .colorLight {
   /*background-image: url("./assets/gifs/trex-pc.gif");
   background-size: 150px; */
-  background-color: rgb(40, 40, 40);
+  background-color: rgb(20, 20, 20);
   width: 100%;
   display: flex;
   align-items: center;
@@ -105,15 +137,15 @@ export default {
   align-self: center;
   display: flex;
   flex-direction: row;
-  width: 65%;
-  padding: 25px;
-  background-color: rgb(80, 80, 80);
+  width: 55%;
+  padding: 0 25px;
+  background-color: rgb(20, 20, 20);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
   z-index: 2;
 }
 .moving_image {
   position: relative;
-  width: 60px; /* Adjust size as needed */
+  width: 70px; /* Adjust size as needed */
   height: auto;
   animation: moveImage 20s linear infinite;
   z-index: 1;
@@ -137,13 +169,13 @@ export default {
   z-index: 2;
 }
 .illustration {
-  padding: 0px 25px;
-  background-color: rgb(80, 80, 80);
+  padding: 0px 25px 100px 25px;
+  background-color: rgb(20, 20, 20);
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
-  width: 65%;
+  width: 55%;
   border-left: 2px solid rgba(0, 255, 255, 0.7);
   z-index: 2;
 }
@@ -185,30 +217,44 @@ body {
 }
 .medias {
   flex-direction: column;
-  flex: 1;
   display: flex;
   align-self: center;
   align-items: center;
-  width: 65%;
+  width: 55%;
   padding: 25px;
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(20, 20, 20);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
   margin: -1px;
   z-index: 2;
 }
 .gifs_illustration {
-  width: 250px;
+  width: 350px;
 }
 
 @media (max-width: 1024px) {
-  .cointainer {
-    max-width: 80%;
-  }
   .illustration {
-    max-width: 70%;
+    width: 100%;
   }
   .gifs_illustration {
-    width: 50%;
+    width: 70%;
+  }
+  .header {
+    width: 80%;
+    padding: 0 25px;
+  }
+  .medias {
+    width: 80%;
+  }
+  .banner_desc {
+    width: 80%;
+  }
+  .banner_desc p {
+    width: 80%;
+  }
+  .nav {
+    width: 100%;
+    padding: 0 25px;
+    margin-bottom: -1px;
   }
 }
 </style>

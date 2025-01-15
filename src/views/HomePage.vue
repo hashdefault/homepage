@@ -68,11 +68,11 @@ explorando tecnologias e linguagens como PHP.
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 .description {
-  width: 65%;
+  width: 55%;
   padding: 25px;
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(20, 20, 20);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
-  margin:-1px;
+  margin: -1px;
 }
 
 .description ul li {
@@ -126,5 +126,11 @@ p::after {
   100% {
     opacity: 0;
   }
+}
+@media (max-width: 1024px) {
+  .description {
+    width:80%;
+  }
+
 }
 </style>

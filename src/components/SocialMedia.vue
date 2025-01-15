@@ -24,28 +24,31 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .social-media {
-  background-color: rgb(80, 80, 80);
-  display:flex;
+  background-color: rgb(20, 20, 20);
+  display: flex;
   flex-direction: column;
   width: 100%;
   color: white;
   text-align: center;
-  padding-top: 20px;
-  margin-top: 100px;
+  padding-top: 10px;
 }
 .link {
-  color: rgb(0,255,255);
+  color: rgb(0, 255, 255);
   text-decoration: none;
   cursor: pointer;
   padding: 4px;
   border-radius: 4px;
   font-weight: bold;
 }
+p {
+  margin: 10px;
+}
 .link:hover {
-  background-color: rgba(0,255,255, 0.1);
+  background-color: rgba(0, 255, 255, 0.1);
   transition: all 0.6s;
 }
 i {
   padding-right: 5px;
 }
+
 </style>
