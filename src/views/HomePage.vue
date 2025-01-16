@@ -70,8 +70,7 @@ explorando tecnologias e linguagens como PHP.
 .description {
   width: 55%;
   padding: 25px;
-  background-color: rgb(20, 20, 20);
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
+  background-color: rgb(22, 22, 22);
   margin: -1px;
 }
 

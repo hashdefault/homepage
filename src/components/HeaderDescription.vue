@@ -23,16 +23,14 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header-description {
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(22, 22, 22);
   color: white;
   display: flex;
   flex-direction: row;
   width: 55%;
   padding: 25px;
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
   justify-content: flex-start;
   margin: -1px;
 }
@@ -52,8 +50,7 @@ h2 {
 .foto {
   width: 100%;
   text-align: left;
-  background-color: rgb(20, 20, 20);
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
+  background-color: rgb(22, 22, 22);
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -79,7 +76,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     align-self: center;
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(22, 22, 22);
     width:80%;
   }
   .myfoto {

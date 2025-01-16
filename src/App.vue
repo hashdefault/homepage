@@ -3,6 +3,7 @@
     <header class="header">
       <div class="nav">
         <NavBarHome />
+        <HoverButtons @activateTech="handleActivateTech" />
       </div>
       <div class="illustration">
         <img class="gifs_illustration" src="./assets/gifs/morecoffee.gif" />
@@ -15,9 +16,9 @@
         <p>i use arch, btw</p>
       </div>
       <HeaderDescription />
-      <router-view :class="smooth - view" />
-      <HoverButtons @activateTech="handleActivateTech" />
-      <TechStackDescription :isTechStackActive="isTechStackActive" />
+      <transition name="fade" mode="out-in">
+        <router-view :class="smooth - view" />
+      </transition>
     </div>
     <div class="medias">
       <SocialMedia />
@@ -29,12 +30,10 @@
 </template>
 
 <script>
-//import HomeFoto from "./components/HomeFoto.vue";
 import HeaderDescription from "./components/HeaderDescription.vue";
 import FooterDescription from "./components/FooterDescription.vue";
 import SocialMedia from "./components/SocialMedia.vue";
 import NavBarHome from "./components/NavBarHome.vue";
-import TechStackDescription from "./components/TechStackDescription.vue";
 import HoverButtons from "./components/HoverButtons.vue";
 
 export default {
@@ -44,19 +43,11 @@ export default {
   },
 
   components: {
-    //HomeFoto,
     HeaderDescription,
     FooterDescription,
     SocialMedia,
     NavBarHome,
-    TechStackDescription,
     HoverButtons,
-  },
-  data() {
-    return {
-      isTechStackActive: false,
-      gif: require("@/assets/gifs/monkeypc.webp"),
-    };
   },
 
   computed: {
@@ -66,24 +57,18 @@ export default {
       };
     },
   },
-  methods: {
-
-    handleActivateTech() {
-      if (this.isTechStackActive) {
-        this.isTechStackActive = false;
-      } else {
-        this.isTechStackActive = true;
-      }
-    },
-  },
 };
 </script>
 
 <style>
-.smooth-view {
-  opacity: 1;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.5s ease;
 }
-
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 .banner_desc {
   text-align: center;
   backdrop-filter: blur(8px);
@@ -93,8 +78,7 @@ export default {
   align-self: center;
   justify-content: center;
   width: 55%;
-  background-color: rgb(20, 20, 20);
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
+  background-color: rgb(22, 22, 22);
   z-index: 2;
 }
 .banner_desc p {
@@ -110,9 +94,13 @@ export default {
 }
 
 .colorLight {
-  /*background-image: url("./assets/gifs/trex-pc.gif");
-  background-size: 150px; */
-  background-color: rgb(20, 20, 20);
+  background: linear-gradient(
+    to right,
+    rgb(22, 22, 22) 18.9%,
+    rgba(0, 255, 255, 0.7) 18.9%,
+    rgba(0, 255, 255, 0.7) 19%,
+    rgb(22, 22, 22) 19%
+  );
   width: 100%;
   display: flex;
   align-items: center;
@@ -126,13 +114,12 @@ export default {
   flex-direction: row;
   width: 55%;
   padding: 0 25px;
-  background-color: rgb(20, 20, 20);
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
+  background-color: rgb(22, 22, 22);
   z-index: 2;
 }
 .moving_image {
   position: relative;
-  width: 70px; /* Adjust size as needed */
+  width: 70px;
   height: auto;
   animation: moveImage 20s linear infinite;
   z-index: 1;
@@ -144,7 +131,7 @@ export default {
     left: -200px;
   }
   to {
-    left: 200px; /* Adjust for desired endpoint */
+    left: 200px;
   }
 }
 .header {
@@ -157,13 +144,12 @@ export default {
 }
 .illustration {
   padding: 0px 25px 100px 25px;
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(22, 22, 22);
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
   width: 55%;
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
   z-index: 2;
 }
 #app {
@@ -209,8 +195,7 @@ body {
   align-items: center;
   width: 55%;
   padding: 25px;
-  background-color: rgb(20, 20, 20);
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
+  background-color: rgb(22, 22, 22);
   margin: -1px;
   z-index: 2;
 }
@@ -219,6 +204,11 @@ body {
 }
 
 @media (max-width: 1024px) {
+  .colorLight {
+    background:none;
+    background-color:rgb(22,22,22);
+  }
+
   .illustration {
     width: 100%;
   }
@@ -244,13 +234,13 @@ body {
     margin-bottom: -1px;
   }
 
-@keyframes moveImage {
-  from {
-    left: -150px;
+  @keyframes moveImage {
+    from {
+      left: -150px;
+    }
+    to {
+      left: 150px;
+    }
   }
-  to {
-    left: 150px; /* Adjust for desired endpoint */
-  }
-}
 }
 </style>

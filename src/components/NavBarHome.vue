@@ -59,18 +59,15 @@ export default {
 
 <style scoped>
 .logo {
-  display: flex;
-  flex-direction: row;
   border-radius: 8px;
   padding: 1px;
-  float: right;
+  float: left;
 }
 nav.navbar {
   font-weight: 600;
   color: white;
   display: block;
   text-align: right;
-  width: 100%;
   background-color: rgb(20, 20, 20);
 }
 i {
@@ -84,7 +81,7 @@ i {
     padding: 2px;
     border-radius: 10px;
     display: flex;
-    width:80%;
+    width:0%;
   }
 }
 </style>

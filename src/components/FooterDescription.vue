@@ -1,7 +1,7 @@
 <template>
   <div class="footer-description">
     <hr />
-    <p>2024 All rights reserved</p>
+    <p> © 2025 dev. lucas.  All rights reserved</p>
   </div>
 </template>
 <script>
@@ -15,21 +15,20 @@ export default {
 .footer-description {
   width: 55%;
   padding: 25px;
-  color: white;
+  color: rgba(255,255,255,0.7);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-self: center;
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(22, 22, 22);
   z-index: 1;
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
 }
 hr {
   width: 90%;
   text-align: center;
   display: flex;
   height: 1px;
-  background-color: white;
+  background-color: rgba(255,255,255,0.7);
   border: none;
 }
 @media (max-width: 1024px) {

@@ -24,7 +24,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .social-media {
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(22, 22, 22);
   display: flex;
   flex-direction: column;
   width: 100%;

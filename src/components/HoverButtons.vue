@@ -1,6 +1,9 @@
 <template>
   <div class="description">
-    <a class="btn hovers" @click="activateDivTech">Tech Stack</a>
+    <RouterLink to="/" class="btn home_link"
+      ><i class="fa fa-home"></i>
+    </RouterLink>
+    <RouterLink to="/techstack" class="btn hovers">Tech Stack </RouterLink>
     <RouterLink to="/posts" class="btn hovers">Posts </RouterLink>
     <RouterLink to="/videos" class="btn hovers">Videos </RouterLink>
   </div>
@@ -30,28 +33,32 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 .description {
-  display: flex;
-  flex-direction: row;
-  padding: 25px;
-  align-self: center;
-  align-items: center;
-  justify-content:center;
+  padding: 5px;
   background-color: rgb(20, 20, 20);
-  width: 55%;
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
-  margin:-1px;
+  margin: 20px;
+  text-align: right;
+  float: left;
+  width: 100%;
+}
+.home_link {
+  color: white;
+  float: left;
+  cursor: pointer;
+  margin-right: 10px;
+  display: none;
+  padding: 3px;
 }
 .hovers {
   position: relative;
-  padding:2px 20px;
-  margin:0 60px;
+  padding: 2px 20px;
+  margin: 0 20px;
   color: white;
   text-decoration: none;
   font-size: 20px;
   cursor: pointer;
   border: none;
-  font-family: Nunito, monospace;
-  font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -71,13 +78,24 @@ export default {
 
 @media (max-width: 1024px) {
   .description {
-    justify-content: space-between;
-    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 0px;
+    margin: 0px;
   }
   .hovers {
     font-size: 16px;
-    padding: 2px 5px;
-    margin: 0px 1px;
+    margin: 8px;
+    padding: 4px;
+    text-align: center;
+  }
+  .home_link {
+    display: flex;
+    margin-right: 15px;
+    padding: 3px;
   }
 }
 </style>

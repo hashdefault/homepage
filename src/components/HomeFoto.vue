@@ -22,7 +22,7 @@ export default {
 .foto {
   width: 100%;
   text-align: left;
-  background-color: rgb(80, 80, 80);
+  background-color: rgb(22, 22, 22);
   border-left: 2px solid rgba(0, 255, 255, 0.7);
   display:flex;
   justify-content: space-between;

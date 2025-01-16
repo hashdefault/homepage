@@ -1,6 +1,6 @@
 <template>
   <div class="description">
-    <table class="table_container" :class="{ visible: isTechStackActive }">
+    <table class="table_container" >
       <tbody>
         <tr>
           <td class="desc_td"><i class="fa fa-arrow-right"></i> Frontend</td>
@@ -273,8 +273,7 @@ export default {
   width: 55%;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgb(20, 20, 20);
-  border-left: 2px solid rgba(0, 255, 255, 0.7);
+  background-color: rgb(22, 22, 22);
   margin: -1px;
 }
 i {
@@ -296,15 +295,8 @@ i {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  transition: opacity 2s, max-height 2s;
-  opacity: 0;
-  max-height: 0;
 }
 
-.table_container.visible {
-  opacity: 1;
-  max-height: 700px;
-}
 .table_container td {
   padding: 12px;
 }
