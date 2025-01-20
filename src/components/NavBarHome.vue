@@ -68,7 +68,7 @@ nav.navbar {
   color: white;
   display: block;
   text-align: right;
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(22, 22, 22);
 }
 i {
   padding-right: 3px;
