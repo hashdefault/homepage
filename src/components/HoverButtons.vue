@@ -34,7 +34,7 @@ export default {
 
 .description {
   padding: 5px;
-  background-color: rgb(20, 20, 20);
+  background-color: rgb(22, 22, 22);
   margin: 20px;
   text-align: right;
   float: left;
