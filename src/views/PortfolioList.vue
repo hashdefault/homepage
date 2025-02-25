@@ -1,9 +1,9 @@
 <template>
   <div class="description">
     <div class='portfolio work1'>
-      <a href='https://news.bitsbylucas.com'>
+      <a href='https://news.bitsbylucas.com' target='_blank'>
         <img :src="work1" class='works'>
-        <h4>Website de notícias</h4>
+        <h4>Website de Notícias</h4>
       </a>
     </div>
   </div>
@@ -29,15 +29,29 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
+h4 {
+  color: white;
+  font-size: 20px;
+  margin-top: 5px;
+  font-family: "Courier Prime";
+  font-style: normal;
+}
+
+a {
+  text-align: center;
+  padding: 0;
+  text-decoration: none;
+}
+
 .portfolio {
-  border: 3px solid cyan;
-  border-radius: 10px;
-  width: 320px;
+  width: 310px;
 }
 
 .works {
   width: 300px;
-  padding: 10px;
+  padding: 5px;
+  border: 4px solid cyan;
+  border-radius: 10px;
 }
 
 .description {
