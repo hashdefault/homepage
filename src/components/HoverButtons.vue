@@ -5,7 +5,7 @@
     </RouterLink>
     <RouterLink to="/techstack" class="btn hovers">Tech Stack </RouterLink>
     <RouterLink to="/posts" class="btn hovers">Posts </RouterLink>
-    <RouterLink to="/videos" class="btn hovers">Videos </RouterLink>
+    <RouterLink to="/portfolio" class="btn hovers">Portfólio </RouterLink>
   </div>
 </template>
 <script setup>
