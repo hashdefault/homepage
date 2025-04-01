@@ -13,7 +13,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .footer-description {
-  width: 55%;
+  width: 40%;
   padding: 25px;
   color: rgba(255,255,255,0.7);
   text-align: center;
@@ -24,7 +24,7 @@ export default {
   z-index: 1;
 }
 hr {
-  width: 90%;
+  width: 80%;
   text-align: center;
   display: flex;
   height: 1px;
@@ -33,7 +33,7 @@ hr {
 }
 @media (max-width: 1024px) {
   .footer-description {
-    width: 80%;
+    width: 70%;
   }
 }
 </style>

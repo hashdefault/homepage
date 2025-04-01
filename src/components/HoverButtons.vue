@@ -1,11 +1,11 @@
 <template>
   <div class="description">
-    <RouterLink to="/" class="btn home_link"
-      ><i class="fa fa-home"></i>
+    <RouterLink to="/" class="btn home_link"><i class="fa fa-home"></i>
     </RouterLink>
-    <RouterLink to="/techstack" class="btn hovers">Tech Stack </RouterLink>
+    <RouterLink to="/portfolio" class="btn hovers">Works </RouterLink>
     <RouterLink to="/posts" class="btn hovers">Posts </RouterLink>
-    <RouterLink to="/portfolio" class="btn hovers">Portfólio </RouterLink>
+    <RouterLink to="/techstack" class="btn hovers">Tech Stack </RouterLink>
+    <RouterLink to="/digitalarts" class="btn hovers">Digital Arts </RouterLink>
   </div>
 </template>
 <script setup>
@@ -15,7 +15,7 @@ import { RouterLink } from "vue-router";
 <script>
 export default {
   name: "HoverButtons",
-  mounted() {},
+  mounted() { },
   data() {
     return {};
   },
@@ -24,7 +24,7 @@ export default {
       this.$emit("activateTech");
     },
   },
-  created() {},
+  created() { },
 };
 </script>
 
@@ -36,10 +36,10 @@ export default {
   padding: 5px;
   background-color: rgb(22, 22, 22);
   margin: 20px;
-  text-align: right;
-  float: left;
+  text-align: center;
   width: 100%;
 }
+
 .home_link {
   color: white;
   float: left;
@@ -48,6 +48,7 @@ export default {
   display: none;
   padding: 3px;
 }
+
 .hovers {
   position: relative;
   padding: 2px 20px;
@@ -62,6 +63,7 @@ export default {
   border-radius: 8px;
   overflow: hidden;
 }
+
 .hovers::after {
   content: "";
   position: absolute;
@@ -72,6 +74,7 @@ export default {
   background-color: rgb(0, 255, 255);
   transition: width 0.3s ease-in-out;
 }
+
 .hovers:hover::after {
   width: 100%;
 }
@@ -86,12 +89,14 @@ export default {
     padding: 0px;
     margin: 0px;
   }
+
   .hovers {
     font-size: 16px;
     margin: 8px;
     padding: 4px;
     text-align: center;
   }
+
   .home_link {
     display: flex;
     margin-right: 15px;

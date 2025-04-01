@@ -56,12 +56,12 @@ a {
 
 .description {
   padding: 25px;
-  width: 60%;
+  width: 40%;
 }
 
 @media (max-width: 768px) {
   .description {
-    width: 80%;
+    width: 70%;
   }
 }
 </style>

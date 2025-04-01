@@ -270,7 +270,7 @@ export default {
 .description {
   display: flex;
   padding: 25px;
-  width: 55%;
+  width: 40%;
   flex-direction: column;
   justify-content: flex-start;
   background-color: rgb(22, 22, 22);
@@ -322,7 +322,7 @@ img {
 
 @media (min-width: 0px) and (max-width: 768px) {
   .description {
-    width: 80%;
+    width: 70%;
   }
   img {
     padding: 2px;
@@ -341,7 +341,7 @@ img {
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .description {
-    width: 80%;
+    width: 70%;
   }
   img {
     padding: 5px;

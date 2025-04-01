@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="logo">
       <RouterLink to="/"
-        ><img :src="logo" class="logo" width="120" height="40"
+        ><img :src="logo" class="logo" width="30" height="30"
       /></RouterLink>
     </div>
     <!--<ul class="menu" :class="{ filled: isFilled }">
@@ -33,7 +33,7 @@
 import { RouterLink } from "vue-router";
 </script>
 <script>
-import logo from "./../assets/images/logo.png";
+import logo from "./../assets/monkey.webp";
 export default {
   name: "NavBarHome",
   data() {
@@ -61,7 +61,6 @@ export default {
 .logo {
   border-radius: 8px;
   padding: 1px;
-  float: left;
 }
 nav.navbar {
   font-weight: 600;
@@ -79,7 +78,6 @@ i {
   }
   nav.navbar {
     padding: 2px;
-    border-radius: 10px;
     display: flex;
     width:0%;
   }

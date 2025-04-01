@@ -1,4 +1,9 @@
 <template>
+  <div class="banner_desc">
+    <p>i use arch, btw</p>
+  </div>
+  <HeaderDescription />
+
   <div class="description">
     <div class="btns-links lights">
       <a ref="link-p-code" class="btn btn-link p-code"> </a>
@@ -15,21 +20,22 @@
       <i class="fa fa-book"></i> O Mítico Homem-Mês, Frederick P. Brooks Jr.<br />
       <i class="fa fa-book"></i> Os Inovadores, Walter Isaacson<br />
       <i class="fa-brands fa-github"></i>
-      <a
-        class="ref_link"
-        href="https://github.com/kamranahmedse/developer-roadmap"
-        target="_blank"
-      >
+      <a class="ref_link" href="https://github.com/kamranahmedse/developer-roadmap" target="_blank">
         Developer Roadmap
       </a>
     </p>
   </div>
 </template>
 <script>
+import HeaderDescription from "./../components/HeaderDescription.vue";
 export default {
   name: "HomeDescription",
   mounted() {
     this.startTypingFirst();
+  },
+  components: {
+    HeaderDescription
+
   },
   data() {
     return {
@@ -68,7 +74,7 @@ explorando tecnologias e linguagens como PHP.
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 .description {
-  width: 55%;
+  width: 40%;
   padding: 25px;
   background-color: rgb(22, 22, 22);
   margin: -1px;
@@ -78,25 +84,33 @@ explorando tecnologias e linguagens como PHP.
   list-style-type: none;
   text-align: left;
 }
+
 .description p {
   font-family: Courier Prime, monospace;
   color: white;
   overflow: hidden;
+  line-height: 1.4;
+  margin-left: 10px;
+  font-size: 16px;
 }
+
 .description a.btn {
   margin-left: 25px;
   cursor: pointer;
   border-radius: 50%;
   border: none;
 }
+
 .description a.btn i {
   border-radius: 50%;
   border: none;
 }
+
 .subtitle {
   color: rgb(240, 240, 240);
   text-decoration-line: underline;
   text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
   text-decoration-color: rgb(0, 255, 255);
   width: 200px;
 }
@@ -107,28 +121,33 @@ p::after {
   display: inline-block;
   animation: blink 0.6s steps(2, start) infinite;
 }
+
 .ref_link {
   color: white;
   cursor: pointer;
   text-decoration: none;
 }
+
 .ref_link:hover {
   text-decoration: underline;
 }
 
 @keyframes blink {
+
   0%,
   50% {
     opacity: 1;
   }
+
   50.1%,
   100% {
     opacity: 0;
   }
 }
+
 @media (max-width: 1024px) {
   .description {
-    width:80%;
+    width: 70%;
   }
 
 }

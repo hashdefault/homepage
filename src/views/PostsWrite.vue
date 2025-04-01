@@ -48,7 +48,7 @@ export default {
   padding: 25px;
   color: white;
   font-family: "Courier Prime";
-  width: 55%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   background-color: rgb(22, 22, 22);
@@ -57,7 +57,7 @@ export default {
 
 @media (max-width: 768px) {
   .description {
-    width: 80%;
+    width: 70%;
   }
 }
 </style>
