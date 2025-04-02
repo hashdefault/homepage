@@ -1,6 +1,8 @@
 <template>
-  <div class='container' v-for="(art, index) in arts" :key='index'>
-    <img :src="art.art_url" class="art_image" alt="..." />
+  <div class='description'>
+    <div class='' v-for="(art, index) in arts" :key='index'>
+      <a :href='art.art_url' target='_blank'><img :src="art.art_url" class="art_image" alt="..." /> </a>
+    </div>
   </div>
 </template>
 <script>
@@ -13,24 +15,37 @@ export default {
   },
   methods: {
     importArts() {
-      const context = require.context("@/assets/arts", false, /\.(png|jpe?g|gif)$/);
+      const context = require.context("@/assets/digitalarts", false, /\.(png|jpe?g|gif|webp)$/);
       return context.keys().map(file => ({
         art_url: context(file)
       }));
     }
-
   }
 }
 </script>
 <style>
-.container {
-  width: 40%;
-
+.description {
+  padding:20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 50%;
+  overflow: hidden;
 }
 
 .art_image {
   border-radius: 3px;
-  width: 100px;
+  width: 250px;
+  margin: 10px;
+  transition: transform 0.3s ease-in-out;
+}
 
+.art_image:hover {
+  border: 5px solid white;
+  transform: scale(1.3);
+  cursor: pointer;
 }
 </style>

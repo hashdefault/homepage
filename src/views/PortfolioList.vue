@@ -35,26 +35,42 @@ h4 {
   margin-top: 5px;
   font-family: "Courier Prime";
   font-style: normal;
+  text-align:center;
 }
 
 a {
   text-align: center;
   padding: 0;
   text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+  border-radius:3px;
 }
 
 .portfolio {
   width: 310px;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  align-self:center;
+  padding:20px;
+}
+
+a:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+  border:5px solid white;
 }
 
 .works {
-  width: 200px;
+  width: 240px;
   padding: 5px;
   border-radius: 5px;
 }
 
 .description {
   padding: 25px;
+
   width: 40%;
 }
 

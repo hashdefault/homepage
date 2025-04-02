@@ -22,14 +22,12 @@
       <FooterDescription />
     </footer>
   </section>
-  <DigitalArts />
 </template>
 
 <script>
 import FooterDescription from "./components/FooterDescription.vue";
 import SocialMedia from "./components/SocialMedia.vue";
 import HoverButtons from "./components/HoverButtons.vue";
-import DigitalArts from "./components/DigitalArts.vue";
 
 export default {
   name: "App",
@@ -41,7 +39,6 @@ export default {
     FooterDescription,
     SocialMedia,
     HoverButtons,
-    DigitalArts
   },
 
   computed: {
