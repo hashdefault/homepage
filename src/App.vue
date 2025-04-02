@@ -34,7 +34,7 @@ import DigitalArts from "./components/DigitalArts.vue";
 export default {
   name: "App",
   created() {
-    document.title = "";
+    document.title = "dev. lucas";
   },
 
   components: {

@@ -3,7 +3,7 @@
     <RouterLink to="/" class="btn home_link"><i class="fa fa-home"></i>
     </RouterLink>
     <RouterLink to="/portfolio" class="btn hovers">Works </RouterLink>
-    <RouterLink to="/posts" class="btn hovers">Posts </RouterLink>
+    <RouterLink to="/posts" class="btn hovers">Notes </RouterLink>
     <RouterLink to="/techstack" class="btn hovers">Tech Stack </RouterLink>
     <RouterLink to="/digitalarts" class="btn hovers">Digital Arts </RouterLink>
   </div>

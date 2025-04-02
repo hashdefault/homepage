@@ -31,7 +31,7 @@ export default {
 
 h4 {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 5px;
   font-family: "Courier Prime";
   font-style: normal;
@@ -48,10 +48,9 @@ a {
 }
 
 .works {
-  width: 300px;
+  width: 200px;
   padding: 5px;
-  border: 4px solid cyan;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .description {

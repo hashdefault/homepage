@@ -17,8 +17,13 @@
     <h3 class="subtitle">Conteúdo & Refs</h3>
     <p id="p-heart">
       <i class="fa fa-heart"></i> Linux universe<br />
-      <i class="fa fa-book"></i> O Mítico Homem-Mês, Frederick P. Brooks Jr.<br />
-      <i class="fa fa-book"></i> Os Inovadores, Walter Isaacson<br />
+      <i class="fa fa-book-open"></i> Open Source<br />
+
+      <i class="fa fa-book"></i>
+      <a class='ref_link' href="https://learnxinyminutes.com/" target='_blank'>
+        Learn X in Y Minutes
+      </a>
+
       <i class="fa-brands fa-github"></i>
       <a class="ref_link" href="https://github.com/kamranahmedse/developer-roadmap" target="_blank">
         Developer Roadmap
