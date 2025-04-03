@@ -1,7 +1,7 @@
 <template>
   <div class="footer-description">
     <hr />
-    <p> © 2025 dev. lucas.  All rights reserved</p>
+    <p> © 2025 dev. lucas. All rights reserved</p>
   </div>
 </template>
 <script>
@@ -10,12 +10,16 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
+.footer-description p {
+  font-size: 14px;
+}
+
 .footer-description {
   width: 40%;
   padding: 25px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -23,17 +27,19 @@ export default {
   background-color: rgb(22, 22, 22);
   z-index: 1;
 }
+
 hr {
-  width: 80%;
+  width: 100%;
   text-align: center;
   display: flex;
   height: 1px;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   border: none;
 }
+
 @media (max-width: 1024px) {
   .footer-description {
-    width: 70%;
+    width: 80%;
   }
 }
 </style>

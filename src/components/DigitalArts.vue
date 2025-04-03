@@ -1,4 +1,7 @@
 <template>
+  <a class='btn hover' name='github_repo_link' target='_blank'
+    href='https://github.com/lugabrielbueno/wallpapers-digital-art'><i class='fa-brands fa-github'></i>
+    Repositório</a>
   <div class='description'>
     <div class='' v-for="(art, index) in arts" :key='index'>
       <a :href='art.art_url' target='_blank'><img :src="art.art_url" class="art_image" alt="..." /> </a>
@@ -25,7 +28,7 @@ export default {
 </script>
 <style>
 .description {
-  padding:20px;
+  padding: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -49,9 +52,24 @@ export default {
   cursor: pointer;
 }
 
+.btn.hover {
+  color: black;
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: rgb(0, 255, 255);
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+
+
+}
+
 @media (max-width: 1024px) {
   .art_image {
-    width:200px;
+    width: 200px;
 
   }
 }

@@ -175,8 +175,16 @@ p::after {
 
 @media (max-width: 1024px) {
   .description {
-    width: 70%;
+    width: 80%;
   }
 
+  .banner_desc {
+    width: 90%;
+    background-color: rgb(22, 22, 22);
+  }
+
+  .banner_desc p {
+    width: 100%;
+  }
 }
 </style>
