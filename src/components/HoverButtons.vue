@@ -1,11 +1,14 @@
 <template>
-  <div class="description">
-    <RouterLink to="/" class="btn home_link"><i class="fa fa-home"></i>
+  <div class='menu_responsive'>
+    <a @click='showMenu()'><i class='fa fa-bars'></i></a>
+  </div>
+  <div :class="{ 'show': !toggleMenu }" class='description'>
+    <RouterLink to="/" class="btn home_link"><img src='@/assets/monkey.webp' width='25'> <span>dev. lucas</span>
     </RouterLink>
-    <RouterLink to="/portfolio" class="btn hovers">Works </RouterLink>
-    <RouterLink to="/posts" class="btn hovers">Notes </RouterLink>
-    <RouterLink to="/techstack" class="btn hovers">Tech Stack </RouterLink>
-    <RouterLink to="/digitalarts" class="btn hovers">Digital Arts </RouterLink>
+    <RouterLink to="/portfolio" class="btn hovers"><i class='fa fa-briefcase'></i> Works </RouterLink>
+    <RouterLink to="/posts" class="btn hovers"><i class='fa fa-book'></i> Notes </RouterLink>
+    <RouterLink to="/techstack" class="btn hovers"><i class='fa fa-layer-group'></i> Tech Stack </RouterLink>
+    <RouterLink to="/digitalarts" class="btn hovers"><i class='fa fa-pencil'></i> Digital Arts </RouterLink>
   </div>
 </template>
 <script setup>
@@ -15,11 +18,22 @@ import { RouterLink } from "vue-router";
 <script>
 export default {
   name: "HoverButtons",
-  mounted() { },
+  mounted() {
+    const links = document.getElementsByClassName('btn')
+    for (const link of links) {
+      link.addEventListener('click', this.showMenu, false)
+    }
+
+  },
   data() {
-    return {};
+    return {
+      toggleMenu: true,
+    };
   },
   methods: {
+    showMenu() {
+      this.toggleMenu = !this.toggleMenu
+    },
     activateDivTech() {
       this.$emit("activateTech");
     },
@@ -35,7 +49,7 @@ export default {
 .description {
   padding: 5px;
   background-color: rgb(22, 22, 22);
-  margin: 20px;
+  margin: 15px;
   text-align: center;
   width: 100%;
 }
@@ -44,23 +58,33 @@ export default {
   color: white;
   float: left;
   cursor: pointer;
-  margin-right: 10px;
-  display: none;
+  margin-right: 55px;
   padding: 3px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.description .home_link span {
+  font-family: Nunito;
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .hovers {
   position: relative;
-  padding: 2px 20px;
-  margin: 0 20px;
+  padding: 2px 15px;
+  margin: 0 5px;
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
   border: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
-  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -75,30 +99,80 @@ export default {
   transition: width 0.3s ease-in-out;
 }
 
+.menu_responsive {
+  display: none;
+}
+
 .hovers:hover::after {
   width: 100%;
 }
 
+i {
+  display: none;
+}
+
 @media (max-width: 1024px) {
+
   .description {
+    position: fixed;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
-    padding: 0px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: self-start;
+    width: 80%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    border-radius: 0px 0px 10px 10px;
     margin: 0px;
+    background-color: rgb(70, 70, 70);
+    opacity: 0;
+    height: 0;
+    transition: height linear 0.5s, opacity ease-in-out 0.2s;
+  }
+  .description a:nth-of-type(2){
+    margin-top:20px;
+  }
+
+  .description .btn:first-of-type {
+    align-self: center;
   }
 
   .hovers {
     font-size: 16px;
-    margin: 8px;
-    padding: 4px;
-    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .menu_responsive {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index:10;
+  }
+
+  .menu_responsive a {
+    padding: 10px;
+    display: flex;
+    font-size: 35px;
+    background-color: rgb(70, 70, 70);
+    border-radius: 0 0 5px 5px;
+  }
+
+  .description.show {
+    opacity: 1;
+    height: 100%;
+  }
+
+  i {
+    display: inline-block;
   }
 
   .home_link {
-    display: flex;
     margin-right: 15px;
     padding: 3px;
   }

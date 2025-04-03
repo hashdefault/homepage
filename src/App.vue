@@ -11,7 +11,7 @@
       </div>
     </header>
     <div class="container">
-     <transition name="fade" mode="out-in">
+      <transition name="fade" mode="out-in">
         <router-view :class="smooth - view" />
       </transition>
     </div>
@@ -62,37 +62,7 @@ export default {
   opacity: 0;
 }
 
-.banner_desc {
-  text-align: center;
-  backdrop-filter: blur(8px);
-  padding: 0px 25px;
-  display: flex;
-  align-items: center;
-  align-self: center;
-  justify-content: center;
-  width: 50%;
-  background-color: rgb(22, 22, 22);
-  z-index: 2;
-}
-
-.banner_desc p {
-  text-align: center;
-  padding: 10px 20px;
-  width: 50%;
-  background-color: rgba(50, 50, 50, 0.6);
-  border-radius: 10px;
-  border: 1px solid rgba(50, 50, 50, 0.6);
-  color: rgb(240, 240, 240);
-  font-size: 18px;
-  font-family: Nunito, monospace;
-}
-
 .colorLight {
-  background: linear-gradient(to right,
-      rgb(22, 22, 22) 22.9%,
-      rgba(0, 255, 255, 0.7) 22.9%,
-      rgba(0, 255, 255, 0.7) 23%,
-      rgb(22, 22, 22) 23%);
   width: 100%;
   display: flex;
   align-items: center;
@@ -116,7 +86,6 @@ export default {
   width: 70px;
   height: auto;
   animation: moveImage 20s linear infinite;
-  z-index: 1;
   overflow: hidden;
 }
 
@@ -136,7 +105,6 @@ export default {
   align-self: center;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
 }
 
 .illustration {
@@ -147,7 +115,6 @@ export default {
   align-items: center;
   align-self: center;
   width: 40%;
-  z-index: 2;
 }
 
 #app {
@@ -160,6 +127,7 @@ export default {
   flex-direction: column;
   display: flex;
   min-height: 100vh;
+  background-color: rgb(22, 22, 22);
 }
 
 .container {
@@ -171,7 +139,6 @@ export default {
   align-items: center;
   flex-direction: column;
   align-self: center;
-  z-index: 2;
 }
 
 .footer {
@@ -182,7 +149,6 @@ export default {
   align-self: flex-end;
   justify-content: space-between;
   align-content: flex-end;
-  z-index: 2;
 }
 
 body {
@@ -199,7 +165,6 @@ body {
   padding: 25px;
   background-color: rgb(22, 22, 22);
   margin: -1px;
-  z-index: 2;
 }
 
 .gifs_illustration {
@@ -229,18 +194,12 @@ body {
     width: 70%;
   }
 
-  .banner_desc {
-    width: 70%;
-  }
-
-  .banner_desc p {
-    width: 70%;
-  }
 
   .nav {
     width: 100%;
     padding: 0 25px;
     margin-bottom: -1px;
+    z-index: 2;
   }
 
   @keyframes moveImage {

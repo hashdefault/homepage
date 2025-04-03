@@ -23,7 +23,6 @@ export default {
   methods: {
     async loadContent() {
       if (!this.page) return;
-
       try {
         const response = await fetch(`/postscontent/${this.page}.md`);
         if (!response.ok) throw new Error("Failed to fetch content");
@@ -40,7 +39,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
@@ -51,6 +49,7 @@ export default {
   width: 40%;
   display: flex;
   flex-direction: column;
+  align-items: start;
   background-color: rgb(22, 22, 22);
   margin: -1px;
 }

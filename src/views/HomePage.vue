@@ -1,10 +1,9 @@
 <template>
-  <div class="banner_desc">
-    <p>i use arch, btw</p>
-  </div>
-  <HeaderDescription />
-
   <div class="description">
+    <div class="banner_desc">
+      <p>i use arch, btw</p>
+    </div>
+    <HeaderDescription />
     <div class="btns-links lights">
       <a ref="link-p-code" class="btn btn-link p-code"> </a>
       <a ref="link-p-heart" class="btn btn-link p-heart"></a>
@@ -24,6 +23,7 @@
         Learn X in Y Minutes
       </a>
 
+      <br>
       <i class="fa-brands fa-github"></i>
       <a class="ref_link" href="https://github.com/kamranahmedse/developer-roadmap" target="_blank">
         Developer Roadmap
@@ -83,6 +83,9 @@ explorando tecnologias e linguagens como PHP.
   padding: 25px;
   background-color: rgb(22, 22, 22);
   margin: -1px;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
 }
 
 .description ul li {
@@ -117,7 +120,6 @@ explorando tecnologias e linguagens como PHP.
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
   text-decoration-color: rgb(0, 255, 255);
-  width: 200px;
 }
 
 p::after {
@@ -137,6 +139,26 @@ p::after {
   text-decoration: underline;
 }
 
+.banner_desc {
+  text-align: center;
+  backdrop-filter: blur(8px);
+  width: 100%;
+  background-color: rgb(22, 22, 22);
+}
+
+.banner_desc p {
+  text-align: center;
+  padding: 10px 20px;
+  width: 95%;
+  background-color: rgba(50, 50, 50, 0.6);
+  border-radius: 10px;
+  border: 1px solid rgba(50, 50, 50, 0.6);
+  color: rgb(240, 240, 240);
+  font-size: 18px;
+  font-family: Nunito, monospace;
+}
+
+
 @keyframes blink {
 
   0%,
@@ -149,6 +171,7 @@ p::after {
     opacity: 0;
   }
 }
+
 
 @media (max-width: 1024px) {
   .description {

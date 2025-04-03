@@ -45,7 +45,14 @@ export default {
 
 .art_image:hover {
   border: 5px solid white;
-  transform: scale(1.3);
+  transform: scale(1.1);
   cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .art_image {
+    width:200px;
+
+  }
 }
 </style>

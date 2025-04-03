@@ -35,7 +35,7 @@ h4 {
   margin-top: 5px;
   font-family: "Courier Prime";
   font-style: normal;
-  text-align:center;
+  text-align: center;
 }
 
 a {
@@ -43,23 +43,23 @@ a {
   padding: 0;
   text-decoration: none;
   transition: transform 0.3s ease-in-out;
-  border-radius:3px;
+  border-radius: 3px;
 }
 
 .portfolio {
   width: 310px;
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
-  align-self:center;
-  padding:20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding: 20px;
 }
 
 a:hover {
   transform: scale(1.3);
   cursor: pointer;
-  border:5px solid white;
+  border: 5px solid white;
 }
 
 .works {
@@ -77,6 +77,10 @@ a:hover {
 @media (max-width: 768px) {
   .description {
     width: 70%;
+  }
+
+  a:hover {
+    transform: scale(1.1);
   }
 }
 </style>
