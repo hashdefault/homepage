@@ -122,7 +122,7 @@ explorando tecnologias e linguagens como PHP.
   text-decoration-color: rgb(0, 255, 255);
 }
 
-p::after {
+p#p-code::after {
   content: "|";
   font-weight: bold;
   display: inline-block;
