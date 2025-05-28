@@ -1,7 +1,7 @@
 <template>
   <div class="social-media">
     <p>
-      <a class="link" target="_blank" href="https://github.com/lugabrielbueno"
+      <a class="link" target="_blank" href="https://github.com/hashdefault"
         ><i class="fa-brands fa-github"></i> GitHub</a
       >
     </p>
