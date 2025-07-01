@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-      page: 1
+      page: 'hypreww'
     };
   },
   watch: {
@@ -24,7 +24,7 @@ export default {
     async loadContent() {
       if (!this.page) return;
       try {
-        const response = await fetch(`/postscontent/${this.page}.md`);
+        const response = await fetch(`/postscontent/${this.page}/index.md`);
         if (!response.ok) throw new Error("Failed to fetch content");
 
         const text = await response.text();
@@ -45,7 +45,7 @@ export default {
 .description {
   padding: 25px;
   color: white;
-  font-family: "Courier Prime";
+  font-family: "Arial";
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -54,9 +54,11 @@ export default {
   margin: -1px;
 }
 
+
 @media (max-width: 768px) {
   .description {
     width: 70%;
   }
+
 }
 </style>
