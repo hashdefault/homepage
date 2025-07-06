@@ -75,7 +75,7 @@ export default {
   align-self: center;
   display: flex;
   flex-direction: row;
-  width: 40%;
+  width: 45%;
   padding: 0 25px;
   background-color: rgb(22, 22, 22);
   z-index: 2;

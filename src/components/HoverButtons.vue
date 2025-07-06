@@ -47,9 +47,9 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 .description {
-  padding: 5px;
+  padding: 2px;
   background-color: rgb(22, 22, 22);
-  margin: 15px;
+  margin: 25px 5px;
   text-align: center;
   width: 100%;
 }

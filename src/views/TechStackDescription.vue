@@ -6,8 +6,8 @@
           <td class="desc_td"><i class="fa fa-arrow-right"></i> Frontend</td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Vue.js.png')"
               alt="Vue.js"
               @mouseover="showTooltip($event)"
@@ -17,8 +17,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('NPM.png')"
               alt="NPM"
               @mouseover="showTooltip($event)"
@@ -28,8 +28,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('JavaScript.png')"
               alt="JavaScript"
               @mouseover="showTooltip($event)"
@@ -39,8 +39,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('jQuery.png')"
               alt="jQuery"
               @mouseover="showTooltip($event)"
@@ -53,8 +53,8 @@
           <td class="desc_td"><i class="fa fa-arrow-right"></i> Backend</td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Lua.png')"
               alt="Lua"
               @mouseover="showTooltip($event)"
@@ -65,8 +65,8 @@
 
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('PHP.png')"
               alt="PHP"
               @mouseover="showTooltip($event)"
@@ -76,8 +76,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Laravel.png')"
               alt="Laravel"
               @mouseover="showTooltip($event)"
@@ -87,8 +87,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Composer.png')"
               alt="Composer"
               @mouseover="showTooltip($event)"
@@ -99,8 +99,8 @@
 
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Python.png')"
               alt="Python"
               @mouseover="showTooltip($event)"
@@ -110,8 +110,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Django.png')"
               alt="Django"
               @mouseover="showTooltip($event)"
@@ -125,8 +125,8 @@
           <td class="desc_td"><i class="fa fa-arrow-right"></i> Container</td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Docker.png')"
               alt="Docker"
               @mouseover="showTooltip($event)"
@@ -142,8 +142,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Git.png')"
               alt="Git"
               @mouseover="showTooltip($event)"
@@ -158,8 +158,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Vim.png')"
               alt="Neovim"
               @mouseover="showTooltip($event)"
@@ -172,8 +172,8 @@
           <td class="desc_td"><i class="fa fa-arrow-right"></i> Nuvem</td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('AWS.png')"
               alt="AWS"
               @mouseover="showTooltip($event)"
@@ -189,8 +189,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('ArchLinux.png')"
               alt="Arch Linux"
               @mouseover="showTooltip($event)"
@@ -200,8 +200,8 @@
           </td>
           <td>
             <img
-              height="50"
-              width="50"
+              height="40"
+              width="40"
               :src="getImage('Ubuntu.png')"
               alt="Ubuntu"
               @mouseover="showTooltip($event)"
@@ -294,7 +294,6 @@ i {
   align-self: center;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
 }
 
 .table_container td {
