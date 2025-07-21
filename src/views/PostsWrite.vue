@@ -44,7 +44,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
-.description article {
+div.description article {
   padding: 25px;
   color: white;
   font-family: "Arial";
@@ -57,13 +57,13 @@ export default {
 }
 
 
-.description article h2 {
+div.description article h2 {
   border-left: 3px solid rgba(130, 20, 180, 0.8);
   padding-left: 10px;
 
 }
 
-.description h3 {
+div.description article h3 {
   /* Your styles here */
   background-color: rgba(100, 20, 230, 0.3);
   padding: 8px;
