@@ -171,13 +171,6 @@ body {
   width: 300px;
 }
 
-.description blockquote {
-  border-left: 5px solid rgba(100,120,200,0.8);
-  padding-left:20px;
-  background-color:rgba(80,80,80,0.6);
-  width:100%;
-  margin-left:10px;
-}
 
 @media (max-width: 1024px) {
   .colorLight {

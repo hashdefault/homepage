@@ -18,11 +18,14 @@ atualizações recentemente no universo open source.
 Eu já testei algumas topbars que existem por ai como xmobar, polybar, i3statusbar, tint2 também já usei como topbar. Por último acabei testando
 e gostando da waybar. É verdade que na maioria dos casos eu gosto de testar xmobar com xmonad wm, i3statusbar com i3 wm, hyprland com waybar, etc.
 Sinto que a flexibilidade, desempenho e customização melhora um pouco em alguns casos, ou talvez seja só mera impressão.
+
+### Hyprland Desktop
 ![Hyprland Desktop](imgs/desktop.webp)
 Alguns exemplos de como eu gosto das minhas configurações e outras ideias para as topbars estão adiante.
 
 
- ![Xmobar](topbars/xmobar.png)
+### Xmobar 
+![Xmobar](topbars/xmobar.png)
 
  Este é um exemplo de uma xmobar com algumas configurações simples, seu arquivo de configuração possui a sintaxe descrita abaixo.
 
@@ -102,7 +105,8 @@ Alguns exemplos de como eu gosto das minhas configurações e outras ideias para
 >```
 
  
-![i3bar+i3status](topbars/i3status.png)
+### i3bar+i3status 
+![i3bar+i3status](./public/topbars/i3status.png)
  
 Este é um exemplo de i3bar + i3status. A sintaxe da i3bar é em conjunto com o arquivo de configuração da própria window manager i3. O nome do arquivo é **config**. É possível configurar a topbar configurando propriamente as linhas abaixo ao arquivo.
 
@@ -138,7 +142,8 @@ Este é um exemplo de i3bar + i3status. A sintaxe da i3bar é em conjunto com o 
 > ```
 > Créditos: [tobi-wan-kenobi](https://github.com/tobi-wan-kenobi/bumblebee-status)
 > 
- ![Polybar](topbars/polybar.png)
+### Polybar
+![Polybar](topbars/polybar.png)
 Este é um exemplo da minha configuração e customização com polybar, e sua sintaxe está abaixo.
 
 > ```
@@ -684,6 +689,7 @@ Este é um exemplo da minha configuração e customização com polybar, e sua s
 > 
 > ```
 
+### Waybar
 ![Waybar](topbars/waybar.png)
 
 Este é um exemplo de como mantenho hoje as minhas configurações para topbar usando waybar.
