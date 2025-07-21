@@ -171,6 +171,7 @@ body {
   width: 300px;
 }
 
+
 @media (max-width: 1024px) {
   .colorLight {
     background: none;
@@ -211,5 +212,6 @@ body {
       left: 150px;
     }
   }
+
 }
 </style>

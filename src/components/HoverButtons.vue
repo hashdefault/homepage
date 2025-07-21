@@ -6,7 +6,7 @@
     <RouterLink to="/" class="btn home_link"><img src='@/assets/monkey.webp' width='25'> <span>dev. lucas</span>
     </RouterLink>
     <RouterLink to="/portfolio" class="btn hovers"><i class='fa fa-briefcase'></i> Works </RouterLink>
-    <RouterLink to="/posts" class="btn hovers"><i class='fa fa-book'></i> Notes </RouterLink>
+    <RouterLink to="/posts" class="btn hovers"><i class='fa fa-book'></i> Posts </RouterLink>
     <RouterLink to="/techstack" class="btn hovers"><i class='fa fa-layer-group'></i> Tech Stack </RouterLink>
     <RouterLink to="/digitalarts" class="btn hovers"><i class='fa fa-pencil'></i> Digital Arts </RouterLink>
   </div>
