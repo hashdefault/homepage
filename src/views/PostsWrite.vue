@@ -12,7 +12,7 @@ export default {
   async mounted() {
     // Set custom renderer before loading content
     await this.loadContent();
-    const links = document.getElementsByTagName('a')
+    const links = document.querySelectorAll("div.description article a");
 
     for (const link of links) {
       if (link.href.startsWith('https://')) {
