@@ -20,13 +20,12 @@ e gostando da waybar. É verdade que na maioria dos casos eu gosto de testar xmo
 Sinto que a flexibilidade, desempenho e customização melhora um pouco em alguns casos, ou talvez seja só mera impressão.
 
 ### Hyprland Desktop
-![Hyprland Desktop](imgs/desktop.webp)
+![Hyprland Desktop](./imgs/hyprland_desktop.webp)
 Alguns exemplos de como eu gosto das minhas configurações e outras ideias para as topbars estão adiante.
 
 
 ### Xmobar 
-![Xmobar](topbars/xmobar.png)
-
+![Xmobar](./topbars/xmobar.png)
  Este é um exemplo de uma xmobar com algumas configurações simples, seu arquivo de configuração possui a sintaxe descrita abaixo.
 
 > ```sh
@@ -106,10 +105,8 @@ Alguns exemplos de como eu gosto das minhas configurações e outras ideias para
 
  
 ### i3bar+i3status 
-![i3bar+i3status](./public/topbars/i3status.png)
- 
+![i3bar+i3status](./topbars/i3status.png)
 Este é um exemplo de i3bar + i3status. A sintaxe da i3bar é em conjunto com o arquivo de configuração da própria window manager i3. O nome do arquivo é **config**. É possível configurar a topbar configurando propriamente as linhas abaixo ao arquivo.
-
 > ```
 > # Start i3bar to display a workspace bar (plus the system information i3status if available)
 > bar {
@@ -143,7 +140,7 @@ Este é um exemplo de i3bar + i3status. A sintaxe da i3bar é em conjunto com o 
 > Créditos: [tobi-wan-kenobi](https://github.com/tobi-wan-kenobi/bumblebee-status)
 > 
 ### Polybar
-![Polybar](topbars/polybar.png)
+![Polybar](./topbars/polybar.png)
 Este é um exemplo da minha configuração e customização com polybar, e sua sintaxe está abaixo.
 
 > ```
@@ -690,7 +687,7 @@ Este é um exemplo da minha configuração e customização com polybar, e sua s
 > ```
 
 ### Waybar
-![Waybar](topbars/waybar.png)
+![Waybar](./topbars/waybar.png)
 
 Este é um exemplo de como mantenho hoje as minhas configurações para topbar usando waybar.
 Provavelmente o detalhe mais simples e interessante de utilizar waybar, além é claro da configuração, seria a forma de estilizar que é usando apenas
@@ -799,8 +796,30 @@ scss como formatação, muito eficiente quando quer mudar algo que se cansou.
 O [EWW (Elkowar’s Wacky Widgets)](https://github.com/elkowar/eww) é um framework de widgets altamente personalizável para ambientes Linux. Ele permite criar interfaces gráficas leves que ficam no desktop, como barras de status, painéis, ou janelas de informações. É feito em rust, o que significa que tudo é criado com baixo uso de recursos e alta personalização. EWW é uma forma bastante flexível de criar widgets e sua sintaxe é yuck, o que aparentemente não foi uma mera coincidência.
 
 Um power menu simplificado feito com EWW.
-[PowerMenu](imgs/powermenu.webp)
+[PowerMenu](./imgs/powermenu.webp)
 
 ## Screenshots do Hypereww
 
+  #### Menu perfil usuário && Notificações && Calendário
+  ![image](https://github.com/user-attachments/assets/b070acc0-475f-431c-88e7-91bd96fa7c46)
 
+  #### Music Player && Pop-up Notificações
+  ![image](https://github.com/user-attachments/assets/a02d484a-96a6-450b-ad9a-da3f3b7c871b)
+
+  #### Previsão do tempo && Powermenu lateral
+  ![image](https://github.com/user-attachments/assets/c0a9faea-2c76-4e0f-8e9c-e498003c6d9a)
+
+  #### Rofi seguindo esquema de cores pywal 
+  ![image](https://github.com/user-attachments/assets/8d704da7-1f16-44f8-8cc9-a88c6fee0a04)
+
+  #### Ghostty seguindo esquema de cores pywal 
+  ![image](https://github.com/user-attachments/assets/03221918-6f6d-4ed3-a616-1d31245df4f5)
+
+
+## Repositórios para referências: 
+- [JaKooLit](https://github.com/JaKooLit/Arch-Hyprland)
+- [Axarva](https://github.com/Axarva/dotfiles-2.0)
+- [Syndrizzle](https://github.com/Syndrizzle/hotfiles)
+- [elkowar](https://github.com/elkowar/eww)
+
+#### Link para este repositório: [Repositório Hypreww](https://github.com/hashdefault/hypreww)

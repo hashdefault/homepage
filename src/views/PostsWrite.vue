@@ -10,11 +10,19 @@ export default {
   name: "WritingPosts",
 
   async mounted() {
+    // Set custom renderer before loading content
     await this.loadContent();
+    const links = document.getElementsByTagName('a')
+
+    for (const link of links) {
+      if (link.href.startsWith('https://')) {
+        link.target = '_blank'
+      }
+    }
   },
   data() {
     return {
-      page: 'hypreww'
+      page: 'hypreww' //must be the last post
     };
   },
   watch: {
@@ -29,14 +37,15 @@ export default {
         const response = await fetch(`/postscontent/${this.page}/index.md`);
         if (!response.ok) throw new Error("Failed to fetch content");
 
-        const text = await response.text();
+        var text = await response.text();
+        text = text.replace(/!\[([^\]]*)\]\(\.\/(.*?)\)/g, (match, alt, path) => {
+          return `![${alt}](/postscontent/${this.page}/${path})`;
+        });
         document.getElementById("ref_id").innerHTML = marked(text);
       } catch (error) {
         console.error("Error loading post:", error);
       }
     },
-
-
   },
 };
 </script>
@@ -57,34 +66,39 @@ div.description article {
 }
 
 
+div.description article img {
+  width: 100%;
+  min-height: 20px;
+}
+
 div.description article h2 {
-  border-left: 3px solid rgba(130, 20, 180, 0.8);
+  border-left: 4px solid rgb(10, 180, 250);
   padding-left: 10px;
 
 }
 
 div.description article h3 {
   /* Your styles here */
-  background-color: rgba(100, 20, 230, 0.3);
+  background-color: rgba(20, 80, 250, 0.4);
   padding: 8px;
   border-radius: 3px;
-  border-left: 4px solid rgb(100, 20, 230);
+  border-left: 4px solid rgb(20, 80, 250);
   padding-left: 10px;
   font-weight: 400;
   width: 99%;
 }
 
-div.description article p a:hover {
+div.description article a:hover {
   text-decoration: underline;
 }
 
-div.description article p a {
+div.description article a {
   text-decoration: none;
   color: wheat;
 }
 
-.description blockquote {
-  border-left: 5px solid rgba(100, 120, 200, 0.8);
+div.description article blockquote {
+  border-left: 5px solid rgba(0, 180, 250, 0.8);
   padding-left: 20px;
   background-color: rgba(80, 80, 80, 0.6);
   width: 99%;
@@ -92,7 +106,16 @@ div.description article p a {
   margin-right: 2px;
   max-height: 500px;
   overflow-y: auto;
-  border-radius:3px;
+  border-radius: 3px;
 
+}
+
+div.description article li {
+  list-style: none;
+  padding: 4px;
+}
+
+div.description article li {
+  list-style: none;
 }
 </style>
