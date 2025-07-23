@@ -111,7 +111,6 @@ div.description article blockquote {
 }
 
 div.description article li {
-  list-style: none;
   padding: 4px;
 }
 
