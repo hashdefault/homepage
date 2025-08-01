@@ -58,7 +58,6 @@ export default {
       }
     },
     updateContent(name) {
-      console.log('oi')
       this.page = name
       return;
     }

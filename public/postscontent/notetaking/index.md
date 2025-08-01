@@ -1,5 +1,7 @@
 # Como Faço Anotações Usando o Notes do Nextcloud
 
+![nextcloud_logo](https://nextcloud.com/c/uploads/2023/07/nextcloud-home-featured-image-3.jpg)
+
 ## Introdução
 
 Fazer anotações é essencial para manter-se organizado, melhorar a memória e manter o foco na vida pessoal e profissional. Atualmente eu já possuo um servidor privado, ele apenas pode ser acessado via VPN ou tunelamento com Cloudflare. 
@@ -8,6 +10,9 @@ Minha história com notas começa um pouco antes do lançamento de um dos aplica
 ---
 
 ## Descrição do Notes do Nextcloud
+
+
+![nextcloud_notes](https://nextcloud.com/wp-content/uploads/2023/05/nc-notes-all-devices-1536x864.png.webp)
 
 O **Nextcloud Notes** é um aplicativo simples e ao mesmo tempo poderoso, integrado ao ecossistema do Nextcloud. Ele oferece suporte a:
 
@@ -37,6 +42,8 @@ Métodos analógicos sempre complementam muito bem, portanto nunca abra mão de 
 ---
 
 ### 2. Criando Categorias e Etiquetas nas Anotações
+
+![etiquetas](https://raw.githubusercontent.com/matiasdelellis/quicknotes/master/doc/quicknotes-grid-view.jpeg)
 
 Para manter suas anotações organizadas:
 - Use **pastas** como cadernos (ex: "Programação", "Ideias", "Pessoal").
@@ -86,6 +93,7 @@ Use o Notes para preservar experiências, ideias ou reflexões.
 ---
 
 ### 5. Gerenciando Listas e Tarefas
+![notes](https://raw.githubusercontent.com/nextcloud/screenshots/master/apps/Notes/notes.png)
 
 O Notes pode ser usado como um sistema leve de produtividade (GTD).
   - Lista de compras
