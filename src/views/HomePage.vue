@@ -49,7 +49,7 @@ export default {
         `Lucas é um desenvolvedor de software que atualmente reside na cidade de Maringá, no estado do Paraná. 
         Sua trajetória na tecnologia começou em 2019, enquanto estudava Python para análises de dados, unindo seu interesse em resolver problemas práticos à aplicação de ferramentas para solução de problemas matemáticos.
 No ano seguinte, em 2020, ampliou seus horizontes ao iniciar estudos em desenvolvimento web,
-explorando tecnologias e linguagens como PHP, Javascript e frameworks com Django .
+explorando tecnologias e linguagens como PHP, Javascript e frameworks como Django e Laravel.
       Esse novo foco o levou a ingressar em uma empresa, onde desde então atua na manutenção e desenvolvimento de websites e sistemas. Sua experiência e paixão pelo mundo linux são uma peça fundamental na carreira.`,
       fullTextSecond: "",
       //"Sou apaixonado por músicas como folk, clássica, rock e soul. As músicas instrumentais me ajudam a relaxar, enquanto as composições clássicas me oferecem uma elegância atemporal. A energia visceral do rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me sinto enriquecido por cada um desses gêneros. Livros, cinema e arte são parte de interesses dos quais eu vejo sendo fundamentais a experiência humana.",
