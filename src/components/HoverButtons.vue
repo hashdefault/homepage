@@ -125,7 +125,7 @@ i {
     padding: 10px;
     border-radius: 0px 0px 10px 10px;
     margin: 0px;
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(50, 50, 50);
     opacity: 0;
     height: 0;
     transition: height linear 0.5s, opacity ease-in-out 0.2s;
@@ -142,7 +142,6 @@ i {
     font-size: 16px;
     margin: 10px;
     padding: 5px;
-    text-decoration: underline;
     text-underline-offset: 3px;
   }
 
@@ -159,7 +158,7 @@ i {
     padding: 10px;
     display: flex;
     font-size: 35px;
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(50, 50, 50);
     border-radius: 0 0 5px 5px;
   }
 
