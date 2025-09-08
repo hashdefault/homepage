@@ -6,11 +6,18 @@
         <h4>Website de Notícias</h4>
       </a>
     </div>
+    <div class='portfolio work2'>
+      <a href='https://psicologapolianaota.com.br' target='_blank'>
+        <img :src="work2" class='works'>
+        <h4>Website Psicóloga</h4>
+      </a>
+    </div>
   </div>
 </template>
 <script>
 
 import work1 from "./../assets/images/portfolio/work1.png";
+import work2 from "./../assets/images/portfolio/work2.webp";
 
 export default {
   name: "PortfolioList",
@@ -19,6 +26,7 @@ export default {
   data() {
     return {
       work1: work1,
+      work2: work2
     };
   },
   methods: {},
