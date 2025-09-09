@@ -50,5 +50,22 @@ export default {
   background: var(--bg-soft);
 }
 .theme-toggle i { color: var(--accent); }
-</style>
 
+@media (max-width: 1024px) {
+  .theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1002;
+    padding: 10px 12px;
+    border: 1px solid var(--bg-soft);
+    border-radius: 8px;
+    background: var(--bg);
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    gap: 6px;
+  }
+  .theme-toggle span {
+    display: none;
+  }
+}
+</style>

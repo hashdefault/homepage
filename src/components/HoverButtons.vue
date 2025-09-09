@@ -1,15 +1,25 @@
 <template>
   <div class='menu_responsive'>
-    <a @click='showMenu()'><i class='fa fa-bars'></i></a>
+    <button
+      class="menu_toggle"
+      @click="showMenu"
+      :aria-expanded="!toggleMenu"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation"
+    >
+      <i v-if="toggleMenu" class='fa fa-bars'></i>
+      <i v-else class='fa fa-times'></i>
+    </button>
   </div>
-  <div :class="{ 'show': !toggleMenu }" class='description'>
+  <div v-if="!toggleMenu" class="backdrop" @click="closeMenu" aria-hidden="true"></div>
+  <nav :class="{ 'show': !toggleMenu }" class='description' id="mobile-menu" role="navigation">
     <RouterLink to="/" class="btn home_link"><img src='@/assets/monkey.webp' width='25'> <span>dev. lucas</span>
     </RouterLink>
     <RouterLink to="/portfolio" class="btn hovers"><i class='fa fa-briefcase'></i> Works </RouterLink>
     <RouterLink to="/posts" class="btn hovers"><i class='fa fa-book'></i> Posts </RouterLink>
     <RouterLink to="/techstack" class="btn hovers"><i class='fa fa-layer-group'></i> Tech Stack </RouterLink>
     <RouterLink to="/digitalarts" class="btn hovers"><i class='fa fa-pencil'></i> Digital Arts </RouterLink>
-  </div>
+  </nav>
 </template>
 <script setup>
 import { RouterLink } from "vue-router";
@@ -23,7 +33,10 @@ export default {
     for (const link of links) {
       link.addEventListener('click', this.showMenu, false)
     }
-
+    window.addEventListener('keydown', this.onKeydown)
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.onKeydown)
   },
   data() {
     return {
@@ -33,6 +46,18 @@ export default {
   methods: {
     showMenu() {
       this.toggleMenu = !this.toggleMenu
+      this.$nextTick(() => {
+        document.body.style.overflow = this.toggleMenu ? '' : 'hidden'
+      })
+    },
+    closeMenu() {
+      this.toggleMenu = true
+      document.body.style.overflow = ''
+    },
+    onKeydown(e) {
+      if (e.key === 'Escape' && !this.toggleMenu) {
+        this.closeMenu()
+      }
     },
     activateDivTech() {
       this.$emit("activateTech");
@@ -118,17 +143,21 @@ i {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: self-start;
-    width: 80%;
+    align-items: stretch;
+    width: 85%;
+    max-width: 340px;
     top: 0;
     left: 0;
-    padding: 10px;
-    border-radius: 0px 0px 10px 10px;
-    margin: 0px;
-    background-color: var(--bg-soft);
+    padding: 16px 12px;
+    margin: 0;
+    background-color: var(--bg);
+    border-right: 1px solid var(--bg-soft);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    height: 100%;
+    transform: translateX(-110%);
     opacity: 0;
-    height: 0;
-    transition: height linear 0.5s, opacity ease-in-out 0.2s;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    z-index: 1001;
   }
   .description a:nth-of-type(2){
     margin-top:20px;
@@ -140,31 +169,38 @@ i {
 
   .hovers {
     font-size: 16px;
-    margin: 10px;
-    padding: 5px;
+    margin: 8px 6px;
+    padding: 8px 10px;
     text-underline-offset: 3px;
   }
 
   .menu_responsive {
     display: block;
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 10px;
+    left: 10px;
     color: var(--text);
-    z-index:10;
+    z-index: 1002;
   }
 
-  .menu_responsive a {
-    padding: 10px;
-    display: flex;
-    font-size: 35px;
-    background-color: var(--bg-soft);
-    border-radius: 0 0 5px 5px;
+  .menu_responsive .menu_toggle {
+    padding: 10px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 24px;
+    color: var(--text);
+    background-color: var(--bg);
+    border: 1px solid var(--bg-soft);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    cursor: pointer;
   }
 
   .description.show {
     opacity: 1;
-    height: 100%;
+    transform: translateX(0);
   }
 
   i {
@@ -174,6 +210,14 @@ i {
   .home_link {
     margin-right: 15px;
     padding: 3px;
+  }
+
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(1px);
+    z-index: 1000;
   }
 }
 </style>

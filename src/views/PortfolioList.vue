@@ -38,7 +38,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
 h4 {
-  color: white;
+  color: var(--text);
   font-size: 18px;
   margin-top: 5px;
   font-family: "Courier Prime";
@@ -67,7 +67,7 @@ a {
 a:hover {
   transform: scale(1.3);
   cursor: pointer;
-  border: 5px solid white;
+  border: 5px solid var(--accent);
 }
 
 .works {
@@ -78,8 +78,9 @@ a:hover {
 
 .description {
   padding: 25px;
-
   width: 40%;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 @media (max-width: 768px) {

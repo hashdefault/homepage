@@ -70,8 +70,8 @@ export default {
 
 
 .content_menu {
-  color: rgb(180, 180, 180);
-  border-left: 4px solid rgba(50, 50, 90, 0.7);
+  color: var(--text);
+  border-left: 4px solid var(--bg-soft);
   font-size: 17px;
   width: 45%;
 }
@@ -89,7 +89,7 @@ export default {
 
 .content_menu li.links_ref {
   list-style: none;
-  border-left: 2px solid rgba(90, 140, 220, 0.7);
+  border-left: 2px solid var(--accent);
   margin: 10px;
   padding: 5px;
   padding-left: 15px;
@@ -98,11 +98,13 @@ export default {
 }
 
 .content_menu li.links_ref a:hover {
-  color: white;
+  color: var(--accent);
 }
 
 .content_menu li.links_ref a {
   cursor: pointer;
+  color: var(--text);
+  text-decoration: none;
 }
 
 div.description:has(article) {
@@ -126,13 +128,13 @@ div.description:has(article) {
 
 div.description article {
   padding: 25px;
-  color: white;
+  color: var(--text);
   font-family: "Arial";
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg);
   margin: -1px;
   transition: opacity 2s ease-in-out;
 }
@@ -144,17 +146,16 @@ div.description article img {
 }
 
 div.description article h2 {
-  border-left: 4px solid rgb(10, 180, 250);
+  border-left: 4px solid var(--accent);
   padding-left: 10px;
 
 }
 
 div.description article h3 {
-  /* Your styles here */
-  background-color: rgba(20, 80, 250, 0.2);
+  background-color: var(--bg-soft);
   padding: 8px;
   border-radius: 3px;
-  border-left: 4px solid rgb(20, 80, 250, 0.4);
+  border-left: 4px solid var(--accent);
   padding-left: 10px;
   font-weight: 400;
   width: 99%;
@@ -166,13 +167,13 @@ div.description article a:hover {
 
 div.description article a {
   text-decoration: none;
-  color: wheat;
+  color: var(--accent);
 }
 
 div.description article blockquote {
-  border-left: 5px solid rgba(0, 180, 250, 0.8);
+  border-left: 5px solid var(--accent);
   padding-left: 20px;
-  background-color: rgba(80, 80, 80, 0.6);
+  background-color: var(--card);
   width: 99%;
   margin-left: 2px;
   margin-right: 2px;
