@@ -47,17 +47,17 @@ export default {
 }
 
 .art_image:hover {
-  border: 5px solid white;
+  border: 5px solid var(--text);
   transform: scale(1.1);
   cursor: pointer;
 }
 
 .btn.hover {
-  color: black;
+  color: var(--text-invert);
   font-family: Nunito;
   font-size: 16px;
   font-weight: 700;
-  background-color: rgb(0, 255, 255);
+  background-color: var(--accent);
   padding: 10px;
   border: none;
   border-radius: 6px;

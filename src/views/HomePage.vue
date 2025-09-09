@@ -81,7 +81,7 @@ explorando tecnologias e linguagens como PHP, Javascript e frameworks como Djang
 .description {
   width: 40%;
   padding: 25px;
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg);
   margin: -1px;
   display: flex;
   align-items: start;
@@ -95,7 +95,7 @@ explorando tecnologias e linguagens como PHP, Javascript e frameworks como Djang
 
 .description p {
   font-family: Courier Prime, monospace;
-  color: white;
+  color: var(--text);
   overflow: hidden;
   line-height: 1.4;
   margin-left: 10px;
@@ -115,11 +115,11 @@ explorando tecnologias e linguagens como PHP, Javascript e frameworks como Djang
 }
 
 .subtitle {
-  color: rgb(240, 240, 240);
+  color: var(--text);
   text-decoration-line: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
-  text-decoration-color: rgb(0, 255, 255);
+  text-decoration-color: var(--accent);
 }
 
 p#p-code::after {
@@ -130,7 +130,7 @@ p#p-code::after {
 }
 
 .ref_link {
-  color: white;
+  color: var(--text);
   cursor: pointer;
   text-decoration: none;
 }
@@ -143,17 +143,17 @@ p#p-code::after {
   text-align: center;
   backdrop-filter: blur(8px);
   width: 100%;
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg);
 }
 
 .banner_desc p {
   text-align: center;
   padding: 10px 20px;
   width: 95%;
-  background-color: rgba(50, 50, 50, 0.6);
+  background-color: var(--card);
   border-radius: 10px;
-  border: 1px solid rgba(50, 50, 50, 0.6);
-  color: rgb(240, 240, 240);
+  border: 1px solid var(--bg-soft);
+  color: var(--text);
   font-size: 18px;
   font-family: Nunito, monospace;
 }
@@ -180,7 +180,7 @@ p#p-code::after {
 
   .banner_desc {
     width: 90%;
-    background-color: rgb(22, 22, 22);
+    background-color: var(--bg);
   }
 
   .banner_desc p {

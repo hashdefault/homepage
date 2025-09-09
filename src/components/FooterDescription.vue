@@ -19,12 +19,13 @@ export default {
 .footer-description {
   width: 40%;
   padding: 25px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text);
+  opacity: 0.9;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-self: center;
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg);
   z-index: 1;
 }
 
@@ -33,7 +34,8 @@ hr {
   text-align: center;
   display: flex;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: var(--text);
+  opacity: 0.4;
   border: none;
 }
 

@@ -273,11 +273,11 @@ export default {
   width: 40%;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg);
   margin: -1px;
 }
 i {
-  color: rgb(0, 255, 255);
+  color: var(--accent);
 }
 
 .desc_td {
@@ -286,6 +286,7 @@ i {
   font-weight: 700;
   font-style: normal;
   color: white;
+  color: var(--text);
   font-style: normal;
 }
 .table_container {
@@ -300,20 +301,20 @@ i {
   padding: 12px;
 }
 img {
-  background-color: rgb(240, 240, 240);
+  background-color: var(--text);
   border-radius: 20px;
   padding: 5px;
 }
 .tooltip {
-  color: black;
+  color: var(--text-invert);
   position: absolute;
   transition: opacity 0.3s;
   font-size: 10px;
   border-radius: 3px;
   padding: 2px;
   opacity: 0;
-  border: 1px solid white;
-  background-color: rgba(255, 255, 242, 0.75);
+  border: 1px solid var(--text);
+  background-color: var(--card);
 }
 .tooltipOn {
   opacity: 1;

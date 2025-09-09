@@ -24,16 +24,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .social-media {
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: white;
+  color: var(--text);
   text-align: center;
   padding-top: 10px;
 }
 .link {
-  color: rgb(0, 255, 255);
+  color: var(--accent);
   text-decoration: none;
   cursor: pointer;
   padding: 4px;
@@ -44,7 +44,7 @@ p {
   margin: 10px;
 }
 .link:hover {
-  background-color: rgba(0, 255, 255, 0.1);
+  background-color: var(--bg-soft);
   transition: all 0.6s;
 }
 i {

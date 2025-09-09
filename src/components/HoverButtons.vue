@@ -48,14 +48,14 @@ export default {
 
 .description {
   padding: 2px;
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg);
   margin: 25px 5px;
   text-align: center;
   width: 100%;
 }
 
 .home_link {
-  color: white;
+  color: var(--text);
   float: left;
   cursor: pointer;
   margin-right: 55px;
@@ -78,7 +78,7 @@ export default {
   position: relative;
   padding: 2px 15px;
   margin: 0 5px;
-  color: white;
+  color: var(--text);
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
@@ -95,7 +95,7 @@ export default {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: rgb(0, 255, 255);
+  background-color: var(--accent);
   transition: width 0.3s ease-in-out;
 }
 
@@ -125,7 +125,7 @@ i {
     padding: 10px;
     border-radius: 0px 0px 10px 10px;
     margin: 0px;
-    background-color: rgb(50, 50, 50);
+    background-color: var(--bg-soft);
     opacity: 0;
     height: 0;
     transition: height linear 0.5s, opacity ease-in-out 0.2s;
@@ -150,7 +150,7 @@ i {
     position: fixed;
     top: 0;
     left: 0;
-    color: white;
+    color: var(--text);
     z-index:10;
   }
 
@@ -158,7 +158,7 @@ i {
     padding: 10px;
     display: flex;
     font-size: 35px;
-    background-color: rgb(50, 50, 50);
+    background-color: var(--bg-soft);
     border-radius: 0 0 5px 5px;
   }
 

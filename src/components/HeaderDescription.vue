@@ -25,8 +25,8 @@ export default {
 
 <style scoped>
 .header-description {
-  background-color: rgb(22, 22, 22);
-  color: white;
+  background-color: var(--bg);
+  color: var(--text);
   display: flex;
   align-items:center;
   align-self:center;
@@ -53,7 +53,7 @@ h2 {
   border-radius: 50%;
   height: 130px;
   width: 130px;
-  border: 2px solid white;
+  border: 2px solid var(--text);
 }
 
 @media (max-width: 1024px) {
@@ -72,7 +72,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     align-self: center;
-    background-color: rgb(22, 22, 22);
+    background-color: var(--bg);
     width: 70%;
   }
 
