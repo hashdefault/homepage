@@ -17,7 +17,7 @@
 <script>
 
 import work1 from "./../assets/images/portfolio/work1.png";
-import work2 from "./../assets/images/portfolio/work2.webp";
+import work2 from "./../assets/images/portfolio/work2.png";
 
 export default {
   name: "PortfolioList",
