@@ -74,7 +74,7 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1.5s ease;
+  transition: opacity 0.3s ease;
 }
 
 .fade-enter-from,
@@ -95,7 +95,7 @@ export default {
   align-self: center;
   display: flex;
   flex-direction: row;
-  width: 45%;
+  width: 55%;
   padding: 0 25px;
   background-color: var(--bg);
   z-index: 2;
@@ -128,13 +128,13 @@ export default {
 }
 
 .illustration {
-  padding: 40px 25px 100px 25px;
+  padding: 40px 25px 80px 25px;
   background-color: var(--bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
-  width: 40%;
+  width: 50%;
 }
 
 #app {
@@ -171,9 +171,12 @@ export default {
   align-content: flex-end;
 }
 
-body {
+html, body {
   margin: 0;
   width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .medias {
@@ -181,7 +184,7 @@ body {
   display: flex;
   align-self: center;
   align-items: center;
-  width: 40%;
+  width: 50%;
   padding: 25px;
   background-color: var(--bg);
   margin: -1px;

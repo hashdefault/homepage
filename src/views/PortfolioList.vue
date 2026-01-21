@@ -1,17 +1,53 @@
 <template>
   <div class="description">
-    <div class='portfolio work1'>
-      <a href='https://news.bitsbylucas.com' target='_blank'>
-        <img :src="work1" class='works'>
-        <h4>Website de Notícias</h4>
-      </a>
+    <h2 class="page-title"><i class="fa fa-briefcase"></i> Projetos</h2>
+    <p class="page-intro">Alguns dos projetos que desenvolvi ao longo da minha carreira. Cada um com seus desafios e aprendizados únicos.</p>
+
+    <div class="portfolio-grid">
+      <div class='portfolio-card'>
+        <a href='https://news.bitsbylucas.com' target='_blank'>
+          <div class="card-image">
+            <img :src="work1" class='works'>
+          </div>
+          <div class="card-content">
+            <h4>News Portal</h4>
+            <p class="card-description">Portal de notícias com sistema de gerenciamento de conteúdo, categorias dinâmicas e interface responsiva.</p>
+            <div class="card-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+            </div>
+            <span class="card-link">Visitar <i class="fa fa-external-link"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class='portfolio-card'>
+        <a href='https://psicologapolianaota.com.br' target='_blank'>
+          <div class="card-image">
+            <img :src="work2" class='works'>
+          </div>
+          <div class="card-content">
+            <h4>Website Institucional</h4>
+            <p class="card-description">Site profissional para psicóloga com informações sobre serviços, agendamento e contato direto.</p>
+            <div class="card-tags">
+              <span class="tag">Vue.js</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Responsivo</span>
+            </div>
+            <span class="card-link">Visitar <i class="fa fa-external-link"></i></span>
+          </div>
+        </a>
+      </div>
     </div>
-    <div class='portfolio work2'>
-      <a href='https://psicologapolianaota.com.br' target='_blank'>
-        <img :src="work2" class='works'>
-        <h4>Website Psicóloga</h4>
+
+    <section class="github-section">
+      <h3 class="section-title"><i class="fa-brands fa-github"></i> Mais no GitHub</h3>
+      <p>Confira outros projetos, experimentos e contribuições open source no meu perfil do GitHub.</p>
+      <a href="https://github.com/lugabrielbueno" target="_blank" class="github-btn">
+        <i class="fa-brands fa-github"></i> Ver GitHub
       </a>
-    </div>
+    </section>
   </div>
 </template>
 <script>
@@ -37,59 +73,200 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
-h4 {
+.description {
+  padding: 25px;
+  width: 50%;
+  background-color: var(--bg);
   color: var(--text);
-  font-size: 18px;
-  margin-top: 5px;
-  font-family: "Courier Prime";
-  font-style: normal;
-  text-align: center;
-}
-
-a {
-  text-align: center;
-  padding: 0;
-  text-decoration: none;
-  transition: transform 0.3s ease-in-out;
-  border-radius: 3px;
-}
-
-.portfolio {
-  width: 310px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  padding: 20px;
+  flex-direction: column;
+  gap: 25px;
 }
 
-a:hover {
-  transform: scale(1.3);
-  cursor: pointer;
-  border: 5px solid var(--accent);
+.page-title {
+  color: var(--text);
+  font-size: 28px;
+  margin-bottom: 5px;
+  font-family: Nunito, sans-serif;
+}
+
+.page-title i {
+  color: var(--accent);
+  margin-right: 10px;
+}
+
+.page-intro {
+  color: var(--text);
+  opacity: 0.85;
+  font-size: 16px;
+  font-family: "Courier Prime", monospace;
+  line-height: 1.5;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.portfolio-card {
+  background-color: var(--card);
+  border: 1px solid var(--bg-soft);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-card a {
+  text-decoration: none;
+  display: block;
+}
+
+.card-image {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--bg-soft);
 }
 
 .works {
-  width: 240px;
-  padding: 5px;
-  border-radius: 5px;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.description {
+.portfolio-card:hover .works {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h4 {
+  color: var(--text);
+  font-size: 18px;
+  font-family: Nunito, sans-serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  color: var(--text);
+  opacity: 0.85;
+  font-size: 14px;
+  font-family: "Courier Prime", monospace;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  background-color: var(--bg);
+  color: var(--accent);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-family: "Courier Prime", monospace;
+  border: 1px solid var(--bg-soft);
+}
+
+.card-link {
+  color: var(--accent);
+  font-size: 14px;
+  font-family: Nunito, sans-serif;
+  font-weight: 600;
+}
+
+.card-link i {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+/* GitHub Section */
+.github-section {
+  background-color: var(--card);
+  border: 1px solid var(--bg-soft);
+  border-radius: 12px;
   padding: 25px;
-  width: 40%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.section-title {
+  color: var(--text);
+  font-size: 20px;
+  font-family: Nunito, sans-serif;
+  margin-bottom: 10px;
+}
+
+.section-title i {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.github-section p {
+  color: var(--text);
+  opacity: 0.85;
+  font-size: 14px;
+  font-family: "Courier Prime", monospace;
+  margin-bottom: 15px;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background-color: var(--bg);
   color: var(--text);
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: Nunito, sans-serif;
+  font-weight: 600;
+  border: 1px solid var(--bg-soft);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.github-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 1024px) {
+  .description {
+    width: 85%;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .description {
-    width: 70%;
+    width: 90%;
+    padding: 15px;
   }
 
-  a:hover {
-    transform: scale(1.1);
+  .page-title {
+    font-size: 22px;
+  }
+
+  .works {
+    height: 140px;
   }
 }
 </style>

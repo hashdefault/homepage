@@ -1,18 +1,20 @@
 <template>
-  <div class='content_menu' id='content_menu'>
-    <h4>Conteúdo</h4>
-    <ul>
-      <li class='links_ref'>
-        <a @click="updateContent('hypreww')"> Hypreww Desktop </a>
-      </li>
-      <li class='links_ref'>
-        <a @click="updateContent('notetaking')"> Como tomar notas ? </a>
-      </li>
-    </ul>
-  </div>
-  <div class="description">
-    <article id='ref_id' v-if="page">
-    </article>
+  <div class="posts-container">
+    <div class='content_menu' id='content_menu'>
+      <h4>Conteudo</h4>
+      <ul>
+        <li class='links_ref'>
+          <a @click="updateContent('hypreww')"> Hypreww Desktop </a>
+        </li>
+        <li class='links_ref'>
+          <a @click="updateContent('notetaking')"> Como tomar notas ? </a>
+        </li>
+      </ul>
+    </div>
+    <div class="description">
+      <article id='ref_id' v-if="page">
+      </article>
+    </div>
   </div>
 </template>
 <script>
@@ -58,8 +60,8 @@ export default {
       }
     },
     updateContent(name) {
-      this.page = name
-      return;
+      this.page = name;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   },
 };
@@ -68,12 +70,20 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
 
+.posts-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--bg);
+  padding: 25px;
+}
 
 .content_menu {
   color: var(--text);
   border-left: 4px solid var(--bg-soft);
   font-size: 17px;
-  width: 45%;
+  width: 100%;
 }
 
 .content_menu h4 {
@@ -107,8 +117,9 @@ export default {
   text-decoration: none;
 }
 
-div.description:has(article) {
-  margin-top: 50px;
+.posts-container .description {
+  width: 100%;
+  margin-top: 30px;
 }
 
 @keyframes fadeIn {
@@ -189,5 +200,18 @@ div.description article li {
 
 div.description article li {
   list-style: none;
+}
+
+@media (max-width: 1024px) {
+  .posts-container {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .posts-container {
+    width: 90%;
+    padding: 15px;
+  }
 }
 </style>
