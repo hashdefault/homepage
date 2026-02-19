@@ -2,7 +2,6 @@
   <button class="theme-toggle" @click="toggle">
     <i v-if="theme==='dark'" class="fa fa-sun"></i>
     <i v-else class="fa fa-moon"></i>
-    <span>{{ theme === 'dark' ? 'Light' : 'Dark' }}</span>
   </button>
 </template>
 
