@@ -12,7 +12,7 @@
       </ul>
     </div>
     <div class="description">
-      <article id='ref_id' v-if="page">
+      <article id='ref_id' v-if="renderedContent" v-html="renderedContent">
       </article>
     </div>
   </div>
@@ -23,19 +23,12 @@ export default {
   name: "WritingPosts",
 
   async mounted() {
-    // Set custom renderer before loading content
     await this.loadContent();
-    const links = document.querySelectorAll("div.description article a");
-
-    for (const link of links) {
-      if (link.href.startsWith('https://')) {
-        link.target = '_blank'
-      }
-    }
   },
   data() {
     return {
-      page: 'notetaking' //must be the last post
+      page: 'notetaking',
+      renderedContent: ''
     };
   },
   watch: {
@@ -54,7 +47,15 @@ export default {
         text = text.replace(/!\[([^\]]*)\]\(\.\/(.*?)\)/g, (match, alt, path) => {
           return `![${alt}](/postscontent/${this.page}/${path})`;
         });
-        document.getElementById("ref_id").innerHTML = marked(text);
+        this.renderedContent = marked(text);
+        this.$nextTick(() => {
+          const links = document.querySelectorAll("div.description article a");
+          for (const link of links) {
+            if (link.href.startsWith('https://')) {
+              link.target = '_blank';
+            }
+          }
+        });
       } catch (error) {
         console.error("Error loading post:", error);
       }
