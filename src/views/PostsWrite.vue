@@ -14,6 +14,8 @@
     <div class="description">
       <article id='ref_id' v-if="renderedContent" v-html="renderedContent">
       </article>
+      <p v-else-if="isLoading" class="post-status">Carregando post...</p>
+      <p v-else-if="loadError" class="post-status post-error">{{ loadError }}</p>
     </div>
   </div>
 </template>
@@ -28,7 +30,9 @@ export default {
   data() {
     return {
       page: 'notetaking',
-      renderedContent: ''
+      renderedContent: '',
+      isLoading: false,
+      loadError: ''
     };
   },
   watch: {
@@ -39,12 +43,22 @@ export default {
   methods: {
     async loadContent() {
       if (!this.page) return;
+      this.isLoading = true;
+      this.loadError = '';
+      this.renderedContent = '';
+
+      const contentBase = `/postscontent/${this.page}/`;
+      const postUrl = `${contentBase}index.md`;
+
       try {
-        const contentBase = `${process.env.BASE_URL}postscontent/${this.page}/`;
-        const response = await fetch(`${contentBase}index.md`);
-        if (!response.ok) throw new Error("Failed to fetch content");
+        const response = await fetch(postUrl);
+        if (!response.ok) throw new Error(`Failed to fetch ${postUrl}: ${response.status}`);
 
         var text = await response.text();
+        if (/^\s*<!doctype html|^\s*<html/i.test(text)) {
+          throw new Error(`Expected markdown at ${postUrl}, but received HTML`);
+        }
+
         text = text.replace(/!\[([^\]]*)\]\(\.\/(.*?)\)/g, (match, alt, path) => {
           return `![${alt}](${contentBase}${path})`;
         });
@@ -59,6 +73,9 @@ export default {
         });
       } catch (error) {
         console.error("Error loading post:", error);
+        this.loadError = "Nao foi possivel carregar este post.";
+      } finally {
+        this.isLoading = false;
       }
     },
     updateContent(name) {
@@ -122,6 +139,16 @@ export default {
 .posts-container .description {
   width: 100%;
   margin-top: 30px;
+}
+
+.post-status {
+  color: var(--text);
+  padding: 25px;
+}
+
+.post-error {
+  border-left: 4px solid var(--accent);
+  background-color: var(--card);
 }
 
 @keyframes fadeIn {
