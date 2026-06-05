@@ -40,12 +40,13 @@ export default {
     async loadContent() {
       if (!this.page) return;
       try {
-        const response = await fetch(`/postscontent/${this.page}/index.md`);
+        const contentBase = `${process.env.BASE_URL}postscontent/${this.page}/`;
+        const response = await fetch(`${contentBase}index.md`);
         if (!response.ok) throw new Error("Failed to fetch content");
 
         var text = await response.text();
         text = text.replace(/!\[([^\]]*)\]\(\.\/(.*?)\)/g, (match, alt, path) => {
-          return `![${alt}](/postscontent/${this.page}/${path})`;
+          return `![${alt}](${contentBase}${path})`;
         });
         this.renderedContent = marked(text);
         this.$nextTick(() => {
