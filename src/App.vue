@@ -1,240 +1,87 @@
 <template>
-  <section class="colorLight">
-    <header class="header">
-      <div class="nav">
-        <HoverButtons @activateTech="handleActivateTech" />
-        <ThemeToggle />
-      </div>
-      <div class="illustration">
-        <img class="gifs_illustration" src="./assets/gifs/morecoffee.gif" />
-        <br />
-        <img class="moving_image" src="./assets/gifs/zombie.gif" />
-      </div>
-    </header>
-    <div class="container">
-      <transition name="fade" mode="out-in">
-        <router-view :class="smooth - view" />
-      </transition>
+  <div class="site">
+    <div class="site-nav">
+      <NavBar
+        brand-mark="dev."
+        brand-name="lucas"
+        :links="navLinks"
+      >
+        <template #end>
+          <ThemeToggle />
+          <DsButton size="sm" href="/contato" @click.prevent="$router.push('/contato')">
+            <template #iconRight><Icon name="arrow-up-right" /></template>
+            Contato
+          </DsButton>
+        </template>
+      </NavBar>
     </div>
-    <div class="medias">
-      <SocialMedia />
-    </div>
-    <footer class="footer">
-      <FooterDescription />
+
+    <main class="page">
+      <router-view />
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div>
+          <div class="brand"><span class="m">dev.</span>lucas</div>
+          <div class="tagline">Construindo soluções web sólidas</div>
+        </div>
+        <div class="copy">&copy; {{ year }} Lucas G. Bueno<br>Maringá, PR &middot; Brasil</div>
+      </div>
     </footer>
-  </section>
+  </div>
 </template>
 
 <script>
-import FooterDescription from "./components/FooterDescription.vue";
-import SocialMedia from "./components/SocialMedia.vue";
-import HoverButtons from "./components/HoverButtons.vue";
-import ThemeToggle from "./components/ThemeToggle.vue";
+import NavBar from './components/ds/NavBar.vue';
+import DsButton from './components/ds/Button.vue';
+import ThemeToggle from './components/ThemeToggle.vue';
+import Icon from './components/ds/Icon.vue';
 
 export default {
-  name: "App",
-  created() {
-    document.title = "dev. lucas";
+  name: 'App',
+  components: { NavBar, DsButton, ThemeToggle, Icon },
+  data() {
+    return {
+      navLinks: [
+        { label: 'Início', to: '/' },
+        { label: 'Works', to: '/portfolio' },
+        { label: 'Tech Stack', to: '/techstack' },
+        { label: 'Posts', to: '/posts' },
+      ]
+    };
   },
-
-  components: {
-    FooterDescription,
-    SocialMedia,
-    HoverButtons,
-    ThemeToggle,
-  },
-
   computed: {
-    backgroundStyle() {
-      return {
-        backgroundImage: this.gif,
-      };
-    },
+    year() { return new Date().getFullYear(); }
   },
+  created() {
+    document.title = 'dev.lucas';
+  }
 };
 </script>
 
 <style>
-:root {
-  --bg: rgb(22, 22, 22);
-  --bg-soft: rgb(50, 50, 50);
-  --text: rgb(240, 240, 240);
-  --text-invert: rgb(16, 16, 16);
-  --accent: rgb(0, 255, 255);
-  --card: rgba(50, 50, 50, 0.6);
+html { scroll-behavior: smooth; }
+
+.site-nav { position: sticky; top: 0; z-index: 50; }
+.page { max-width: var(--container-max); margin: 0 auto; padding: 0 32px 96px; }
+.screen { display: flex; flex-direction: column; }
+.sec { margin-top: 80px; }
+.sec--top { margin-top: 56px; }
+
+.site-footer { border-top: 1px solid var(--border); margin-top: 96px; }
+.site-footer__inner {
+  max-width: var(--container-max); margin: 0 auto; padding: 32px;
+  display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;
 }
+.site-footer .brand { font-family: var(--font-display); font-weight: 700; color: var(--text-strong); }
+.site-footer .brand .m { font-family: var(--font-mono); color: var(--accent); }
+.site-footer .tagline { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); margin-top: 4px; }
+.site-footer .copy { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); text-align: right; }
 
-[data-theme="light"] {
-  --bg: rgb(248, 248, 248);
-  --bg-soft: rgb(235, 235, 235);
-  --text: rgb(18, 18, 18);
-  --text-invert: rgb(240, 240, 240);
-  --accent: rgb(0, 255, 255); /* preserve accent */
-  --card: rgba(255, 255, 255, 0.8);
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.colorLight {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  align-self: center;
-  flex-direction: column;
-}
-
-.nav {
-  align-items: center;
-  align-self: center;
-  display: flex;
-  flex-direction: row;
-  width: 55%;
-  padding: 0 25px;
-  background-color: var(--bg);
-  z-index: 2;
-}
-
-.moving_image {
-  position: relative;
-  width: 70px;
-  height: auto;
-  animation: moveImage 20s linear infinite;
-  overflow: hidden;
-}
-
-@keyframes moveImage {
-  from {
-    left: -200px;
-  }
-
-  to {
-    left: 200px;
-  }
-}
-
-.header {
-  width: 100%;
-  display: flex;
-  align-self: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.illustration {
-  padding: 40px 25px 80px 25px;
-  background-color: var(--bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: center;
-  width: 50%;
-}
-
-#app {
-  font-family: Nunito, Rubik, Mulish, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  flex-direction: column;
-  display: flex;
-  min-height: 100vh;
-  background-color: var(--bg);
-}
-
-.container {
-  width: 100%;
-  background-clip: padding-box, border-box;
-  box-sizing: border-box;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-self: center;
-}
-
-.footer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  align-self: flex-end;
-  justify-content: space-between;
-  align-content: flex-end;
-}
-
-html, body {
-  margin: 0;
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.medias {
-  flex-direction: column;
-  display: flex;
-  align-self: center;
-  align-items: center;
-  width: 50%;
-  padding: 25px;
-  background-color: var(--bg);
-  margin: -1px;
-}
-
-.gifs_illustration {
-  width: 300px;
-}
-
-
-@media (max-width: 1024px) {
-  .colorLight {
-    background: none;
-    background-color: var(--bg);
-  }
-
-  .illustration {
-    width: 100%;
-  }
-
-  .gifs_illustration {
-    width: 60%;
-  }
-
-  .header {
-    width: 70%;
-    padding: 0 25px;
-  }
-
-  .medias {
-    width: 70%;
-  }
-
-
-  .nav {
-    width: 100%;
-    padding: 0 25px;
-    margin-bottom: -1px;
-    z-index: 2;
-  }
-
-  @keyframes moveImage {
-    from {
-      left: -150px;
-    }
-
-    to {
-      left: 150px;
-    }
-  }
-
+@media (max-width: 768px) {
+  .page { padding: 0 16px 64px; }
+  .site-footer__inner { flex-direction: column; text-align: center; }
+  .site-footer .copy { text-align: center; }
 }
 </style>

@@ -1,346 +1,158 @@
 <template>
-  <div class="description">
-    <div class="banner_desc">
-      <p><i class="fa-brands fa-linux"></i> i use arch, btw</p>
-    </div>
-    <HeaderDescription />
-
-    <section class="about-section">
-      <h3 class="subtitle"><i class="fa fa-terminal"></i> Sobre mim</h3>
-      <p class="about-text">
-        {{ displayedTextFirst }}
-      </p>
-    </section>
-
-    <section class="highlights-section">
-      <h3 class="subtitle"><i class="fa fa-rocket"></i> O que eu faço</h3>
-      <div class="highlights-grid">
-        <div class="highlight-card">
-          <i class="fa fa-code highlight-icon"></i>
-          <h4>Desenvolvimento Web</h4>
-          <p>Criação de websites e sistemas web completos, do frontend ao backend, com foco em performance e usabilidade.</p>
+  <div class="screen">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__copy">
+        <span class="ds-eyebrow">// FULL STACK DEVELOPER · MARINGÁ, PR</span>
+        <h1 class="hero__title">Construo sistemas web que <span class="accent">sustentam negócios</span>.</h1>
+        <p class="hero__sub">Desenvolvedor full stack com foco em PHP, Laravel, Python e Vue. Do banco de dados à interface — com atenção a performance, manutenção e clareza.</p>
+        <div class="hero__badge">
+          <Badge status="available">Disponível para projetos</Badge>
         </div>
-        <div class="highlight-card">
-          <i class="fa fa-server highlight-icon"></i>
-          <h4>Backend & APIs</h4>
-          <p>Desenvolvimento de APIs RESTful, integração de sistemas e arquitetura de aplicações com PHP, Python e Laravel.</p>
+        <div class="hero__cta">
+          <DsButton variant="primary" size="lg" @click="$router.push('/portfolio')">
+            <template #iconRight><Icon name="arrow-right" /></template>
+            Ver projetos
+          </DsButton>
+          <DsButton variant="secondary" size="lg" @click="$router.push('/contato')">
+            <template #iconLeft><Icon name="mail" /></template>
+            Entrar em contato
+          </DsButton>
         </div>
-        <div class="highlight-card">
-          <i class="fa-brands fa-linux highlight-icon"></i>
-          <h4>Linux & DevOps</h4>
-          <p>Configuração de servidores, deploy de aplicações, Docker e automação de processos em ambientes Linux.</p>
+        <div class="hero__social">
+          <SocialLink label="GitHub" handle="@hashdefault" href="https://github.com/hashdefault">
+            <template #icon><Icon name="github" /></template>
+          </SocialLink>
+          <SocialLink label="LinkedIn" href="https://www.linkedin.com/in/lucas-g-bueno/">
+            <template #icon><Icon name="linkedin" /></template>
+          </SocialLink>
         </div>
+      </div>
+      <div class="hero__aside">
+        <div class="hero__portrait">
+          <Avatar :src="photo" size="lg" ring status />
+          <div>
+            <div class="hero__name">Lucas G. Bueno</div>
+            <div class="hero__role">Full Stack Developer</div>
+          </div>
+        </div>
+        <Terminal title="lucas@arch:~" :caret="true" :lines="termLines" />
       </div>
     </section>
 
-    <section class="interests-section">
-      <h3 class="subtitle"><i class="fa fa-heart"></i> Interesses</h3>
-      <div class="interests-list">
-        <span class="interest-tag"><i class="fa fa-heart"></i> Linux universe</span>
-        <span class="interest-tag"><i class="fa fa-book-open"></i> Open Source</span>
-        <span class="interest-tag"><i class="fa fa-keyboard"></i> Vim/Neovim</span>
-        <span class="interest-tag"><i class="fa fa-terminal"></i> CLI tools</span>
-        <span class="interest-tag"><i class="fa fa-music"></i> Folk & Rock</span>
-        <span class="interest-tag"><i class="fa fa-book"></i> Leitura</span>
+    <!-- O que eu faço -->
+    <section class="sec">
+      <SectionHeading eyebrow="O que eu faço" title="Três frentes, um padrão de qualidade" :rule="true">
+        <template #icon><Icon name="rocket" /></template>
+      </SectionHeading>
+      <div class="grid-3">
+        <Card v-for="hl in highlights" :key="hl.title" accent padding="lg" class="home-hl">
+          <div class="home-hl__icon"><Icon :name="hl.icon" /></div>
+          <h4>{{ hl.title }}</h4>
+          <p>{{ hl.body }}</p>
+        </Card>
       </div>
     </section>
 
-    <section class="resources-section">
-      <h3 class="subtitle"><i class="fa fa-bookmark"></i> Recursos Úteis</h3>
-      <div class="resources-grid">
-        <a class='resource-link' href="https://learnxinyminutes.com/" target='_blank'>
-          <i class="fa fa-book"></i>
-          <span>Learn X in Y Minutes</span>
-          <small>Aprenda linguagens rapidamente</small>
-        </a>
-        <a class="resource-link" href="https://github.com/kamranahmedse/developer-roadmap" target="_blank">
-          <i class="fa-brands fa-github"></i>
-          <span>Developer Roadmap</span>
-          <small>Guias de carreira para devs</small>
-        </a>
-        <a class="resource-link" href="https://roadmap.sh" target="_blank">
-          <i class="fa fa-map"></i>
-          <span>Roadmap.sh</span>
-          <small>Trilhas de aprendizado</small>
-        </a>
-        <a class="resource-link" href="https://www.freecodecamp.org/" target="_blank">
-          <i class="fa fa-graduation-cap"></i>
-          <span>freeCodeCamp</span>
-          <small>Aprenda a programar grátis</small>
-        </a>
+    <!-- Sobre mim -->
+    <section class="sec">
+      <SectionHeading eyebrow="Sobre mim" title="Trajetória">
+        <template #icon><Icon name="user" /></template>
+      </SectionHeading>
+      <div class="about">
+        <p>Minha trajetória na tecnologia começou em 2019, estudando Python para análise de dados — unindo o gosto por resolver problemas práticos à aplicação de ferramentas matemáticas.</p>
+        <p>No ano seguinte ampliei o foco para desenvolvimento web, explorando PHP, JavaScript e frameworks como Django e Laravel. Desde então atuo na manutenção e no desenvolvimento de websites e sistemas, com o universo Linux como base da carreira.</p>
+      </div>
+    </section>
+
+    <!-- Interesses -->
+    <section class="sec">
+      <SectionHeading eyebrow="Interesses" title="Fora do editor">
+        <template #icon><Icon name="heart" /></template>
+      </SectionHeading>
+      <div class="tags">
+        <Tag v-for="tag in interests" :key="tag.label" variant="solid" pill>
+          <template #icon><Icon :name="tag.icon" /></template>
+          {{ tag.label }}
+        </Tag>
       </div>
     </section>
   </div>
 </template>
-<script>
-import HeaderDescription from "./../components/HeaderDescription.vue";
-export default {
-  name: "HomeDescription",
-  mounted() {
-    this.startTypingFirst();
-  },
-  components: {
-    HeaderDescription
 
-  },
+<script>
+import DsButton from '../components/ds/Button.vue';
+import Badge from '../components/ds/Badge.vue';
+import SocialLink from '../components/ds/SocialLink.vue';
+import Avatar from '../components/ds/Avatar.vue';
+import Terminal from '../components/ds/Terminal.vue';
+import SectionHeading from '../components/ds/SectionHeading.vue';
+import Card from '../components/ds/Card.vue';
+import Tag from '../components/ds/Tag.vue';
+import Icon from '../components/ds/Icon.vue';
+import photo from '../assets/images/me2.png';
+
+export default {
+  name: 'HomePage',
+  components: { DsButton, Badge, SocialLink, Avatar, Terminal, SectionHeading, Card, Tag, Icon },
   data() {
     return {
-      fullTextFirst:
-        //"Minha jornada no mundo da programação começou na universidade, enquanto eu estava até o pescoço nas aulas de Física. Foi como tropeçar em um universo totalmente novo. Avançando para 2020, me vi mergulhando de cabeça no cenário tecnológico, trabalhando como desenvolvedor full-stack em uma empresa privada. Ser um desenvolvedor full-stack significa ter muitas funções, mas neste universo as vezes precisamos abraçar o caos e perseguir esses sonhos, uma linha de código de cada vez! 🚀 ",
-        `Lucas é um desenvolvedor de software que atualmente reside na cidade de Maringá, no estado do Paraná. 
-        Sua trajetória na tecnologia começou em 2019, enquanto estudava Python para análises de dados, unindo seu interesse em resolver problemas práticos à aplicação de ferramentas para solução de problemas matemáticos.
-No ano seguinte, em 2020, ampliou seus horizontes ao iniciar estudos em desenvolvimento web,
-explorando tecnologias e linguagens como PHP, Javascript e frameworks como Django e Laravel.
-      Esse novo foco o levou a ingressar em uma empresa, onde desde então atua na manutenção e desenvolvimento de websites e sistemas. Sua experiência e paixão pelo mundo linux são uma peça fundamental na carreira.`,
-      fullTextSecond: "",
-      //"Sou apaixonado por músicas como folk, clássica, rock e soul. As músicas instrumentais me ajudam a relaxar, enquanto as composições clássicas me oferecem uma elegância atemporal. A energia visceral do rock alimenta minha paixão, e os vocais do Soul falam à minha alma. Me sinto enriquecido por cada um desses gêneros. Livros, cinema e arte são parte de interesses dos quais eu vejo sendo fundamentais a experiência humana.",
-      displayedTextFirst: "",
-      typingSpeed: 50,
+      photo,
+      termLines: [
+        { type: 'comment', text: 'sobre mim' },
+        { type: 'cmd', text: 'whoami' },
+        { type: 'out', text: 'Lucas G. Bueno' },
+        { type: 'cmd', text: 'cat stack.txt' },
+        { type: 'out', text: 'PHP · Laravel · Python · Vue · Docker' },
+        { type: 'cmd', text: 'uname -o' },
+        { type: 'out', text: 'GNU/Linux — Arch' },
+        { type: 'cmd', text: 'status --now' },
+      ],
+      highlights: [
+        { icon: 'code-xml', title: 'Desenvolvimento Web', body: 'Websites e sistemas completos, do frontend ao backend, com foco em performance e usabilidade.' },
+        { icon: 'server', title: 'Backend & APIs', body: 'APIs RESTful, integração de sistemas e arquitetura de aplicações com PHP, Python e Laravel.' },
+        { icon: 'terminal', title: 'Linux & DevOps', body: 'Configuração de servidores, deploy, Docker e automação de processos em ambientes Linux.' },
+      ],
+      interests: [
+        { icon: 'terminal', label: 'Linux universe' },
+        { icon: 'git-branch', label: 'Open Source' },
+        { icon: 'keyboard', label: 'Vim / Neovim' },
+        { icon: 'square-terminal', label: 'CLI tools' },
+        { icon: 'music', label: 'Folk & Rock' },
+        { icon: 'book-open', label: 'Leitura' },
+      ]
     };
-  },
-
-  methods: {
-    startTypingFirst() {
-      this.displayedTextFirst = "";
-      let index = 0;
-      const interval = setInterval(() => {
-        if (index < this.fullTextFirst.length) {
-          this.displayedTextFirst += this.fullTextFirst[index];
-          index++;
-        } else {
-          clearInterval(interval); // Stop typing when the full text is displayed
-        }
-      }, this.typingSpeed);
-    },
-  },
+  }
 };
 </script>
 
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
+<style>
+.hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding-top: 64px; }
+.hero__title { font-size: clamp(38px, 5vw, 60px); line-height: 1.04; letter-spacing: -0.03em; margin: 18px 0 0; }
+.hero__title .accent { color: var(--accent); }
+.hero__sub { font-family: var(--font-body); color: var(--text-muted); font-size: 18px; line-height: 1.6; max-width: 52ch; margin-top: 22px; }
+.hero__badge { margin-top: 24px; }
+.hero__cta { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+.hero__social { display: flex; gap: 12px; margin-top: 24px; }
+.hero__aside { display: flex; flex-direction: column; gap: 20px; }
+.hero__portrait { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.hero__name { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--text-strong); }
+.hero__role { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-top: 2px; }
 
-.description {
-  width: 50%;
-  padding: 25px;
-  background-color: var(--bg);
-  margin: -1px;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  gap: 30px;
-}
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+.home-hl { display: flex; flex-direction: column; }
+.home-hl__icon { width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--accent-tint); color: var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.home-hl__icon svg { width: 22px; height: 22px; }
+.home-hl h4 { font-family: var(--font-display); font-size: 18px; color: var(--text-strong); margin: 0 0 8px; }
+.home-hl p { font-family: var(--font-body); font-size: 14.5px; color: var(--text-muted); line-height: 1.55; margin: 0; }
 
-section {
-  width: 100%;
-}
+.about { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; max-width: 72ch; }
+.about p { font-family: var(--font-body); font-size: 17px; line-height: 1.7; color: var(--text-body); }
 
-.subtitle {
-  color: var(--text);
-  text-decoration-line: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 6px;
-  text-decoration-color: var(--accent);
-  margin-bottom: 15px;
-  font-size: 22px;
-}
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 
-.subtitle i {
-  color: var(--accent);
-  margin-right: 8px;
-}
-
-.banner_desc {
-  text-align: center;
-  width: 100%;
-  background-color: var(--bg);
-}
-
-.banner_desc p {
-  text-align: center;
-  padding: 12px 20px;
-  width: 100%;
-  background-color: var(--card);
-  border-radius: 10px;
-  border: 1px solid var(--bg-soft);
-  color: var(--text);
-  font-size: 16px;
-  font-family: "Courier Prime", monospace;
-}
-
-.banner_desc p i {
-  margin-right: 8px;
-  color: var(--accent);
-}
-
-/* About Section */
-.about-text {
-  font-family: "Courier Prime", monospace;
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 16px;
-  text-align: justify;
-}
-
-.about-text::after {
-  content: "|";
-  font-weight: bold;
-  display: inline-block;
-  animation: blink 0.6s steps(2, start) infinite;
-}
-
-/* Highlights Section */
-.highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.highlight-card {
-  background-color: var(--card);
-  border: 1px solid var(--bg-soft);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.highlight-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-}
-
-.highlight-icon {
-  font-size: 32px;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-
-.highlight-card h4 {
-  color: var(--text);
-  font-size: 16px;
-  margin-bottom: 10px;
-  font-family: Nunito, sans-serif;
-}
-
-.highlight-card p {
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.5;
-  opacity: 0.85;
-  font-family: "Courier Prime", monospace;
-}
-
-/* Interests Section */
-.interests-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.interest-tag {
-  background-color: var(--card);
-  border: 1px solid var(--bg-soft);
-  color: var(--text);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-family: "Courier Prime", monospace;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.interest-tag:hover {
-  border-color: var(--accent);
-}
-
-.interest-tag i {
-  color: var(--accent);
-  margin-right: 6px;
-}
-
-/* Resources Section */
-.resources-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.resource-link {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--card);
-  border: 1px solid var(--bg-soft);
-  border-radius: 10px;
-  padding: 15px;
-  text-decoration: none;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.resource-link:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent);
-}
-
-.resource-link i {
-  font-size: 24px;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
-
-.resource-link span {
-  color: var(--text);
-  font-size: 15px;
-  font-weight: 600;
-  font-family: Nunito, sans-serif;
-}
-
-.resource-link small {
-  color: var(--text);
-  opacity: 0.7;
-  font-size: 12px;
-  margin-top: 4px;
-  font-family: "Courier Prime", monospace;
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  50.1%, 100% {
-    opacity: 0;
-  }
-}
-
-@media (max-width: 1024px) {
-  .description {
-    width: 85%;
-  }
-
-  .highlights-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .resources-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .subtitle {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .description {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .highlight-card {
-    padding: 15px;
-  }
-
-  .interest-tag {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
 }
 </style>

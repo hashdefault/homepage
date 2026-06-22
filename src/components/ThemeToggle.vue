@@ -1,17 +1,17 @@
 <template>
-  <button class="theme-toggle" @click="toggle">
-    <i v-if="theme==='dark'" class="fa fa-sun"></i>
-    <i v-else class="fa fa-moon"></i>
+  <button class="lgb-theme-toggle" @click="toggle" :aria-label="theme === 'dark' ? 'Modo claro' : 'Modo escuro'">
+    <Icon :name="theme === 'dark' ? 'sun' : 'moon'" />
   </button>
 </template>
 
 <script>
+import Icon from './ds/Icon.vue';
+
 export default {
   name: 'ThemeToggle',
+  components: { Icon },
   data() {
-    return {
-      theme: 'dark'
-    };
+    return { theme: 'dark' };
   },
   mounted() {
     const saved = localStorage.getItem('theme') || 'dark';
@@ -19,8 +19,7 @@ export default {
   },
   methods: {
     toggle() {
-      const next = this.theme === 'dark' ? 'light' : 'dark';
-      this.apply(next);
+      this.apply(this.theme === 'dark' ? 'light' : 'dark');
     },
     apply(mode) {
       this.theme = mode;
@@ -31,40 +30,14 @@ export default {
 };
 </script>
 
-<style scoped>
-.theme-toggle {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
-  font-weight: 700;
+<style>
+.lgb-theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 8px; border: 1px solid var(--border); border-radius: var(--radius-md);
+  background: transparent; color: var(--text-muted); cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
-.theme-toggle:hover {
-  background: var(--bg-soft);
-}
-.theme-toggle i { color: var(--accent); }
-
-@media (max-width: 1024px) {
-  .theme-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1002;
-    padding: 10px 12px;
-    border: 1px solid var(--bg-soft);
-    border-radius: 8px;
-    background: var(--bg);
-    box-shadow: 0 2px 8px rgba(0,0,0,.15);
-    gap: 6px;
-  }
-  .theme-toggle span {
-    display: none;
-  }
-}
+.lgb-theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.lgb-theme-toggle:focus-visible { outline: none; box-shadow: var(--ring-focus); }
+.lgb-theme-toggle svg { width: 18px; height: 18px; }
 </style>

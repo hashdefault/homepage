@@ -1,272 +1,95 @@
 <template>
-  <div class="description">
-    <h2 class="page-title"><i class="fa fa-briefcase"></i> Projetos</h2>
-    <p class="page-intro">Alguns dos projetos que desenvolvi ao longo da minha carreira. Cada um com seus desafios e aprendizados únicos.</p>
-
-    <div class="portfolio-grid">
-      <div class='portfolio-card'>
-        <a href='https://news.bitsbylucas.com' target='_blank'>
-          <div class="card-image">
-            <img :src="work1" class='works'>
-          </div>
-          <div class="card-content">
-            <h4>News Portal</h4>
-            <p class="card-description">Portal de notícias com sistema de gerenciamento de conteúdo, categorias dinâmicas e interface responsiva.</p>
-            <div class="card-tags">
-              <span class="tag">PHP</span>
-              <span class="tag">Laravel</span>
-              <span class="tag">MySQL</span>
-            </div>
-            <span class="card-link">Visitar <i class="fa fa-external-link"></i></span>
-          </div>
-        </a>
-      </div>
-
-      <div class='portfolio-card'>
-        <a href='https://psicologapolianaota.com.br' target='_blank'>
-          <div class="card-image">
-            <img :src="work2" class='works'>
-          </div>
-          <div class="card-content">
-            <h4>Website Institucional</h4>
-            <p class="card-description">Site profissional para psicóloga com informações sobre serviços, agendamento e contato direto.</p>
-            <div class="card-tags">
-              <span class="tag">Vue.js</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Responsivo</span>
-            </div>
-            <span class="card-link">Visitar <i class="fa fa-external-link"></i></span>
-          </div>
-        </a>
-      </div>
+  <div class="screen">
+    <section class="sec sec--top">
+      <SectionHeading
+        eyebrow="Works"
+        title="Projetos selecionados"
+        description="Trabalhos em produção — cada um com seus desafios e aprendizados."
+        :rule="true"
+      >
+        <template #icon><Icon name="briefcase" /></template>
+      </SectionHeading>
+    </section>
+    <div class="works-grid">
+      <Card
+        v-for="(p, i) in projects"
+        :key="i"
+        :media="p.media"
+        :media-alt="p.title"
+        :href="p.href"
+      >
+        <h4 class="work__title">{{ p.title }}</h4>
+        <p class="work__desc">{{ p.desc }}</p>
+        <div class="work__tags">
+          <Tag v-for="(t, j) in p.tags" :key="j" :variant="j === 0 ? 'signal' : 'default'">{{ t }}</Tag>
+        </div>
+        <span class="work__link">Visitar <Icon name="arrow-up-right" /></span>
+      </Card>
     </div>
 
-    <section class="github-section">
-      <h3 class="section-title"><i class="fa-brands fa-github"></i> Mais no GitHub</h3>
-      <p>Confira outros projetos, experimentos e contribuições open source no meu perfil do GitHub.</p>
-      <a href="https://github.com/lugabrielbueno" target="_blank" class="github-btn">
-        <i class="fa-brands fa-github"></i> Ver GitHub
-      </a>
+    <section class="sec">
+      <Card padding="lg" class="gh-cta">
+        <div>
+          <h3>Mais no GitHub</h3>
+          <p>Outros projetos, experimentos e contribuições open source estão no perfil.</p>
+        </div>
+        <DsButton variant="secondary" size="lg" href="https://github.com/hashdefault">
+          <template #iconLeft><Icon name="github" /></template>
+          Ver GitHub
+        </DsButton>
+      </Card>
     </section>
   </div>
 </template>
-<script>
 
-import work1 from "./../assets/images/portfolio/work1.png";
-import work2 from "./../assets/images/portfolio/work2.png";
+<script>
+import SectionHeading from '../components/ds/SectionHeading.vue';
+import Card from '../components/ds/Card.vue';
+import Tag from '../components/ds/Tag.vue';
+import DsButton from '../components/ds/Button.vue';
+import Icon from '../components/ds/Icon.vue';
+import work1 from '../assets/images/portfolio/work1.png';
+import work2 from '../assets/images/portfolio/work2.png';
 
 export default {
-  name: "PortfolioList",
-  mounted() { },
-
+  name: 'PortfolioList',
+  components: { SectionHeading, Card, Tag, DsButton, Icon },
   data() {
     return {
-      work1: work1,
-      work2: work2
+      projects: [
+        {
+          media: work1,
+          title: 'News Portal',
+          desc: 'Portal de notícias com sistema de gerenciamento de conteúdo, categorias dinâmicas e interface responsiva.',
+          tags: ['PHP', 'Laravel', 'MySQL'],
+          href: 'https://news.bitsbylucas.com'
+        },
+        {
+          media: work2,
+          title: 'Website Institucional',
+          desc: 'Site profissional para psicóloga, com serviços, agendamento e contato direto.',
+          tags: ['Vue.js', 'CSS3', 'Responsivo'],
+          href: 'https://psicologapolianaota.com.br'
+        }
+      ]
     };
-  },
-  methods: {},
+  }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
+<style>
+.works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
+.work__title { font-family: var(--font-display); font-size: 20px; color: var(--text-strong); margin: 0 0 10px; }
+.work__desc { font-family: var(--font-body); font-size: 14.5px; color: var(--text-muted); line-height: 1.55; margin: 0 0 16px; }
+.work__tags { display: flex; gap: 8px; margin-bottom: 18px; }
+.work__link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--accent); }
+.work__link svg { width: 15px; height: 15px; }
+.gh-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.gh-cta h3 { font-family: var(--font-display); font-size: 22px; color: var(--text-strong); margin: 0 0 6px; }
+.gh-cta p { font-family: var(--font-body); color: var(--text-muted); margin: 0; max-width: 48ch; }
 
-.description {
-  padding: 25px;
-  width: 50%;
-  background-color: var(--bg);
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.page-title {
-  color: var(--text);
-  font-size: 28px;
-  margin-bottom: 5px;
-  font-family: Nunito, sans-serif;
-}
-
-.page-title i {
-  color: var(--accent);
-  margin-right: 10px;
-}
-
-.page-intro {
-  color: var(--text);
-  opacity: 0.85;
-  font-size: 16px;
-  font-family: "Courier Prime", monospace;
-  line-height: 1.5;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-
-.portfolio-card {
-  background-color: var(--card);
-  border: 1px solid var(--bg-soft);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.portfolio-card a {
-  text-decoration: none;
-  display: block;
-}
-
-.card-image {
-  width: 100%;
-  overflow: hidden;
-  border-bottom: 1px solid var(--bg-soft);
-}
-
-.works {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.portfolio-card:hover .works {
-  transform: scale(1.05);
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-content h4 {
-  color: var(--text);
-  font-size: 18px;
-  font-family: Nunito, sans-serif;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.card-description {
-  color: var(--text);
-  opacity: 0.85;
-  font-size: 14px;
-  font-family: "Courier Prime", monospace;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-.card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 15px;
-}
-
-.tag {
-  background-color: var(--bg);
-  color: var(--accent);
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 15px;
-  font-family: "Courier Prime", monospace;
-  border: 1px solid var(--bg-soft);
-}
-
-.card-link {
-  color: var(--accent);
-  font-size: 14px;
-  font-family: Nunito, sans-serif;
-  font-weight: 600;
-}
-
-.card-link i {
-  margin-left: 5px;
-  font-size: 12px;
-}
-
-/* GitHub Section */
-.github-section {
-  background-color: var(--card);
-  border: 1px solid var(--bg-soft);
-  border-radius: 12px;
-  padding: 25px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.section-title {
-  color: var(--text);
-  font-size: 20px;
-  font-family: Nunito, sans-serif;
-  margin-bottom: 10px;
-}
-
-.section-title i {
-  color: var(--accent);
-  margin-right: 8px;
-}
-
-.github-section p {
-  color: var(--text);
-  opacity: 0.85;
-  font-size: 14px;
-  font-family: "Courier Prime", monospace;
-  margin-bottom: 15px;
-}
-
-.github-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--bg);
-  color: var(--text);
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: Nunito, sans-serif;
-  font-weight: 600;
-  border: 1px solid var(--bg-soft);
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-
-.github-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-@media (max-width: 1024px) {
-  .description {
-    width: 85%;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .description {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .page-title {
-    font-size: 22px;
-  }
-
-  .works {
-    height: 140px;
-  }
+@media (max-width: 960px) {
+  .works-grid { grid-template-columns: 1fr; }
+  .gh-cta { flex-direction: column; text-align: center; }
 }
 </style>

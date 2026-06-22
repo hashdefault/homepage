@@ -1,44 +1,56 @@
 <template>
-  <div class="posts-container">
-    <div class='content_menu' id='content_menu'>
-      <h4>Conteudo</h4>
-      <ul>
-        <li class='links_ref'>
-          <a @click="updateContent('hypreww')"> Hypreww Desktop </a>
-        </li>
-        <li class='links_ref'>
-          <a @click="updateContent('notetaking')"> Como tomar notas ? </a>
-        </li>
-      </ul>
-    </div>
-    <div class="description">
-      <article id='ref_id' v-if="renderedContent" v-html="renderedContent">
-      </article>
-      <p v-else-if="isLoading" class="post-status">Carregando post...</p>
-      <p v-else-if="loadError" class="post-status post-error">{{ loadError }}</p>
+  <div class="screen">
+    <section class="sec sec--top">
+      <SectionHeading eyebrow="Posts" title="Anotações e artigos" :rule="true">
+        <template #icon><Icon name="book-open" /></template>
+      </SectionHeading>
+    </section>
+
+    <div class="posts-layout">
+      <aside class="posts-nav">
+        <h4 class="posts-nav__title">Conteúdo</h4>
+        <ul class="posts-nav__list">
+          <li v-for="item in menu" :key="item.slug">
+            <a
+              :class="['posts-nav__link', page === item.slug ? 'posts-nav__link--active' : '']"
+              @click="updateContent(item.slug)"
+            >{{ item.label }}</a>
+          </li>
+        </ul>
+      </aside>
+
+      <article v-if="renderedContent" class="posts-article" v-html="renderedContent" />
+      <p v-else-if="isLoading" class="posts-status">Carregando post...</p>
+      <p v-else-if="loadError" class="posts-status posts-error">{{ loadError }}</p>
     </div>
   </div>
 </template>
-<script>
-import { marked } from "marked"
-export default {
-  name: "WritingPosts",
 
-  async mounted() {
-    await this.loadContent();
-  },
+<script>
+import { marked } from 'marked';
+import SectionHeading from '../components/ds/SectionHeading.vue';
+import Icon from '../components/ds/Icon.vue';
+
+export default {
+  name: 'PostsWrite',
+  components: { SectionHeading, Icon },
   data() {
     return {
       page: 'notetaking',
       renderedContent: '',
       isLoading: false,
-      loadError: ''
+      loadError: '',
+      menu: [
+        { slug: 'hypreww', label: 'Hypreww Desktop' },
+        { slug: 'notetaking', label: 'Como tomar notas ?' },
+      ]
     };
   },
+  async mounted() {
+    await this.loadContent();
+  },
   watch: {
-    page() {
-      this.loadContent(); // Reload content when `page` changes
-    },
+    page() { this.loadContent(); }
   },
   methods: {
     async loadContent() {
@@ -54,7 +66,7 @@ export default {
         const response = await fetch(postUrl);
         if (!response.ok) throw new Error(`Failed to fetch ${postUrl}: ${response.status}`);
 
-        var text = await response.text();
+        let text = await response.text();
         if (/^\s*<!doctype html|^\s*<html/i.test(text)) {
           throw new Error(`Expected markdown at ${postUrl}, but received HTML`);
         }
@@ -64,16 +76,13 @@ export default {
         });
         this.renderedContent = marked(text);
         this.$nextTick(() => {
-          const links = document.querySelectorAll("div.description article a");
+          const links = document.querySelectorAll('.posts-article a');
           for (const link of links) {
-            if (link.href.startsWith('https://')) {
-              link.target = '_blank';
-            }
+            if (link.href.startsWith('https://')) link.target = '_blank';
           }
         });
       } catch (error) {
-        console.error("Error loading post:", error);
-        this.loadError = "Nao foi possivel carregar este post.";
+        this.loadError = 'Não foi possível carregar este post.';
       } finally {
         this.isLoading = false;
       }
@@ -82,165 +91,147 @@ export default {
       this.page = name;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  },
+  }
 };
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap");
-
-.posts-container {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: var(--bg);
-  padding: 25px;
+.posts-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  margin-top: 36px;
 }
 
-.content_menu {
-  color: var(--text);
-  border-left: 4px solid var(--bg-soft);
-  font-size: 17px;
-  width: 100%;
+.posts-nav {
+  position: sticky;
+  top: 80px;
+  align-self: start;
 }
 
-.content_menu h4 {
-  margin: 0;
-  margin-top: 5px;
-  margin-left: 20px;
-  font-size: 24px;
+.posts-nav__title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  margin: 0 0 12px;
 }
 
-.content_menu ul {
-  padding: 5px;
-}
-
-.content_menu li.links_ref {
+.posts-nav__list {
   list-style: none;
-  border-left: 2px solid var(--accent);
-  margin: 10px;
-  padding: 5px;
-  padding-left: 15px;
-  line-height: 15px;
-
-}
-
-.content_menu li.links_ref a:hover {
-  color: var(--accent);
-}
-
-.content_menu li.links_ref a {
-  cursor: pointer;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.posts-container .description {
-  width: 100%;
-  margin-top: 30px;
-}
-
-.post-status {
-  color: var(--text);
-  padding: 25px;
-}
-
-.post-error {
-  border-left: 4px solid var(--accent);
-  background-color: var(--card);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in forwards;
-}
-
-
-div.description article {
-  padding: 25px;
-  color: var(--text);
-  font-family: "Arial";
-  width: 100%;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  background-color: var(--bg);
-  margin: -1px;
-  transition: opacity 2s ease-in-out;
+  gap: 4px;
 }
 
-
-div.description article img {
-  width: 100%;
-  min-height: 20px;
+.posts-nav__link {
+  display: block;
+  padding: 8px 12px;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--border);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
 }
 
-div.description article h2 {
-  border-left: 4px solid var(--accent);
-  padding-left: 10px;
-
+.posts-nav__link:hover {
+  color: var(--text-strong);
+  background: var(--surface-hover);
 }
 
-div.description article h3 {
-  background-color: var(--bg-soft);
-  padding: 8px;
-  border-radius: 3px;
-  border-left: 4px solid var(--accent);
-  padding-left: 10px;
-  font-weight: 400;
-  width: 99%;
-}
-
-div.description article a:hover {
-  text-decoration: underline;
-}
-
-div.description article a {
-  text-decoration: none;
+.posts-nav__link--active {
   color: var(--accent);
+  border-color: var(--accent);
 }
 
-div.description article blockquote {
-  border-left: 5px solid var(--accent);
-  padding-left: 20px;
-  background-color: var(--card);
-  width: 99%;
-  margin-left: 2px;
-  margin-right: 2px;
+.posts-status {
+  color: var(--text-muted);
+  padding: 24px;
+}
+
+.posts-error {
+  border-left: 3px solid var(--accent);
+  background: var(--surface-card);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.posts-article {
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  max-width: var(--container-narrow);
+}
+
+.posts-article h2 {
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+  margin-top: 32px;
+}
+
+.posts-article h3 {
+  background: var(--surface-card);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+  font-weight: var(--weight-medium);
+  margin-top: 24px;
+}
+
+.posts-article a { color: var(--accent); }
+.posts-article a:hover { text-decoration: underline; }
+
+.posts-article img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin: 16px 0;
+}
+
+.posts-article blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 12px 20px;
+  background: var(--surface-card);
+  border-radius: var(--radius-sm);
+  margin: 16px 0;
   max-height: 500px;
   overflow-y: auto;
-  border-radius: 3px;
-
 }
 
-div.description article li {
-  padding: 4px;
+.posts-article li { padding: 4px 0; }
+
+.posts-article code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background: var(--surface-raised);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
 }
 
-div.description article li {
-  list-style: none;
+.posts-article pre {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  overflow-x: auto;
 }
 
-@media (max-width: 1024px) {
-  .posts-container {
-    width: 85%;
-  }
+.posts-article pre code {
+  background: transparent;
+  padding: 0;
 }
 
 @media (max-width: 768px) {
-  .posts-container {
-    width: 90%;
-    padding: 15px;
+  .posts-layout {
+    grid-template-columns: 1fr;
+  }
+  .posts-nav {
+    position: static;
   }
 }
 </style>
