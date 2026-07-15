@@ -61,7 +61,7 @@
         <template #icon><Icon name="user" /></template>
       </SectionHeading>
       <div class="about">
-        <p>Minha trajetória na tecnologia começou em 2019, estudando Python para análise de dados — unindo o gosto por resolver problemas práticos à aplicação de ferramentas matemáticas.</p>
+        <p>Minha trajetória na tecnologia começou em 2019, estudando Python para análise de dados, unindo o gosto por resolver problemas práticos à aplicação de ferramentas matemáticas.</p>
         <p>No ano seguinte ampliei o foco para desenvolvimento web, explorando PHP, JavaScript e frameworks como Django e Laravel. Desde então atuo na manutenção e no desenvolvimento de websites e sistemas, com o universo Linux como base da carreira.</p>
       </div>
     </section>
