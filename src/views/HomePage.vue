@@ -5,7 +5,8 @@
       <div class="hero__copy">
         <span class="ds-eyebrow">// FULL STACK DEVELOPER · MARINGÁ, PR</span>
         <h1 class="hero__title">Oi, sou Lucas. <span class="accent">Desenvolvedor de software</span>.</h1>
-        <p class="hero__sub">Desenvolvedor full stack com foco em PHP, Laravel, Python e Vue. Do banco de dados à interface — com atenção a performance, manutenção e clareza.</p>
+        <p class="hero__sub">Desenvolvedor full stack com foco em PHP, Laravel, Python e Vue. Front-end, back-end e infraestrutura com performance, manutenção e
+        segurança.</p>
         <div class="hero__badge">
           <Badge status="available">Disponível para projetos</Badge>
         </div>
